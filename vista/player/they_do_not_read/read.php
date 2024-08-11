@@ -16,6 +16,33 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../css/player/read.css">
     <link rel="stylesheet" href="../../../css/efectos_siempre/scrollbar.css">
+    <style>
+          .modal-header {
+            border: 0;
+            background: 1rem;
+            background: #ff864c;
+            color: white;
+            text-align: center;
+            display: block !important;
+        }
+
+        .modal-footer {
+            justify-content: space-evenly;
+        }
+
+        .modal-footer>a>button {
+            border: 0;
+            background: 1rem;
+            color: #ff864c;
+            font-weight: bold;
+        }
+
+        .modal-footer>button:first-child {
+            border: 0;
+            background: 1rem;
+            color: #ff864c;
+        }
+    </style>
 </head>
 
 <body style="background-image: url(../../../img/player/fondo.png);">
@@ -347,7 +374,7 @@ session_start();
                 </div>
                 <div class="modal-body">
                     <div class="d-flex  justify-content-evenly">
-                        <div><i class="bi bi-stopwatch"></i>Agil: <span>00:00</span></div>
+                        <div><i class="bi bi-stopwatch"></i>Porcentaje: <span>00:00</span></div>
                         <div><i class="bi bi-star-fill"></i>Estrella(s): <span>0</span></div>
                     </div>
                 </div>
@@ -362,7 +389,7 @@ session_start();
         <div class=" modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header modal-header--not_acceso" style="    flex-direction: column;  ">
-                    <span style="    display: block; width: 1%;     margin-right: 3rem;" class="animation__icon-delete">⚠️</span>
+                    <span style="    display: block;" class="animation__icon-delete">⚠️</span>
                 </div>
                 <div class="modal-body">
                     <div class="d-flex  justify-content-evenly fs-5">
@@ -370,7 +397,7 @@ session_start();
                     </div>
                 </div>
                 <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">OK</button>
+                    <button type="button" style="color: rgb(47, 47, 47);" class="btn btn-warning" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
