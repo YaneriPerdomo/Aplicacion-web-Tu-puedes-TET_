@@ -13,11 +13,11 @@ session_start();
     <script src="https://pie-meister.github.io/PieMeister-with-Progress.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/x-icon" href="../../../../../img/icono/icono.ico">
-    <link rel="stylesheet" href="../../../../../css/player/they_do_read/leccion.css">
+    <link rel="icon" type="image/x-icon" href="../../../../img/icono/icono.ico">
+    <link rel="stylesheet" href="../../../../css/player/they_do_read/leccion.css">
     <style>
         main {
-            background-image: url(../../../../../img/player/fondo.png);
+            background-image: url(../../../../img/player/fondo.png);
         }
     </style>
 </head>
@@ -185,7 +185,7 @@ session_start();
                     <h3 class="fs-1 percentage">20%</h3>
                     <span>¡Has ganado <span class="totalStar"></span> Estrellas!</span><br>
                     <hr>
-                    <a href="../../read.php" class="text-decoration-none btnContinua mt-3"><strong>CONTINUAR <i
+                    <a href="../read.php" class="text-decoration-none btnContinua mt-3"><strong>CONTINUAR <i
                                 class="bi bi-caret-right"></i></strong></a>
                 </div>
             </div>
@@ -203,7 +203,7 @@ session_start();
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn " data-bs-dismiss="modal">No</button>
-                        <a href="../../read.php">
+                        <a href="../read.php">
                             <button type="button" class="btn ">Si</button>
                         </a>
                     </div>
@@ -214,7 +214,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../../../../../js/player/they_do_read/etapa_1_seccion_1/leccion_1.js" type="module"></script>
+    <script src="../../../../js/player/they_do_read/etapa_1_seccion_1/leccion_1.js" type="module"></script>
 
 </body>
 

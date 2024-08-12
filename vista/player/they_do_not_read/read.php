@@ -380,7 +380,7 @@ session_start();
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <a href="./etapa_1_seccion_1/leccion_1/inicio.php"><button type="button" class="btn btn-primary">Si</button></a>
+                    <a href="./etapa_1_seccion_1/leccion_1.php"><button type="button" class="btn btn-primary">Si</button></a>
                 </div>
             </div>
         </div>
