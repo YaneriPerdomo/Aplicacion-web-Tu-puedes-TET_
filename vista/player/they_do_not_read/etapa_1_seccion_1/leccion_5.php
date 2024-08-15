@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tu puedes | Lección 3</title>
+    <title>Tu puedes | Lección 5</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="https://pie-meister.github.io/PieMeister-with-Progress.min.js"></script>
@@ -53,78 +53,78 @@ session_start();
         <div class="letterContainer">
             <div class="container-xxl">
                 <div class="tableContainer" data-next="1">
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>fla</span>
-                    <span>gal</span>
-                    <span>vil</span>
-                    <span>vil</span>
-                    <span>flu</span>
-                    <span>fa</span>
-                    <span>fio</span>
-                    <span>fia</span>
-                    <span>fol</span>
-                    <span>fla</span>
-                    <span>fal</span>
-                    <span>gal</span>
-                    <span>gia</span>
-                    <span>ola</span>
-                    <span>fin</span>
-                    <span>fil</span>
-                    <span>pal</span>
-                    <span>fin</span>
-                    <span>fin</span>
-                    <span>gro</span>
-                    <span>gap</span>
-                    <span>pan</span>
-                    <span>vil</span>
-                    <span>fio</span>
-                    <span>gap</span>
-                    <span>fil</span>
-                    <span>fro</span>
-                    <span>no</span>
-                    <span>hi</span>
-                    <span>fil</span>
-                    <span>fu</span>
-                    <span>fla</span>
-                    <span>flu</span>
-                    <span>pal</span>
-                    <span>gal</span>
-                    <span>fin</span>
-                    <span>dil</span>
-                    <span>col</span>
-                    <span>wor</span>
-                    <span>row</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>fla</span>
-                    <span>fal</span>
-                    <span>dap</span>
-                    <span>gla</span>
-                    <span>flu</span>
-                    <span>fla</span>
-                    <span>flu</span>
-                    <span>fli</span>
-                    <span>flu</span>
-                    <span>gal</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>fli</span>
-                    <span>fal</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>fla</span>
-                    <span>fla</span>
-                    <span>fal</span>
-                    <span>gal</span>
-                    <span>gal</span>
-                    <span>flu</span>
-                    <span>gal</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>flu</span>
+                    <button>q</button>
+                    <button>p</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>fin</button>
+                    <button>gro</button>
+                    <button>gap</button>
+                    <button>q</button>
+                    <button>vil</button>
+                    <button>fio</button>
+                    <button>gap</button>
+                    <button>q</button>
+                    <button>fro</button>
+                    <button>no</button>
+                    <button>hi</button>
+                    <button>fil</button>
+                    <button>fu</button>
+                    <button>fla</button>
+                    <button>flu</button>
+                    <button>pal</button>
+                    <button>q</button>
+                    <button>fin</button>
+                    <button>dil</button>
+                    <button>col</button>
+                    <button>wor</button>
+                    <button>q</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>fla</button>
+                    <button>q</button>
+                    <button>dap</button>
+                    <button>gla</button>
+                    <button>flu</button>
+                    <button>q</button>
+                    <button>flu</button>
+                    <button>fli</button>
+                    <button>flu</button>
+                    <button>gal</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>q</button>
+                    <button>fal</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>fla</button>
+                    <button>fla</button>
+                    <button>q</button>
+                    <button>gal</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>gal</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>flu</button>
                 </div>
             </div>
         </div>
@@ -238,12 +238,13 @@ let correctCounterDar = 0;
 let correctCounterQue = 0;
 let correctCounterFiz = 0;
 let randomNumber = 0;
-let $spanLetter = document.querySelectorAll(".tableContainer > span");
+let $spanLetter = document.querySelectorAll(".tableContainer > button");
 let $countDownBody = document.querySelector(".countDownBody");
 let $repeatDictation = document.querySelector(".repeatDictation");
 
 //Evento de localStorage
-document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener("DOMContentLoaded",async(e) => {
+    await defineLetter("q", "b", "p", 2)
     if (localStorage.getItem("letter") === null) {
         localStorage.setItem("letter", null);
     }
@@ -252,8 +253,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
 });
 
-async function countDownFia() {
-    await localStorage.setItem("letter", `fia`);
+async function countDownP() {
+    await localStorage.setItem("letter", `p`);
     const CountdownNext = document.querySelector(".countDownNext");
     let countForNext = 40;
     let countdown = setInterval(() => {
@@ -261,20 +262,20 @@ async function countDownFia() {
         CountdownNext.textContent = countForNext;
         if (countForNext === 0) {
             clearInterval(countdown);
-            countDownDar()
+            countDownV()
         }
     }, 1000);
 }
-countDownFia();
+countDownP();
 
-async function countDownDar() {
+async function countDownV() {
     $progressBar.innerHTML = "30%";
     $progressBar.style.width = "30%";
     $progressBar.style.background = "#ff7d3f";
-    await localStorage.setItem("letter", `dar`);
+    await localStorage.setItem("letter", `v`);
     _1_3();
-    voiceExercise("dar");
-    defineLetter("dal", "dap", "dar",  Math.floor(Math.random() * 72))
+    voiceExercise("v");
+    defineLetter("ʌ", "u", "v",  Math.floor(Math.random() * 72));
     const CountdownNext = document.querySelector(".countDownNext");
     let countForNext = 50;
     let countdown = setInterval(() => {
@@ -282,19 +283,19 @@ async function countDownDar() {
         CountdownNext.textContent = countForNext;
         if (countForNext === 0) {
             clearInterval(countdown);
-            CountDownQue()
+            CountDownW()
         }
     }, 1000);
 }
 
-async function countDownFiz() {
+async function countDownJ() {
     $progressBar.innerHTML = "70%";
     $progressBar.style.width = "70%";
     $progressBar.style.background = "#ff7d3f";
-    await localStorage.setItem("letter", `fiz`);
+    await localStorage.setItem("letter", `j`);
     _1_3();
-    voiceExercise("fiz");
-    defineLetter("fis", "fi", "fiz",  Math.floor(Math.random() * 72))
+    voiceExercise("j");
+    defineLetter("t", "ɾ̣", "j",  Math.floor(Math.random() * 72))
     const CountdownNext = document.querySelector(".countDownNext");
     let countForNext = 60;
     let countdown = setInterval(() => {
@@ -388,14 +389,14 @@ function End_Game() {
         $correctFailedFiz.innerHTML = `Has acertado ${correctCounterFiz} veces y has fallado ${countfiz} veces.`;
     }
 }
-async function CountDownQue() {
-    await localStorage.setItem("letter", `que`);
+async function CountDownW() {
+    await localStorage.setItem("letter", `w`);
     $progressBar.innerHTML = "50%";
     $progressBar.style.width = "50%";
     $progressBar.style.background = "#ff7d3f";
     _1_3();
-    voiceExercise("que");
-    defineLetter("je", "ke", "que",  Math.floor(Math.random() * 72))
+    voiceExercise("w");
+    defineLetter("ʍ", "m", "w", Math.floor(Math.random() * 72))
     const CountdownNext = document.querySelector(".countDownNext");
     let countForNext = 50;
     let countdown = setInterval(() => {
@@ -403,7 +404,7 @@ async function CountDownQue() {
         CountdownNext.textContent = countForNext;
         if (countForNext === 0) {
             clearInterval(countdown);
-            countDownFiz()
+            countDownJ()
          }
     }, 1000);
 }
@@ -421,27 +422,41 @@ document.addEventListener("click", (e) => {
         $last.removeAttribute("style");
     }
 
-    if (e.target.matches(".tableContainer > span")) {
+    if (e.target.matches(".tableContainer > button")) {
     
-        if (e.target.textContent == "fia") {
+        if (e.target.textContent == "p") {
             correctCounterFia++;
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
+            $spanLetter.forEach(letter => {
+                letter.disabled = true;                
+                setTimeout(() => {
+                    letter.removeAttribute("disabled")
+                }, 2000);
+            })
             $wrongSound.pause();
             $correctSound.play();
             setTimeout(() => {
                 e.target.classList.remove("hoverVerde");
-                nextFia();
+                nextP();
+               
                 $correctSound.pause();
             }, 2000);
         } else {
+        
             $spanLetter.forEach((letter) => {
+                letter.disabled = true;
                 if (letter.textContent === localStorage.getItem("letter")) {
                     letter.classList.add("hoverVerde");
+                    letter.disabled = true;
                     setTimeout(() => {
                         letter.classList.remove("hoverVerde");
+                        letter.removeAttribute("disabled")
                     }, 2000);
                 }
+                    setTimeout(() => {
+                        letter.removeAttribute("disabled")
+                    }, 2000);
             });
             e.target.classList.add("hoverRed");
             $dataWrong.setAttribute("data-wrong", "true");
@@ -474,32 +489,47 @@ document.addEventListener("click", (e) => {
             }
         }
 
-        if(e.target.textContent == "dar"){
+        if(e.target.textContent == "v"){
             correctCounterDar++;
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
+            
             $wrongSound.pause();
+
             $correctSound.play();
-            setTimeout(() => {
+            $spanLetter.forEach(letter => {
+                letter.disabled = true;                
+                setTimeout(() => {
+                    letter.removeAttribute("disabled")
+                }, 2000);
+            })
+             setTimeout(() => {
                 e.target.classList.remove("hoverVerde");
-                nextDar();
+                 nextV();
+
                 $correctSound.pause();
             }, 2000);
         }
-        if(e.target.textContent == "que"){
+        if(e.target.textContent == "w"){
             correctCounterQue++;
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
-            $wrongSound.pause();
+            $spanLetter.forEach(letter => {
+                letter.disabled = true;                
+                setTimeout(() => {
+                    letter.removeAttribute("disabled")
+                }, 2000);
+            })
+             $wrongSound.pause();
             $correctSound.play();
             setTimeout(() => {
                 e.target.classList.remove("hoverVerde");
-                nextQue();
+                 nextW();
                 $correctSound.pause();
             }, 2000);
         }
     }
-    if(e.target.textContent == "fiz"){
+    if(e.target.textContent == "j"){
             correctCounterFiz++;
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -507,7 +537,7 @@ document.addEventListener("click", (e) => {
             $correctSound.play();
             setTimeout(() => {
                 e.target.classList.remove("hoverVerde");
-                nextFiz();
+                nextJ();
                 $correctSound.pause();
             }, 2000);
         }
@@ -518,29 +548,30 @@ document.addEventListener("click", (e) => {
 //Funcion principal para cambiarla.
 function Define_Next_Letter() {
     switch (localStorage.getItem("letter")) {
-        case "fia":
-            nextFia();
+        case "p":
+            nextP();
             break;
-        case "dar":
-            nextDar()
+        case "v":
+            nextV()
              break;
-        case "que":
-            nextQue()
+        case "w":
+            nextW()
              break;
-        case "fiz":
-            nextFiz();
+        case "j":
+            nextJ();
              break;
         default:
             break;
     }
 }
 
-function nextDar() {
+
+function nextP() {
     switch ($tableLetter.getAttribute("data-next")) {
         case "0":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -549,7 +580,7 @@ function nextDar() {
         case "1":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -558,7 +589,7 @@ function nextDar() {
         case "2":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -567,7 +598,7 @@ function nextDar() {
         case "3":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -576,7 +607,7 @@ function nextDar() {
         case "4":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -585,7 +616,7 @@ function nextDar() {
         case "5":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -594,7 +625,7 @@ function nextDar() {
         case "6":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -603,7 +634,7 @@ function nextDar() {
         case "7":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -611,7 +642,7 @@ function nextDar() {
             break;
         case "8":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -620,7 +651,7 @@ function nextDar() {
             break;
         case "9":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -629,7 +660,7 @@ function nextDar() {
             break;
         case "10":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -638,7 +669,7 @@ function nextDar() {
             break;
         case "11":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -647,7 +678,7 @@ function nextDar() {
             break;
         case "12":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -656,7 +687,7 @@ function nextDar() {
             break;
         case "13":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -665,7 +696,7 @@ function nextDar() {
             break;
         case "14":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("dal", "dap", "dar", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -674,159 +705,7 @@ function nextDar() {
             break;
         case "15":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("dal", "dap", "dar", randomNumber)
-            localStorage.setItem("spanNumber", randomNumber);
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        default:
-            alert("you are crazy");
-            break;
-    }
-}
-
-function nextFia() {
-    switch ($tableLetter.getAttribute("data-next")) {
-        case "0":
-            randomNumber = Math.floor(Math.random() * 72);
-            localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "1":
-            randomNumber = Math.floor(Math.random() * 72);
-            localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "2":
-            randomNumber = Math.floor(Math.random() * 72);
-            localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "3":
-            randomNumber = Math.floor(Math.random() * 72);
-            localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "4":
-            randomNumber = Math.floor(Math.random() * 72);
-            localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "5":
-            randomNumber = Math.floor(Math.random() * 72);
-            localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "6":
-            randomNumber = Math.floor(Math.random() * 72);
-            localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "7":
-            randomNumber = Math.floor(Math.random() * 72);
-            localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "8":
-            randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            localStorage.setItem("spanNumber", randomNumber);
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "9":
-            randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            localStorage.setItem("spanNumber", randomNumber);
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "10":
-            randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            localStorage.setItem("spanNumber", randomNumber);
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "11":
-            randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            localStorage.setItem("spanNumber", randomNumber);
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "12":
-            randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            localStorage.setItem("spanNumber", randomNumber);
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "13":
-            randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            localStorage.setItem("spanNumber", randomNumber);
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "14":
-            randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("flu", "fio", "fia", randomNumber)
-            localStorage.setItem("spanNumber", randomNumber);
-            $tableLetter.setAttribute(
-                "data-next",
-                `${Math.floor(Math.random() * 15)}`
-            );
-            break;
-        case "15":
-            randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("flu", "fio", "fia", randomNumber)
+            defineLetter("q", "b", "p", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -839,13 +718,12 @@ function nextFia() {
     }
 }
 
-
-function nextQue() {
+function nextV() {
     switch ($tableLetter.getAttribute("data-next")) {
         case "0":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -854,7 +732,7 @@ function nextQue() {
         case "1":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -863,7 +741,7 @@ function nextQue() {
         case "2":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -872,7 +750,7 @@ function nextQue() {
         case "3":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -881,7 +759,7 @@ function nextQue() {
         case "4":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -890,7 +768,7 @@ function nextQue() {
         case "5":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -899,7 +777,7 @@ function nextQue() {
         case "6":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -908,7 +786,7 @@ function nextQue() {
         case "7":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -916,7 +794,7 @@ function nextQue() {
             break;
         case "8":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -925,7 +803,7 @@ function nextQue() {
             break;
         case "9":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -934,7 +812,7 @@ function nextQue() {
             break;
         case "10":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -943,7 +821,7 @@ function nextQue() {
             break;
         case "11":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -952,7 +830,7 @@ function nextQue() {
             break;
         case "12":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("flu", "fio", "fia", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -961,7 +839,7 @@ function nextQue() {
             break;
         case "13":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -970,7 +848,7 @@ function nextQue() {
             break;
         case "14":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -979,7 +857,7 @@ function nextQue() {
             break;
         case "15":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("je", "ke", "que",  randomNumber)
+            defineLetter("ʌ", "u", "v", randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -993,12 +871,12 @@ function nextQue() {
 }
 
 
-function nextFiz() {
+function nextW() {
     switch ($tableLetter.getAttribute("data-next")) {
         case "0":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -1007,7 +885,7 @@ function nextFiz() {
         case "1":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -1016,7 +894,7 @@ function nextFiz() {
         case "2":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -1025,7 +903,7 @@ function nextFiz() {
         case "3":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -1034,7 +912,7 @@ function nextFiz() {
         case "4":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -1043,7 +921,7 @@ function nextFiz() {
         case "5":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -1052,7 +930,7 @@ function nextFiz() {
         case "6":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -1061,7 +939,7 @@ function nextFiz() {
         case "7":
             randomNumber = Math.floor(Math.random() * 72);
             localStorage.setItem("spanNumber", randomNumber);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             $tableLetter.setAttribute(
                 "data-next",
                 `${Math.floor(Math.random() * 15)}`
@@ -1069,7 +947,7 @@ function nextFiz() {
             break;
         case "8":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -1078,7 +956,7 @@ function nextFiz() {
             break;
         case "9":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -1087,7 +965,7 @@ function nextFiz() {
             break;
         case "10":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -1096,7 +974,7 @@ function nextFiz() {
             break;
         case "11":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -1105,7 +983,7 @@ function nextFiz() {
             break;
         case "12":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -1114,7 +992,7 @@ function nextFiz() {
             break;
         case "13":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -1123,7 +1001,7 @@ function nextFiz() {
             break;
         case "14":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -1132,7 +1010,160 @@ function nextFiz() {
             break;
         case "15":
             randomNumber = Math.floor(Math.random() * 72);
-            defineLetter("fis", "fi", "fiz",randomNumber)
+            defineLetter("ʍ", "m", "w",  randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        default:
+            alert("you are crazy");
+            break;
+    }
+}
+
+
+function nextJ() {
+    switch ($tableLetter.getAttribute("data-next")) {
+        case "0":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "1":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "2":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "3":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "4":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "5":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "6":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "7":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "8":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "9":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "10":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "11":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "12":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "13":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "14":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "15":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j",randomNumber)
             localStorage.setItem("spanNumber", randomNumber);
             $tableLetter.setAttribute(
                 "data-next",
@@ -1147,17 +1178,17 @@ function nextFiz() {
 
 $repeatDictation.addEventListener("click", (e) => {
     switch (localStorage.getItem("letter")) {
-        case "fia":
-            voiceExercise("fia");
+        case "p":
+            voiceExercise("p");
             break;
-        case "dar":
-            voiceExercise("dar");
+        case "v":
+            voiceExercise("v");
             break;
-        case "que":
-            voiceExercise("que");
+        case "w":
+            voiceExercise("w");
             break;
-        case "fiz":
-            voiceExercise("fiz");
+        case "j":
+            voiceExercise("j");
             break;
         default:
             break;
@@ -1165,7 +1196,7 @@ $repeatDictation.addEventListener("click", (e) => {
 });
 //Estas dos funciones sirven para automatizar la tarea completa de rellenar/establecer/escuchar la letra de la etiqueta. Como su nombre lo define.
 function defineLetter(similarLetterOne, similarLetterTwo, winningLetter, number) {
-    let $span = document.querySelectorAll(".tableContainer > span");
+    let $span = document.querySelectorAll(".tableContainer > button");
     let contador = 0;
     let numeroR = [];
     for (let i = 0; i < $span.length; i++) {
@@ -1201,7 +1232,7 @@ setTimeout(() => {
     $main.removeChild($main.children[7]);
     setTimeout(async () => {
         $countDownBody.removeAttribute("style");
-        voiceExercise("fia");
+        voiceExercise("p");
         _1_3();
         setTimeout(() => {
             let $messengerInformation = document.querySelector(

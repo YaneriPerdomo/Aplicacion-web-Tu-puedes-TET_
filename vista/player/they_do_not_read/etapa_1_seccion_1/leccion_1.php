@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tu puedes | Leccion 1</title>
+    <title>Tu puedes | Lección 1</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="https://pie-meister.github.io/PieMeister-with-Progress.min.js"></script>
@@ -136,7 +136,7 @@ session_start();
         <div class="messengerUserContainer">
             <div class="messengerInformation animate__backInDown" style="display:none">
                 <i class="bi bi-volume-up me-1 repeatDictation" style="display: none;"></i>
-                <p> Encuentras el elemento que has escuchado.</p>
+                <p> Encuentra el elemento que has escuchado.</p>
             </div>
         </div>
         <audio src="../../../../../audio/welcome_jugador/SoundEffects Button.mp3" autoplay class="letterSound"></audio>
