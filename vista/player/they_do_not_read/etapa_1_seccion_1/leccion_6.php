@@ -95,7 +95,7 @@ session_start();
             <div class="stripeTwo"></div>
             <div class="stripeThree"></div>
         </div>
-        <div class="messengerUserContainer" style="display:none">
+        <div class="messengerUserContainer" >
             <div class="messengerInformation animate__backInDown" style="display:none">
                 <i class="bi bi-volume-up me-1 repeatDictation" style="display: none;"></i>
                 <p> Encuentra el error oculto.</p>

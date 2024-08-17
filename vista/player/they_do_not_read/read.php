@@ -17,7 +17,7 @@ session_start();
     <link rel="stylesheet" href="../../../css/player/read.css">
     <link rel="stylesheet" href="../../../css/efectos_siempre/scrollbar.css">
     <style>
-          .modal-header {
+        .modal-header {
             border: 0;
             background: 1rem;
             background: #ff864c;

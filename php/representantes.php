@@ -3,8 +3,8 @@
 include_once("conexionBD.php");
 
 
-if(isset($_POST['call'])){
-    switch($_POST['call']){
+if (isset($_POST['call'])) {
+    switch ($_POST['call']) {
         case 1:
             agregar();
             break;
@@ -17,7 +17,8 @@ if(isset($_POST['call'])){
     }
 }
 
-function listar() {
+function listar()
+{
     $idRepresentante = $_SESSION['id'];
     $db = abrirConexion();
     $query = "SELECT usuarios.*, generos.genero, ninos.fecha_nacimiento FROM usuarios 
@@ -32,19 +33,18 @@ function listar() {
 
     $data = $llamado->fetchAll(PDO::FETCH_ASSOC);
 
-    if($data != NULL){
-        foreach($data as $key => $value){
-            if($value['estado'] == 0){
+    if ($data != NULL) {
+        foreach ($data as $key => $value) {
+            if ($value['estado'] == 0) {
                 $estado = "Inactivo";
-            }
-            else{
+            } else {
                 $estado = "Activo";
             }
             $fechaNacimiento = new DateTime($value['fecha_nacimiento']);
             $fechaActual = new DateTime("today");
             $edad = $fechaNacimiento->diff($fechaActual)->y;
             $fechaCaducidad = date('Y-m-d', strtotime('+1 year', strtotime($value['fecha_creacion'])));
-            
+
             $tabla = "
             <tr>
                 <th scope='row" . $value['id_usuario'] . "'>" . $value['id_usuario'] . "</th>
@@ -72,7 +72,7 @@ function listar() {
                             <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cerrar</button>
                             <form action='../../../php/representantes.php' method='POST'>
                                 <input type='hidden' name='call' value='3' />
-                                <input type='hidden' name='id' value='" . $value['id_usuario'] ."' />
+                                <input type='hidden' name='id' value='" . $value['id_usuario'] . "' />
                                 <button type='submit' class='btn btn-danger'>Seguro</button>
                             </form>
                           </div>
@@ -83,24 +83,23 @@ function listar() {
             </tr>
             ";
 
-            echo($tabla);
+            echo ($tabla);
         }
-    }
-    else{
+    } else {
         $tabla = "<tr>No se encuentra ningun usuario</tr>";
 
-        echo($tabla);
+        echo ($tabla);
     }
 }
-function agregar() {
+function agregar()
+{
     $db = abrirConexion();
     session_start();
     $idRepresentante = $_SESSION['id'];
-    
-    if(isset($_POST['nino'])){
+
+    if (isset($_POST['nino'])) {
         $genero = 1;
-    }
-    elseif(isset($_POST['nina'])){
+    } elseif (isset($_POST['nina'])) {
         $genero = 2;
     }
 
@@ -112,13 +111,12 @@ function agregar() {
     $contrasena = $_POST['contrasena'];
     $rol = 3;
 
-    if(isset($_POST['permisos'])){
+    if (isset($_POST['permisos'])) {
         $query = "INSERT INTO usuarios(id_rol, usuario, clave, estado, permisos, fecha_creacion, fecha_validez) VALUES (:idRol, :usuario, :contrasena, b'1', b'1', :fechaCreacion, :fechaValidez);";
-    }
-    else{
+    } else {
         $query = "INSERT INTO usuarios(id_rol, usuario, clave, estado, permisos, fecha_creacion, fecha_validez) VALUES (:idRol, :usuario, :contrasena, b'1', b'0', :fechaCreacion, :fechaValidez);";
     }
-    
+
     $llamado = $db->prepare($query);
     $llamado->bindParam(':idRol', $rol);
     $llamado->bindParam(':usuario', $usuario);
@@ -133,11 +131,10 @@ function agregar() {
     $data = $llamado->fetch(PDO::FETCH_ASSOC);
 
     $idUSuario = $data['IDs'];
-    
-    if(isset($_POST['lectura'])){
+
+    if (isset($_POST['lectura'])) {
         $query = "INSERT INTO ninos(id_genero, id_usuario, id_pais, id_representante, fecha_nacimiento, sabe_leer) VALUES (:idGenero, :idUsuario, :idPais, :idRepresentante, :fechaNacimiento, b'1');";
-    }
-    else{
+    } else {
         $query = "INSERT INTO ninos(id_genero, id_usuario, id_pais, id_representante, fecha_nacimiento, sabe_leer) VALUES (:idGenero, :idUsuario, :idPais, :idRepresentante, :fechaNacimiento, b'0');";
     }
 
@@ -151,15 +148,15 @@ function agregar() {
 
     header("location:../vista/admin/representative_role/dashboard.php");
 }
-function modificar() {
+function modificar()
+{
     $db = abrirConexion();
     session_start();
     $idRepresentante = $_SESSION['id'];
 
-    if(isset($_POST['nino'])){
+    if (isset($_POST['nino'])) {
         $genero = 1;
-    }
-    elseif(isset($_POST['nina'])){
+    } elseif (isset($_POST['nina'])) {
         $genero = 2;
     }
 
@@ -170,10 +167,9 @@ function modificar() {
     $fechaValidez = $_POST['fechaValidez'];
     $contrasena = $_POST['contrasena'];
 
-    if(isset($_POST['permisos'])){
+    if (isset($_POST['permisos'])) {
         $query = "UPDATE usuarios SET usuario = :usuario, clave = :contrasena, permisos = b'1', fecha_validez = :fechaValidez WHERE id_usuario = :idUsuario";
-    }
-    else{
+    } else {
         $query = "UPDATE usuarios SET usuario = :usuario, clave = :contrasena, permisos = b'0', fecha_validez = :fechaValidez WHERE id_usuario = :idUsuario";
     }
 
@@ -184,13 +180,12 @@ function modificar() {
     $llamado->bindParam(':idUsuario', $idUsuario);
     $llamado->execute();
 
-    if(isset($_POST['lectura'])){
+    if (isset($_POST['lectura'])) {
         $query = "UPDATE ninos SET id_genero = :idGenero, id_pais = :idPais, fecha_nacimiento = :fechaNacimiento, sabe_leer = b'1' WHERE id_usuario = :idUsuario AND id_representante = :idRepresentante;";
-    }
-    else{
+    } else {
         $query = "UPDATE ninos SET id_genero = :idGenero, id_pais = :idPais, fecha_nacimiento = :fechaNacimiento, sabe_leer = b'0' WHERE id_usuario = :idUsuario AND id_representante = :idRepresentante;";
     }
-    
+
     $llamado = $db->prepare($query);
     $llamado->bindParam(':idGenero', $genero);
     $llamado->bindParam(':idPais', $pais);
@@ -200,7 +195,8 @@ function modificar() {
 
     header("location:../vista/admin/representative_role/dashboard.php");
 }
-function eliminar() {
+function eliminar()
+{
     $db = abrirConexion();
 
     $id = $_POST['id'];

@@ -1,8 +1,8 @@
 <?php
 include_once("conexionBD.php");
 
-if(isset($_POST['call'])){
-    switch($_POST['call']){
+if (isset($_POST['call'])) {
+    switch ($_POST['call']) {
         case 1:
             modificar();
             break;
@@ -14,7 +14,8 @@ if(isset($_POST['call'])){
             break;
     }
 }
-function modificar() {
+function modificar()
+{
     session_start();
     $idProfesional = $_SESSION['id'];
     $idUsuario = $_SESSION['idUsuario'];
@@ -37,7 +38,7 @@ function modificar() {
     $llamado->execute();
 
     $query = "UPDATE profesionales SET id_pais = :idPais, nombre = :nombre, apellido = :apellido, correo_electronico = :correo, centro_educativo_profesional = :centro WHERE id_profesional = :idProfesional;";
-    
+
     $llamado = $db->prepare($query);
     $llamado->bindParam(':idPais', $pais);
     $llamado->bindParam(':nombre', $nombre);
@@ -49,7 +50,8 @@ function modificar() {
 
     header("location:../vista/admin/professional_role/dashboard.php");
 }
-function eliminar() {
+function eliminar()
+{
     session_start();
     $idProfesional = $_SESSION['id'];
     $idUsuario = $_SESSION['idUsuario'];
@@ -73,18 +75,19 @@ function eliminar() {
     header("location:../vista/signin/log_in.php");
 }
 
-function cambiarContrasena() {
+function cambiarContrasena()
+{
     session_start();
     $idProfesional = $_SESSION['id'];
     $idUsuario = $_SESSION['idUsuario'];
     $db = abrirConexion();
 
-    ECHO ($idProfesional . "hi");
-    ECHO ($idUsuario);
+    echo ($idProfesional . "hi");
+    echo ($idUsuario);
 
-    if(isset($_POST['contrasena'])){
+    if (isset($_POST['contrasena'])) {
         $contrasena = $_POST['contrasena'];
-        
+
         $query = "UPDATE usuarios SET clave = :contrasena WHERE id_usuario = :idUsuario";
         $llamado = $db->prepare($query);
         $llamado->bindParam(':contrasena', $contrasena);

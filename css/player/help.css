@@ -1,33 +1,33 @@
-:root{
+:root {
     --color-gris: #606060;
     --color-negro: #4b4b4b;
-    --color-azul:#1CB0F6;
-} 
+    --color-azul: #1CB0F6;
+}
 
-main{
+main {
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.fondo-letras{
+.fondo-letras {
     background-image: url(../../../img/letras-efecto-blanco-negro.png);
     position: absolute;
     height: 100vh;
     width: 100vw;
     opacity: 0.7;
-} 
+}
 
-.logo figure img{
+.logo figure img {
     max-width: 100px;
 }
 
-header{
-    height:  78.8px  ;
+header {
+    height: 78.8px;
     background: #ff7d3f;
     width: 100%;
-   
+
 }
 
 .d-flex_rapido {
@@ -36,39 +36,41 @@ header{
     align-items: center;
     gap: 1rem;
 }
+
 @media screen and (max-width: 1128px) {
-    .col-1{
-        display: none !important; 
+    .col-1 {
+        display: none !important;
     }
-    
+
 }
 
 @media screen and (max-width: 768px) {
     .col-xl-3 {
-        display : none;
+        display: none;
     }
 }
 
-footer{
-background-color: rgb(47, 47, 47);
+footer {
+    background-color: rgb(47, 47, 47);
 }
+
 .py-5 {
-padding-top:1rem !important;
-padding-bottom: 1rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
 }
 
 footer .d-flex {
-margin: 0 auto;
-width: 100%;
-justify-content: center;
-text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
 }
- 
+
 @media screen and (max-width: 576px) {
     .container-xxl {
-    background: none !important;
-    border: 0 !important;
-    box-shadow: none !important;
+        background: none !important;
+        border: 0 !important;
+        box-shadow: none !important;
     }
 }
 

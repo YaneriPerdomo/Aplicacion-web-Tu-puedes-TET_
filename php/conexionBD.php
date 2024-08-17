@@ -1,11 +1,12 @@
 <?php
 
-function abrirConexion() {
+function abrirConexion()
+{
     // Definir las credenciales de la base de datos
     $host = "localhost"; // Servidor de la base de datos
     $dbname = "tu_puedes"; // Nombre de la base de datos
     $username = "root"; // Nombre de usuario de la base de datos
-    $password = "";// Contraseña de la base de datos (Dejar variable vacia si el usuario no requiere contrasena)
+    $password = ""; // Contraseña de la base de datos (Dejar variable vacia si el usuario no requiere contrasena)
 
     // Intentar la conexión a la base de datos
     try {
