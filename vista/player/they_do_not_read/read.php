@@ -128,7 +128,7 @@ session_start();
                             </div>
                             <div class="container__styles_leccion">
                                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#no_acceso">
-                                    <div class="styles_cuaderno" style="background-image: linear-gradient(45deg, rgb(121, 198, 12) 30%, rgb(107 175 11) 30% 50%, rgb(121, 198, 12) 50% 60%, rgb(107 175 11) 60% 65%, rgb(121, 198, 12) 55% 100%);filter: drop-shadow(2px 4px 0px rgb(97 155 15));">
+                                    <div class="styles_cuaderno" style="background-image: linear-gradient(45deg, #ff4c92 30%, #e23b7c 30% 50%, #ff4c92 50% 60%, #e23b7c 60% 65%, #ff4c92 55% 100%); filter: drop-shadow(2px 4px 0px #c8366f);">
                                         <div class="black" style="position: absolute;width: 100%;height: 100%;background: rgb(47, 47, 47); width: 20px; height: 15px; top: 0.5rem; left: -0.5rem; border-radius: 0.5rem;"></div>
                                         <div class="black_dos"></div>
                                         <div class="black" style="  position: absolute;width: 100%;height: 100%;background: rgb(47, 47, 47);width: 20px;height: 15px;top: 2.5rem;left: -0.5rem;border-radius: 0.5rem;"></div>

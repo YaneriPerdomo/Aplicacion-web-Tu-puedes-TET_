@@ -14,7 +14,7 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="../../../../img/icono/icono.ico">
-    <link rel="stylesheet" href="../../../../css/player/they_do_read/leccion.css">
+    <link rel="stylesheet" href="../../../../css/player/they_do_read/lecciones.css">
     <style>
         main {
             background-image: url(../../../../img/player/fondo.png);
@@ -53,78 +53,78 @@ session_start();
         <div class="letterContainer">
             <div class="container-xxl">
                 <div class="tableContainer" data-next="1">
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>b</span>
-                    <span>d</span>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>d</button>
                 </div>
             </div>
         </div>
@@ -139,9 +139,9 @@ session_start();
                 <p> Encuentra el elemento que has escuchado.</p>
             </div>
         </div>
-        <audio src="../../../../../audio/welcome_jugador/SoundEffects Button.mp3" autoplay class="letterSound"></audio>
-        <audio src="../../../../../audio/welcome_jugador/wrong.mp3" class="wrongSound" data-wrong="false"></audio>
-        <audio src="../../../../../audio/welcome_jugador/correct.mp3" class="correctSound"></audio>
+        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" autoplay class="letterSound"></audio>
+        <audio src="../../../../audio/welcome_jugador/wrong.mp3" class="wrongSound" data-wrong="false"></audio>
+        <audio src="../../../../audio/welcome_jugador/correct.mp3" class="correctSound"></audio>
         <div class="logoPresentation">
             <div>
                 <div class="spinner-border" role="status">

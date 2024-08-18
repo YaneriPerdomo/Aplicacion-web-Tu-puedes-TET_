@@ -14,91 +14,11 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="../../../../img/icono/icono.ico">
-    <link rel="stylesheet" href="../../../../css/player/they_do_read/leccion.css">
+    <link rel="stylesheet" href="../../../../css/player/they_do_read/lecciones.css">
+    <link rel="stylesheet" href="../../../../css/player/they_do_read/alteraciones_leccion_7.css">
     <style>
         main {
             background-image: url(../../../../img/player/fondo.png);
-        }
-
-
-
-        .AnimationMessengerInformation {
-            animation: AnimationMessenger 2s;
-        }
-
-
-        @keyframes AnimationMessenger {
-            0% {
-                transform: translateY(-2rem);
-            }
-
-            100% {
-                transform: translateY(0rem);
-            }
-        }
-
-        .tableContainer>button {
-            background: 0rem;
-            height: 51px;
-            background-color: #d9713f;
-            cursor: auto;
-            background-color: #ff864c;
-        }
-
-        .lettersDrag {
-            font-size: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            text-align: center;
-            justify-content: center;
-        }
-
-        .lettersDrag>button {
-            cursor: pointer;
-            border: 0rem;
-            border-bottom: #d9713f solid 3px;
-            background: #d9713f;
-            color: white;
-            font-weight: 500;
-            width: 4rem;
-            font-size: 2rem;
-            /* padding: 0.5rem; */
-            text-align: center;
-            border-radius: 0.5rem;
-        }
-
-        .lettersDrag>button:hover {
-            transition: all linear 0.4s;
-            background: #ffa94f;
-            transform: translateY(-4px);
-            transition: all 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-            box-shadow: -0rem 0.3rem #7e4f1e;
-            filter: brightness(110%);
-        }
-
-        .lettersDrag>button:active {
-            animation-duration: 60s;
-            animation-name: animationDrag;
-            animation-delay: 600ms;
-            transition: all 1s easy;
-
-        }
-
-        @keyframes animationDrag {
-            1% {
-                background: none;
-            }
-
-            100% {
-                background: none;
-            }
-        }
-
-        .buttonVisibility {
-            background: none !important;
-            height: 51px !important;
-            cursor: auto !important;
         }
     </style>
 </head>
@@ -133,7 +53,7 @@ session_start();
         </div>
         <div class="letterContainer">
             <div class="container-xxl">
-                <div class="tableContainer" data-next="1" data-correct-word="">
+                <div class="tableContainer" data-next="3" data-correct-word="">
                     <button draggable="false"></button>
                     <button draggable="false"></button>
                     <button draggable="false"></button>
@@ -144,11 +64,12 @@ session_start();
                 <br>
                 <div class="lettersDrag">
                     <button draggable="true" style="color:green"></button>
-                    <button draggable="true"></button>
-                    <button draggable="true"></button>
-                    <button draggable="true"></button>
-                    <button draggable="true"></button>
-                    <button draggable="true"></button>
+                    <button draggable="true">1</button>
+                    <button draggable="true">2</button>
+                    <button draggable="true">3</button>
+                    <button draggable="true">4</button>
+                    <button draggable="true">5</button>
+                    <button draggable="true">6</button>
                 </div>
                 <hr>
                 <div class="verificar">
@@ -170,9 +91,12 @@ session_start();
             <div class="messengerInformation animate__backInDown" style="display:none">
                 <i class="bi bi-volume-up me-1 repeatNormal" style="cursor:pointer"></i>
                 <p> Escucha y construye la palabra correcta.</p>
-                <svg xmlns="http://www.w3.org/2000/svg"  style="cursor:pointer" version="1.1" width="24px" height="24px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg xmlns="http://www.w3.org/2000/svg" style="cursor:pointer" version="1.1" width="24px" height="24px"
+                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g>
-                        <path style="opacity:0.952" class="repeatSlow" fill="#f5f5f5" d="M 17.5,4.5 C 24.3198,7.23069 24.1531,9.89735 17,12.5C 16.5045,14.4727 16.3379,16.4727 16.5,18.5C 12.4908,17.3859 8.49076,17.3859 4.5,18.5C 2.6274,18.5177 2.29407,18.0177 3.5,17C 2.83333,16.3333 2.16667,15.6667 1.5,15C 0.967038,6.86626 4.6337,3.86626 12.5,6C 13.3333,6.83333 14.1667,7.66667 15,8.5C 15.4796,6.86698 16.3129,5.53365 17.5,4.5 Z" />
+                        <path style="opacity:0.952" class="repeatSlow" fill="#f5f5f5"
+                            d="M 17.5,4.5 C 24.3198,7.23069 24.1531,9.89735 17,12.5C 16.5045,14.4727 16.3379,16.4727 16.5,18.5C 12.4908,17.3859 8.49076,17.3859 4.5,18.5C 2.6274,18.5177 2.29407,18.0177 3.5,17C 2.83333,16.3333 2.16667,15.6667 1.5,15C 0.967038,6.86626 4.6337,3.86626 12.5,6C 13.3333,6.83333 14.1667,7.66667 15,8.5C 15.4796,6.86698 16.3129,5.53365 17.5,4.5 Z" />
                     </g>
                 </svg>
 
@@ -227,7 +151,7 @@ session_start();
                     <div class="modal-header modal-header--comenzar ">
                         <span class="modal-title fs-5" id="staticBackdropLabel">¡Cuidado!</span>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body ">
                         <p style="margin-bottom: 0.5rem;">¿Vas a abandonar tu lección y perderás todo el progreso?</p>
                         <span>¿Estás seguro de que quieres abandonar?</span>
                     </div>
@@ -240,7 +164,7 @@ session_start();
                 </div>
             </div>
         </div>
-
+        <script src="../../../../js/player/onBeforeUnload.js" type="module"></script>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -250,7 +174,7 @@ session_start();
         let $buttonTable = document.querySelectorAll(".tableContainer > button");
         let $tableContainer = document.querySelector(".tableContainer");
 
-
+        let $progressBar = document.querySelector(".progress-bar");
         let $countDownBody = document.querySelector(".countDownBody");
         let $letterSound = document.querySelector(".letterSound");
         let $wrongSound = document.querySelector(".wrongSound");
@@ -264,21 +188,32 @@ session_start();
         let count = 0;
         let countTotal = 0;
         let correctCounter = 0;
-        document.addEventListener("DOMContentLoaded", e => {
-            letterToDrag("lpotae", "pelota");
+        document.addEventListener("DOMContentLoaded", async e => {
+
             if (localStorage.getItem("dragContent") === null) {
-                localStorage.setItem("dragContent", null)
+                await localStorage.setItem("dragContent", null)
             }
             if (localStorage.getItem("dragNumber") === null) {
-                localStorage.setItem("dragNumber", null)
+                await localStorage.setItem("dragNumber", null)
             }
+
+            letterToDrag("igotebj", "bigote");
+
         })
 
-        function letterToDrag(letters, correctWord) {
-            $buttonsDrag.forEach(clear => {
+        async function letterToDrag(letters, correctWord) {
+            await $buttonsDrag.forEach(clear => {
                 clear.innerHTML = "";
                 clear.removeAttribute("style")
+                clear.removeAttribute("class")
+                clear.setAttribute("draggable", "true")
+            });
+            await $buttonTable.forEach(clear => {
+                clear.innerHTML = "";
+                clear.setAttribute("draggable", "false");
             })
+
+
             let arraySplit = letters.split("");
             console.log(arraySplit)
 
@@ -295,6 +230,7 @@ session_start();
 
 
 
+
         //Arrastra y soltar
 
         //funciones
@@ -307,6 +243,16 @@ session_start();
 
         }
 
+        document.addEventListener("mousemove", (e) => {
+            if (e.target.matches(".tableContainer > button") || e.target.matches(".lettersDrag > button")) {
+                try {
+                    $letterSound.play();
+                } catch (error) {
+                    alert("error");
+                }
+            }
+        });
+
         async function checkLabels() {
             let contador = 0;
             $buttonTable.forEach(e => {
@@ -314,16 +260,21 @@ session_start();
                     contador++;
                 }
             })
-
             if (contador == 6) {
                 let stringLabels = "";
                 await $buttonTable.forEach(e => {
                     stringLabels += e.textContent
                 })
-                if ($tableContainer.getAttribute("data-correct-word") == stringLabels) {
 
+                //Correct
+                if ($tableContainer.getAttribute("data-correct-word") == stringLabels) {
                     $wrongSound.pause();
                     $correctSound.play();
+                    correctCounter++;
+                    if (parseInt($progressBar.textContent) < 101) {
+                        $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
+                        $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
+                    }
                     $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
                     $intentosNumber.textContent = 3;
                     $buttonTable.forEach(el => {
@@ -334,11 +285,23 @@ session_start();
                         $buttonTable.forEach(e => {
                             e.classList.remove("hoverVerde");
                             e.draggable = true;
+
                         })
+                        setTimeout(async () => {
+                            await defineNextWord()
+                            await _1_3();
+                        }, 0);
                     }, 3000);
                 } else {
                     $wrongSound.play();
                     $intentosNumber.textContent = parseInt($intentosNumber.textContent) - 1;
+                    incorrectCounter++;
+                    if ($intentosNumber.textContent == 0) {
+                        setTimeout(async () => {
+                            await defineNextWord()
+                            await _1_3_again();
+                        }, 3000);
+                    }
                     $buttonTable.forEach(el => {
                         el.classList.add("hoverRed");
                         el.draggable = false;
@@ -351,6 +314,80 @@ session_start();
                     }, 3000);
                 }
             }
+        }
+
+        async function defineNextWord() {
+            $intentosNumber.textContent = 3;
+            switch ($tableContainer.getAttribute("data-next")) {
+                case "0":
+                    randomNumber = Math.floor(Math.random() * 7);
+                    await letterToDrag("casotrf", "castor")
+                    $tableContainer.setAttribute(
+                        "data-next",
+                        `${randomNumber}`
+                    );
+                    break;
+                case "1":
+                    randomNumber = Math.floor(Math.random() * 7);
+                    await letterToDrag("igotebd", "bigote");
+                    $tableContainer.setAttribute(
+                        "data-next",
+                        `${randomNumber}`
+                    );
+                    break;
+                case "2":
+                    randomNumber = Math.floor(Math.random() * 7);
+                    await letterToDrag("bancolm", "blanco");
+                    $tableContainer.setAttribute(
+                        "data-next",
+                        `${randomNumber}`
+                    );
+                    break;
+                case "3":
+                    randomNumber = Math.floor(Math.random() * 7);
+                    await letterToDrag("plnarti", "pintar");
+                    $tableContainer.setAttribute(
+                        "data-next",
+                        `${randomNumber}`
+                    );
+                    break;
+                case "4":
+                    randomNumber = Math.floor(Math.random() * 7);
+                    await letterToDrag("sonbram", "sombra");
+                    $tableContainer.setAttribute(
+                        "data-next",
+                        `${randomNumber}`
+                    );
+                    break;
+                case "5":
+                    randomNumber = Math.floor(Math.random() * 7);
+                    await letterToDrag("ínldfme", "delfín");
+                    $tableContainer.setAttribute(
+                        "data-next",
+                        `${randomNumber}`
+                    );
+                    break;
+                case "6":
+                    randomNumber = Math.floor(Math.random() * 7);
+                    await letterToDrag("brenomd", "nombre");
+                    $tableContainer.setAttribute(
+                        "data-next",
+                        `${randomNumber}`
+                    );
+                    break;
+
+                case "7":
+                    randomNumber = Math.floor(Math.random() * 7);
+                    await letterToDrag("numdob", "mundo");
+                    $tableContainer.setAttribute(
+                        "data-next",
+                        `${randomNumber}`
+                    );
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         function lettersDragValidarTable() {
@@ -444,6 +481,7 @@ session_start();
 
 
         })
+
 
 
         //2 
@@ -567,6 +605,25 @@ session_start();
 
         //
         //
+        //6
+        $buttonsDrag[6].addEventListener("dragover", async e => {
+            e.preventDefault();
+        });
+
+        $buttonsDrag[6].addEventListener("drop", async e => {
+            if (e.target.textContent.length == 0) {
+                e.target.textContent = localStorage.getItem("dragContent");
+                e.target.setAttribute("draggable", "true");
+                e.target.classList.remove("buttonVisibility")
+                $buttonTable[localStorage.getItem("dragNumber")].classList.remove("buttonVisibility")
+                $buttonTable[localStorage.getItem("dragNumber")].innerHTML = ""
+                $buttonTable[localStorage.getItem("dragNumber")].setAttribute("draggable", "false")
+
+            }
+        });
+
+        //
+
         $buttonsDrag[2].addEventListener("drag", async e => {
             await localStorage.setItem("dragContent", `${$buttonsDrag[2].textContent}`);
             localStorage.setItem("dragNumber", 2);
@@ -582,6 +639,10 @@ session_start();
         $buttonsDrag[5].addEventListener("drag", async e => {
             await localStorage.setItem("dragContent", `${$buttonsDrag[5].textContent}`);
             await localStorage.setItem("dragNumber", 5);
+        });
+        $buttonsDrag[6].addEventListener("drag", async e => {
+            await localStorage.setItem("dragContent", `${$buttonsDrag[6].textContent}`);
+            await localStorage.setItem("dragNumber", 6);
         });
 
 
@@ -616,6 +677,8 @@ session_start();
             e.preventDefault();
             console.log("dragover")
         })
+
+
 
         $buttonTable[0].addEventListener("drop", async e => {
             if (e.target.textContent.length == 0) {
@@ -685,13 +748,17 @@ session_start();
             }
         })
 
+
         let text_1_3 = document.querySelector(".text_1_3");
         const countdownElement = document.querySelector(".countDownBody > div > h2");
+        const CountdownNext = document.querySelector(".countDownNext");
 
-        function _1_3() {
+        async function _1_3() {
             let count = 3;
-            text_1_3.innerHTML = "¡Muy bien, comencemos!"
-
+            speechSynthesis.cancel()
+            voiceExercise();
+            text_1_3.innerHTML = "¡Muy bien, comencemos!";
+            CountdownNext.style.display = "none"
             countdownElement.innerHTML = "3";
             $countDownBody.removeAttribute("style");
             let countdown = setInterval(() => {
@@ -700,14 +767,39 @@ session_start();
                 if (count === 0) {
                     clearInterval(countdown);
                     $countDownBody.style.display = "none";
+                    CountdownNext.textContent = parseInt(CountdownNext) - 7;
+                    setTimeout(() => {
+                        CountdownNext.removeAttribute("style")
+                    }, 900);
+                }
+            }, 1000);
+        }
+
+        async function _1_3_again() {
+            let count = 3;
+            speechSynthesis.cancel()
+            voiceExercise();
+            text_1_3.innerHTML = "¡Lo intentamos de nuevo!";
+            CountdownNext.style.display = "none"
+            countdownElement.innerHTML = "3";
+            $countDownBody.removeAttribute("style");
+            let countdown = setInterval(() => {
+                count--;
+                countdownElement.textContent = count;
+                if (count === 0) {
+                    clearInterval(countdown);
+                    $countDownBody.style.display = "none";
+                    CountdownNext.textContent = parseInt(CountdownNext) - 7;
+                    setTimeout(() => {
+                        CountdownNext.removeAttribute("style")
+                    }, 900);
                 }
             }, 1000);
         }
 
         async function temporizador() {
-            const CountdownNext = document.querySelector(".countDownNext");
             let $segMin = document.querySelector(".seg-min")
-            let countForNext = 30;
+            let countForNext = 60;
             let countdown = setInterval(() => {
                 countForNext--;
                 if (countForNext < 10) {
@@ -724,7 +816,6 @@ session_start();
         }
 
         function temporizadorSegundaParte() {
-            const CountdownNext = document.querySelector(".countDownNext");
             let $segMin = document.querySelector(".seg-min")
             let countForNext = 60;
             let countdown = setInterval(() => {
@@ -737,11 +828,52 @@ session_start();
             }, 1000);
         }
 
+        function End_Game() {
+            $progressBar.innerHTML = "100%";
+            $progressBar.style.width = "100%";
+            let $containerResults = document.querySelector(".containerResults");
+            let $totalStar = document.querySelector(".totalStar");
+            let $motivationalMessage = document.querySelector(".motivationalMessage");
+            let $percentage = document.querySelector(".percentage");
+            let $correctFailed = document.querySelector(".correctFailed");
+            $totalStar.innerHTML = $starNumber.textContent;
+            if (incorrectCounter == 0) {
+                $percentage.innerHTML = "100%";
+                $motivationalMessage.innerHTML = "¡Lo hiciste increíble!";
+            }
+            if (incorrectCounter > 0 && incorrectCounter < 5) {
+                $percentage.innerHTML = "75%";
+                $motivationalMessage.innerHTML = "¡Oh, Bastante bien!";
+            }
 
+            if (incorrectCounter > 5 && incorrectCounter < 15) {
+                $percentage.innerHTML = "50%";
+                $motivationalMessage.innerHTML = "¡Lo hiciste bien!";
+            }
+            if (incorrectCounter > 15 && incorrectCounter < 20) {
+                $percentage.innerHTML = "30%";
+                $motivationalMessage.innerHTML = "No está mal, hay que mejorar.";
+            }
+            if (incorrectCounter > 20) {
+                $percentage.innerHTML = "20%";
+                $motivationalMessage.style.display = "none";
+            }
+            console.info(incorrectCounter);
+            $containerResults.removeAttribute("style");
+            document.querySelector(".containerResults  > div").classList.add("animationBounce");
+            //failed
+            if (incorrectCounter == 0) {
+                $correctFailed.innerHTML = `Has acertado ${correctCounter} veces y no has cometido ningún error.`;
+            } else if (incorrectCounter == 1) {
+                $correctFailed.innerHTML = `Has acertado ${correctCounter} veces y has fallado solo una vez.`;
+            } else {
+                $correctFailed.innerHTML = `Has acertado ${correctCounter} veces y has fallado ${incorrectCounter} veces.`;
+            }
+        }
 
         function voiceExerciseSlow() {
-            let mensaje = new SpeechSynthesisUtterance(`Escucha y construye la palabra correcta. . .${$tableContainer.getAttribute("data-correct-word")}`);
-            mensaje.rate = 0.6;
+            let mensaje = new SpeechSynthesisUtterance(`Escucha y construye la palabra correcta. .${$tableContainer.getAttribute("data-correct-word")}`);
+            mensaje.rate = 0.7;
             let voces = window.speechSynthesis.getVoices();
             mensaje.voice = voces.find(voz => voz.lang === 'es-ES');
             window.speechSynthesis.speak(mensaje);
@@ -755,15 +887,22 @@ session_start();
             return hablar(texto);
         }
 
-        
+
         document.addEventListener("click", e => {
-            if(e.target.matches(".repeatSlow")){
+            if (e.target.matches(".siguiente")) {
+                let $last = document.querySelector(".last");
+                let $first = document.querySelector(".first");
+                $first.style.display = "none";
+                $last.classList.add("animationBounceOut");
+                $last.removeAttribute("style");
+            }
+            if (e.target.matches(".repeatSlow")) {
                 voiceExerciseSlow()
                 setTimeout(() => {
                     speechSynthesis.cancel()
                 }, 5000);
             }
-            if(e.target.matches(".repeatNormal")){
+            if (e.target.matches(".repeatNormal")) {
                 voiceExercise()
             }
         })
@@ -773,7 +912,6 @@ session_start();
             setTimeout(async () => {
                 $countDownBody.removeAttribute("style");
                 _1_3();
-                voiceExercise();
                 setTimeout(() => {
                     temporizador()
                 }, 2000);
