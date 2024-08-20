@@ -422,7 +422,15 @@ session_start();
 
         });
 
-
+        function validateRepeatLetterDrang(){
+            for (let i = 0;  i < $buttonsDrag.length ; i++){
+                if(localStorage.getItem("dragContent")  == $buttonsDrag[i].textContent) {
+                    return  false;
+                }
+            }
+            return true
+       
+         }
         //0
         $buttonsDrag[0].addEventListener("dragover", async e => {
             e.preventDefault();
@@ -437,18 +445,19 @@ session_start();
             e.preventDefault();
         });
 
-
-        $buttonsDrag[0].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.setAttribute("draggable", "true");
-                e.target.classList.remove("buttonVisibility")
+        function ValidateDropContainerDrag(eTarget){
+            if (eTarget.textContent.length == 0 && validateRepeatLetterDrang() === true) {
+                eTarget.textContent = localStorage.getItem("dragContent");
+                eTarget.setAttribute("draggable", "true");
+                eTarget.classList.remove("buttonVisibility")
                 $buttonTable[localStorage.getItem("dragNumber")].classList.remove("buttonVisibility")
                 $buttonTable[localStorage.getItem("dragNumber")].innerHTML = ""
                 $buttonTable[localStorage.getItem("dragNumber")].setAttribute("draggable", "false")
 
             }
-
+        }
+        $buttonsDrag[0].addEventListener("drop", async e => {
+            ValidateDropContainerDrag(e.target)
 
         })
 
@@ -470,14 +479,7 @@ session_start();
 
 
         $buttonsDrag[1].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.setAttribute("draggable", "true");
-                e.target.classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].innerHTML = ""
-                $buttonTable[localStorage.getItem("dragNumber")].setAttribute("draggable", "false")
-            }
+            ValidateDropContainerDrag(e.target)
 
 
         })
@@ -502,15 +504,7 @@ session_start();
 
 
         $buttonsDrag[2].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.setAttribute("draggable", "true");
-                e.target.classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].innerHTML = ""
-                $buttonTable[localStorage.getItem("dragNumber")].setAttribute("draggable", "false")
-
-            }
+            ValidateDropContainerDrag(e.target)
         });
 
         //
@@ -532,15 +526,7 @@ session_start();
 
 
         $buttonsDrag[3].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.setAttribute("draggable", "true");
-                e.target.classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].innerHTML = ""
-                $buttonTable[localStorage.getItem("dragNumber")].setAttribute("draggable", "false")
-
-            }
+            ValidateDropContainerDrag(e.target)
         });
 
         //
@@ -562,15 +548,7 @@ session_start();
 
 
         $buttonsDrag[4].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.setAttribute("draggable", "true");
-                e.target.classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].innerHTML = ""
-                $buttonTable[localStorage.getItem("dragNumber")].setAttribute("draggable", "false")
-
-            }
+            ValidateDropContainerDrag(e.target)
         });
 
         //
@@ -592,15 +570,7 @@ session_start();
 
 
         $buttonsDrag[5].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.setAttribute("draggable", "true");
-                e.target.classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].innerHTML = ""
-                $buttonTable[localStorage.getItem("dragNumber")].setAttribute("draggable", "false")
-
-            }
+            ValidateDropContainerDrag(e.target)
         });
 
         //
@@ -611,15 +581,7 @@ session_start();
         });
 
         $buttonsDrag[6].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.setAttribute("draggable", "true");
-                e.target.classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].classList.remove("buttonVisibility")
-                $buttonTable[localStorage.getItem("dragNumber")].innerHTML = ""
-                $buttonTable[localStorage.getItem("dragNumber")].setAttribute("draggable", "false")
-
-            }
+            ValidateDropContainerDrag(e.target)
         });
 
         //
@@ -648,104 +610,77 @@ session_start();
 
         $buttonTable[0].addEventListener("dragover", async e => {
             e.preventDefault();
-            console.log("dragover")
-
+ 
         })
 
         $buttonTable[0].addEventListener("dragover", async e => {
             e.preventDefault();
-            console.log("dragover")
-
+ 
         })
         $buttonTable[1].addEventListener("dragover", async e => {
             e.preventDefault();
-            console.log("dragover")
-        })
+         })
         $buttonTable[2].addEventListener("dragover", async e => {
             e.preventDefault();
-            console.log("dragover")
-        })
+         })
         $buttonTable[3].addEventListener("dragover", async e => {
             e.preventDefault();
-            console.log("dragover")
-        })
+         })
         $buttonTable[4].addEventListener("dragover", async e => {
             e.preventDefault();
-            console.log("dragover")
-        })
+         })
         $buttonTable[5].addEventListener("dragover", async e => {
             e.preventDefault();
-            console.log("dragover")
-        })
+         })
 
 
+         function validateRepeatLetter(){
+            for (let i = 0;  i < $buttonTable.length ; i++){
+                if(localStorage.getItem("dragContent")  == $buttonTable[i].textContent) {
+                    console.info($buttonTable[i].textContent)
+                    return  false;
+                }
+            }
+            return true
+       
+         }
+
+        function ValidateDropContainerButton(eTarget) {
+            
+            if (eTarget.textContent.length === 0 && validateRepeatLetter() === true) {
+                eTarget.textContent = localStorage.getItem("dragContent");
+                eTarget.setAttribute("draggable", "true")
+                eTarget.classList.remove("buttonVisibility")
+                lettersDragValidar();
+                dragNumberFalse();
+                checkLabels();
+            }
+         }
 
         $buttonTable[0].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.setAttribute("draggable", "true")
-                e.target.classList.remove("buttonVisibility")
-                lettersDragValidar();
-                dragNumberFalse()
-                checkLabels()
-            }
+
+            ValidateDropContainerButton(e.target)
+           
         })
 
         $buttonTable[1].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.classList.remove("buttonVisibility")
-                lettersDragValidar();
-                e.target.setAttribute("draggable", "true")
-                dragNumberFalse();
-                checkLabels()
-            }
+            ValidateDropContainerButton(e.target)
 
         })
 
 
         $buttonTable[2].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.classList.remove("buttonVisibility")
-                lettersDragValidar();
-                $buttonTable[localStorage.getItem("dragNumber")].classList.remove("buttonVisibility")
-                e.target.setAttribute("draggable", "true")
-                dragNumberFalse()
-                checkLabels()
-            }
+            ValidateDropContainerButton(e.target)
 
         })
         $buttonTable[3].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.classList.remove("buttonVisibility")
-                lettersDragValidar();
-                e.target.setAttribute("draggable", "true")
-                dragNumberFalse()
-                checkLabels()
-
-            }
+            ValidateDropContainerButton(e.target)
         })
         $buttonTable[4].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.classList.remove("buttonVisibility")
-                lettersDragValidar();
-                e.target.setAttribute("draggable", "true")
-                dragNumberFalse()
-                checkLabels()
-            }
+            ValidateDropContainerButton(e.target)
         })
         $buttonTable[5].addEventListener("drop", async e => {
-            if (e.target.textContent.length == 0) {
-                e.target.textContent = localStorage.getItem("dragContent");
-                e.target.classList.remove("buttonVisibility")
-                lettersDragValidar();
-                e.target.setAttribute("draggable", "true")
-                dragNumberFalse();
-                checkLabels()
-            }
+            ValidateDropContainerButton(e.target)
         })
 
 
