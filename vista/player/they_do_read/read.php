@@ -343,13 +343,13 @@
         </div>
         <div class="modal-body">
             <div class="d-flex  justify-content-evenly">
-                <div><i class="bi bi-stopwatch"></i>Agil: <span>00:00</span></div>
+                <div><i class="bi bi-stopwatch"></i>Porcentaje: <span>0%</span></div>
                 <div><i class="bi bi-star-fill"></i>Estrella(s): <span>0</span></div>
             </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" style="    justify-content: space-evenly;">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-            <a href="./etapa_1_seccion_1/leccion_1/inicio.php"><button type="button" class="btn btn-primary">Si</button></a>
+            <a href="./etapa_1_seccion_1/leccion_1.php"><button type="button" class="btn btn-primary">Si</button></a>
         </div>
         </div>
     </div>

@@ -17,31 +17,7 @@ session_start();
     <link rel="stylesheet" href="../../../css/player/read.css">
     <link rel="stylesheet" href="../../../css/efectos_siempre/scrollbar.css">
     <style>
-        .modal-header {
-            border: 0;
-            background: 1rem;
-            background: #ff864c;
-            color: white;
-            text-align: center;
-            display: block !important;
-        }
-
-        .modal-footer {
-            justify-content: space-evenly;
-        }
-
-        .modal-footer>a>button {
-            border: 0;
-            background: 1rem;
-            color: #ff864c;
-            font-weight: bold;
-        }
-
-        .modal-footer>button:first-child {
-            border: 0;
-            background: 1rem;
-            color: #ff864c;
-        }
+     
     </style>
 </head>
 
@@ -374,7 +350,7 @@ session_start();
                 </div>
                 <div class="modal-body">
                     <div class="d-flex  justify-content-evenly">
-                        <div><i class="bi bi-stopwatch"></i>Porcentaje: <span>00:00</span></div>
+                        <div><i class="bi bi-stopwatch"></i>Porcentaje: <span>0%</span></div>
                         <div><i class="bi bi-star-fill"></i>Estrella(s): <span>0</span></div>
                     </div>
                 </div>

@@ -7,7 +7,10 @@
                         <figure>
                         <a href="./welcome.php"><img src="../../../img/logos/logo-white.png" alt=""></a>  
                         </figure>
-                        <a href="./read.php" style="text-decoration: none; color: white;background: #ed7034;padding: 0.5rem; border-radius: 0.5rem; align-self: center; font-weight: 600;">Home</a>
+                        <a href="./read.php" class="text-decoration-none">
+                            <i class="bi bi-house-door text-white fs-5"></i>
+                            <span  class="h5" style="text-decoration: none; color: white; border-radius: 0.5rem; align-self: center; font-weight: 600;">Home</span>
+                        </a>
                     </section>
                 <div class="dropdown" >
                     <button class="btn btn-secondary dropdown-toggle h4" style="    color: white;border: 0;background: #ff7d3f;font-size: calc(1.2rem + .1vw);font-weight: 500;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
