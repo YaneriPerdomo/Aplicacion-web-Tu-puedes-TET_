@@ -2,28 +2,46 @@
 import { _1_3, $countDownBody } from "../../auxiliares/windowModal3_1.js";
 
 //Variables
- 
+let $dataWrong = document.querySelector("[data-wrong]");
 let $wrongSound = document.querySelector(".wrongSound");
 let $correctSound = document.querySelector(".correctSound");
 let $tableContainer = document.querySelector(".tableContainer");
 let $starNumber = document.querySelector(".start");
 let $progressBar = document.querySelector(".progress-bar");
+let incorrectCounter = 0;
+let $tableContainer_2 = document.querySelector(".tableContainer_2");
+let $tableContainer_3 = document.querySelector(".tableContainer_3")
+let $tresEjercicio = document.querySelector(".tresEjercicio")
 let $letterSound = document.querySelector(".letterSound");
 let $intentosNumber = document.querySelectorAll(".intentos > .number");
 let $intento = document.querySelector(".intentos")
+let $twoEjercicio = document.querySelector(".twoEjercicio");
+let $paragrahMessenger = document.querySelector(".messengerInformation > p");
 
-
+let $span = document.querySelectorAll(".tableContainer_2 > button");
+let $span_2 = document.querySelectorAll(".tableContainer_3 > button");
+//Contadores.
+//Ejercicio numero uno 
 let correctCounter = 0;
 let ErrorCounter = 0;
+
 const CountdownNext = document.querySelector(".countDownNext");
+
+
 let randomNumber = 0;
+let intentos = 3;
+let count = 0;
+let countTotal = 0;
+let _1_3_text = document.querySelector(".text_1_3");
+let $spanLetter = document.querySelectorAll(".tableContainer > button");
+let $repeatDictation = document.querySelector(".repeatDictation");
 let $intentoText = document.querySelector(".intentoText")
+//nuevo
 let $colButton = document.querySelectorAll(".colButton > button")
 
 let $ceroIntentos = document.querySelector(".ceroIntentos")
 let $endLeccion = document.querySelector(".endLeccion");
-let $sonidoSiguiente = document.querySelector(".sonidoSiguiente");
-
+let $sonidoSiguiente = document.querySelector(".sonidoSiguiente")
 document.addEventListener("mousemove", (e) => {
     if (e.target.matches(".colButton > button")) {
         try {
@@ -63,7 +81,6 @@ countSyllables("La guitarra es un buen instrumento.", 12);
 
 document.addEventListener("click", e => {
 
-    
     if (e.target.matches(".siguiente")) {
         let $last = document.querySelector(".last");
         let $first = document.querySelector(".first");
@@ -116,7 +133,7 @@ document.addEventListener("click", e => {
                     e.removeAttribute("disabled")
                 })
             }, 2000);
-            if($intentosNumber[0].textContent == 1){
+            if ($intentosNumber[0].textContent == 1) {
                 $intentoText.innerHTML = "Intento:"
             }
             if ($intentosNumber[0].textContent == 0) {
@@ -140,7 +157,7 @@ document.addEventListener("click", e => {
 
 })
 
-function defineNextWords() { 
+function defineNextWords() {
     $intentoText.innerHTML = "Intentos:"
     $intentosNumber[0].textContent = 3;
     switch ($tableContainer.getAttribute("data-next")) {
@@ -154,7 +171,7 @@ function defineNextWords() {
             break;
         case "1":
             randomNumber = Math.floor(Math.random() * 21);
-            countSyllables("Propuesta laboral.", 7);
+            countSyllables("La magia de las palabras.", 8);
             $tableContainer.setAttribute(
                 "data-next",
                 `${randomNumber}`
@@ -186,7 +203,7 @@ function defineNextWords() {
             break;
         case "5":
             randomNumber = Math.floor(Math.random() * 21);
-            countSyllables("Corredora encantadora", 9);
+            countSyllables("Corredora encantadora.", 9);
             $tableContainer.setAttribute(
                 "data-next",
                 `${randomNumber}`
@@ -227,7 +244,7 @@ function defineNextWords() {
             break;
         case "10":
             randomNumber = Math.floor(Math.random() * 21);
-            countSyllables("El progreso ha sido constante", 10)
+            countSyllables("El progreso ha sido constante.", 10)
             $tableContainer.setAttribute(
                 "data-next",
                 `${randomNumber}`
@@ -259,7 +276,7 @@ function defineNextWords() {
             break;
         case "14":
             randomNumber = Math.floor(Math.random() * 21);
-            countSyllables("Pensar fuera de la caja", 8);
+            countSyllables("Pensar fuera de la caja.", 8);
             $tableContainer.setAttribute(
                 "data-next",
                 `${randomNumber}`
@@ -267,7 +284,7 @@ function defineNextWords() {
             break;
         case "15":
             randomNumber = Math.floor(Math.random() * 21);
-            countSyllables("Creativo e innovación", 9);
+            countSyllables("Creativo e innovación.", 9);
             $tableContainer.setAttribute(
                 "data-next",
                 `${randomNumber}`
@@ -419,9 +436,9 @@ function End_Game() {
     $containerResults.removeAttribute("style");
     document.querySelector(".containerResults  > div").classList.add("animationBounce");
     //failed
-    if (correctCounter == 0) {
+    if (ErrorCounter == 0) {
         $correctFailed.innerHTML = `Has acertado ${correctCounter} veces y no has cometido ningún error.`;
-    } else if (correctCounter == 1) {
+    } else if (ErrorCounter == 1) {
         $correctFailed.innerHTML = `Has acertado ${correctCounter} veces y has fallado solo una vez.`;
     } else {
         $correctFailed.innerHTML = `Has acertado ${correctCounter} veces y has fallado ${ErrorCounter} veces.`;

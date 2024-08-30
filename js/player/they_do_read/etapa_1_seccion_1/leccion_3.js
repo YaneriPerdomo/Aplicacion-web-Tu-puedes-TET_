@@ -31,7 +31,7 @@ let $letterSound = document.querySelector(".letterSound");
 async function countDownFia() {
     await localStorage.setItem("letter", `fia`);
     const CountdownNext = document.querySelector(".countDownNext");
-    let countForNext = 40;
+    let countForNext = 60;
     let countdown = setInterval(() => {
         countForNext--;
         CountdownNext.textContent = countForNext;

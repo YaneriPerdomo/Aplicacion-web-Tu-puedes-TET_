@@ -61,7 +61,7 @@ setTimeout(() => {
 async function countDownP() {
     await localStorage.setItem("letter", `p`);
     const CountdownNext = document.querySelector(".countDownNext");
-    let countForNext = 40;
+    let countForNext = 60;
     let countdown = setInterval(() => {
         countForNext--;
         CountdownNext.textContent = countForNext;
@@ -82,7 +82,7 @@ async function countDownV() {
     voiceExercise("v");
     defineLetter("ʌ", "u", "v", Math.floor(Math.random() * 72));
     const CountdownNext = document.querySelector(".countDownNext");
-    let countForNext = 50;
+    let countForNext = 60;
     let countdown = setInterval(() => {
         countForNext--;
         CountdownNext.textContent = countForNext;
@@ -123,7 +123,7 @@ async function CountDownW() {
     voiceExercise("w");
     defineLetter("ʍ", "m", "w", Math.floor(Math.random() * 72))
     const CountdownNext = document.querySelector(".countDownNext");
-    let countForNext = 50;
+    let countForNext = 60;
     let countdown = setInterval(() => {
         countForNext--;
         CountdownNext.textContent = countForNext;

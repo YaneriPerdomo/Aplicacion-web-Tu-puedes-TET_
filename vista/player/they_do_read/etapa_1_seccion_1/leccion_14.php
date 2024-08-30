@@ -98,6 +98,54 @@ session_start();
             transform-origin: top center;
             animation: swing 2s;
         }
+
+
+        /**Leccion numero 14 */
+
+        .questions>div>button {
+            cursor: pointer;
+            border: 0rem;
+            border-bottom-width: 0rem;
+            border-bottom-style: none;
+            border-bottom-color: currentcolor;
+            border-bottom: #d9713f solid 3px;
+            background: #ff864c;
+            color: white;
+            font-weight: 500;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            margin-bottom: 0.6rem;
+            width: auto;
+        }
+
+        .questions>div>button:hover {
+            background: #ffa94f;
+            transform: translateY(-4px);
+            transition: all 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+            box-shadow: -0rem 0.3rem #7e4f1e;
+            filter: brightness(110%);
+        }
+
+        .nextLectura {
+            border: 0rem;
+            color: white;
+            padding: 0.5rem 0.6rem;
+            border: solid 2px #fc7c45;
+            border-radius: 1rem 1rem;
+            color: #fc7c45;
+            background: none;
+            text-align: center;
+            display: inline;
+        }
+
+        .nextLectura:hover {
+            transform: translateY(-4px);
+            transition: all 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+            box-shadow: -0rem 0.3rem #7e4f1e;
+            filter: brightness(110%);
+        }
     </style>
 </head>
 
@@ -132,13 +180,33 @@ session_start();
         <div class="letterContainer">
             <div class="container-xxl">
                 <div class="tableContainer align-items-center justify-content-center" data-next="1">
-                    <figure>
-                        <img src="" class="img-fluid" alt="">
-                    </figure>
-                    <div class=" colButton">
-                        <button>pisicina</button>
-                        <button>piscina</button>
-                    </div>
+                    <article>
+                        <figure>
+                            <img src="" class="img-fluid" alt="">
+                        </figure>
+                        <section class="read">
+                            <h3 class="title"><em></em></h3>
+                            <p></p>
+                        </section>
+                        <section class="questionAnswers">
+                            <section class="questions" style="display: none;">
+                                <hr>
+                                <h4 class="mb-3 title"></h4>
+                                <div class="d-flex flex-row justify-content-center  align-items-center"
+                                    style="gap:1rem">
+                                    <button></button>
+                                    <button></button>
+                                    <button></button>
+                                </div>
+                                <hr>
+                            </section>
+                            <span  class="numberUsed" style="display:none">0</span>
+                            <div class="containerNext">
+                                <button class="nextLectura" data-next-lectura="0" data-view="1">Comenzar con las
+                                    preguntas.</button>
+                            </div>
+                        </section>
+                    </article>
                 </div>
                 <br>
             </div>
@@ -151,15 +219,15 @@ session_start();
         <div class="messengerUserContainer">
             <div class="messengerInformation animate__backInDown" style="display:none">
                 <i class="bi bi-volume-up me-1 repeatDictation" style="display: none;"></i>
-                <p>Indica, cuál es la letra incorrecta.</p>
+                <p>Leer la lectura y contesta las preguntas.</p>
             </div>
         </div>
-        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" autoplay class="letterSound"></audio>
+        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3"   class="letterSound"></audio>
         <audio src="../../../../audio/welcome_jugador/wrong.mp3" class="wrongSound" data-wrong="false"></audio>
         <audio src="../../../../audio/welcome_jugador/correct.mp3" class="correctSound"></audio>
-        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3" autoplay class="endLeccion"></audio>
-        <audio src="../../../../audio/welcome_jugador/siguiente.mp3" autoplay class="sonidoSiguiente"></audio>
-        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3" autoplay class="ceroIntentos"></audio>
+        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3"   class="endLeccion"></audio>
+        <audio src="../../../../audio/welcome_jugador/siguiente.mp3"   class="sonidoSiguiente"></audio>
+        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3"   class="ceroIntentos"></audio>
         <div class="logoPresentation">
             <div>
                 <div class="spinner-border" role="status">
@@ -224,6 +292,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../../../../js/player/they_do_read/etapa_1_seccion_1/leccion_11.js" type="module"></script>
+    <script src="../../../../js/player/they_do_read/etapa_1_seccion_1/leccion_14.js" type="module"></script>
 </body>
+
 </html>

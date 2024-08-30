@@ -1499,7 +1499,7 @@ async function countDownP() {
     await _1_3()
     setTimeout(() => {
         const CountdownNext = document.querySelector(".countDownNext");
-        let countForNext = 30;
+        let countForNext = 60;
         let countdown = setInterval(() => {
             countForNext--;
             CountdownNext.textContent = countForNext;
@@ -1528,7 +1528,7 @@ async function findError() {
     wordLabels("arresglo", "arreglo");
     const CountdownNext = document.querySelector(".countDownNext");
     CountdownNext.innerHTML = ""
-    let countForNext = 40;
+    let countForNext = 50;
     setTimeout(() => {
         let countdown = setInterval(() => {
             countForNext--;
@@ -1558,7 +1558,7 @@ async function findError_2() {
     wordsLabels_2("Zaqatillas rojas", "Zapatillas rojas")
     const CountdownNext = document.querySelector(".countDownNext");
     CountdownNext.innerHTML = ""
-    let countForNext = 40;
+    let countForNext = 60;
     setTimeout(() => {
         let countdown = setInterval(() => {
             countForNext--;

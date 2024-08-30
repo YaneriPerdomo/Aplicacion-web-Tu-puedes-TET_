@@ -60,7 +60,7 @@ main {
 }
 
 .tableContainer {
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;

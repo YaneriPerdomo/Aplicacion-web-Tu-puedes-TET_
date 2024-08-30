@@ -176,6 +176,7 @@ session_start();
             <div class="messengerInformation animate__backInDown" style="display:none">
                 <i class="bi bi-volume-up me-1 repeatDictation" style="display: none;"></i>
                 <p>Indica el número de sílabas que tiene el verso.</p>
+                
             </div>
         </div>
         <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" autoplay class="letterSound"></audio>

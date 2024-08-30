@@ -590,7 +590,7 @@ setTimeout(() => {
 
 async function temporizador() {
     let $segMin = document.querySelector(".seg-min")
-    let countForNext = 30;
+    let countForNext = 59;
     let countdown = setInterval(() => {
         countForNext--;
         if (countForNext < 10) {
