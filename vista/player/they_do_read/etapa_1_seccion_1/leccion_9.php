@@ -7,76 +7,17 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tu puedes | Lección 9</title>
+    <title>Lección 9 | Tú puedes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="https://pie-meister.github.io/PieMeister-with-Progress.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="../../../../img/icono/icono.ico">
     <link rel="stylesheet" href="../../../../css/player/they_do_read/lecciones.css">
     <style>
         main {
             background-image: url(../../../../img/player/fondo.png);
-        }
-
-        .tableContainer {
-            display: block;
-            flex-wrap: none !important;
-            gap: 0rem !important;
-
-        }
-
-        .colButton {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .colButton>button {
-            cursor: pointer;
-            border: 0rem;
-            border-bottom: #d9713f solid 3px;
-            background: #ff864c;
-            color: white;
-            font-weight: 500;
-            max-width: 200px;
-            font-size: 2rem;
-            /* padding: 0.5rem; */
-            text-align: center;
-            border-radius: 0.5rem;
-            margin-bottom: 0.6rem;
-            min-width: 100px;
-            width: clamp(130px, 40%, 200px);
-        }
-
-        .colButton>button:hover {
-            transition: all linear 0.4s;
-            background: #ffa94f;
-            transform: translateY(-4px);
-            transition: all 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-            box-shadow: -0rem 0.3rem #7e4f1e;
-            filter: brightness(110%);
-        }
-
-        .row {
-            display: flex;
-        }
-
-        @keyframes swing {
-          
-
-            0% { transform: scale(1); }
-            10%, 20% { transform: scale(0.9) rotate(-3deg); }
-            30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
-            40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
-            100% { transform: scale(1) rotate(0);}
-        }
-
-        /* Apply the swing animation to an element */
-        .swing {
-            transform-origin: top center;
-            animation: swing 2s ;
         }
     </style>
 </head>
@@ -104,28 +45,86 @@ session_start();
                 <span class="start text-warning fs-3">0</span>
             </div>
             <div class="timeContainer">
-                <span style="padding-right: 1.5rem;" class="seg-min">Seg</span>
+                <span style="    padding-right: 1.5rem;">Seg</span>
                 <span class="countDownNext fs-4"></span>
                 <i class="bi bi-stopwatch-fill fs-1"></i>
             </div>
         </div>
         <div class="letterContainer">
             <div class="container-xxl">
-                <div class="tableContainer align-items-center justify-content-center" data-next="1">
-                    <figure>
-                        <img src="" class="img-fluid" alt="">
-                    </figure>
-                    <div class=" colButton">
-                        <button>pisicina</button>
-                        <button>piscina</button>
-                        <button>picina</button>
-                    </div>
-                </div>
-                <br>
-                <div class="containerIntentos">
-                    <span class="intentos">
-                        Intentos: <span class="number">3</span>
-                    </span>
+                <div class="tableContainer" data-next="1">
+                    <button>q</button>
+                    <button>p</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>fin</button>
+                    <button>gro</button>
+                    <button>gap</button>
+                    <button>q</button>
+                    <button>vil</button>
+                    <button>fio</button>
+                    <button>gap</button>
+                    <button>q</button>
+                    <button>fro</button>
+                    <button>no</button>
+                    <button>hi</button>
+                    <button>fil</button>
+                    <button>fu</button>
+                    <button>fla</button>
+                    <button>flu</button>
+                    <button>pal</button>
+                    <button>q</button>
+                    <button>fin</button>
+                    <button>dil</button>
+                    <button>col</button>
+                    <button>wor</button>
+                    <button>q</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>fla</button>
+                    <button>q</button>
+                    <button>dap</button>
+                    <button>gla</button>
+                    <button>flu</button>
+                    <button>q</button>
+                    <button>flu</button>
+                    <button>fli</button>
+                    <button>flu</button>
+                    <button>gal</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>q</button>
+                    <button>fal</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>fla</button>
+                    <button>fla</button>
+                    <button>q</button>
+                    <button>gal</button>
+                    <button>q</button>
+                    <button>q</button>
+                    <button>gal</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>flu</button>
                 </div>
             </div>
         </div>
@@ -137,15 +136,12 @@ session_start();
         <div class="messengerUserContainer">
             <div class="messengerInformation animate__backInDown" style="display:none">
                 <i class="bi bi-volume-up me-1 repeatDictation" style="display: none;"></i>
-                <p>Señala, de las tres palabras, cuál es la correcta.</p>
+                <p> Encuentra el elemento que has escuchado.</p>
             </div>
         </div>
         <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" autoplay class="letterSound"></audio>
         <audio src="../../../../audio/welcome_jugador/wrong.mp3" class="wrongSound" data-wrong="false"></audio>
         <audio src="../../../../audio/welcome_jugador/correct.mp3" class="correctSound"></audio>
-        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3" autoplay class="endLeccion"></audio>
-        <audio src="../../../../audio/welcome_jugador/siguiente.mp3" autoplay class="sonidoSiguiente"></audio>
-        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3" autoplay class="ceroIntentos"></audio>
         <div class="logoPresentation">
             <div>
                 <div class="spinner-border" role="status">
@@ -154,13 +150,13 @@ session_start();
                 <span>Cargado...</span>
             </div>
         </div>
-        <div class="countDownBody " style="display: none;">
+        <div class="countDownBody " style="display:none">
             <div class="">
                 <div class="hookOne"></div>
                 <div class="hookTwo"></div>
                 <div class="hookTres"></div>
                 <h2 class="fs-1">3</h2>
-                <b class="mb-2 text-center text_1_3">¡Muy bien, comencemos!</b>
+                <b class="mb-2">¡Comencemos!</b>
             </div>
         </div>
         </div>
@@ -170,8 +166,17 @@ session_start();
                 style="max-width: 500px; min-width: 100px; background: white !important; border-radius: 1rem;">
                 <h2 class=""> ¡Completaste la lección! </h2>
                 <div class="first">
-                    <b>A lo largo de la lección.</b><br>
-                    <span class="correctFailed"></span>
+                    <b>En el primer ejercicio de encontrar la letra b.</b><br>
+                    <span class="correctFailedFia"></span><br>
+                    <hr>
+                    <b>En el segundo ejercicio de encontrar la letra l.</b><br>
+                    <span class="correctFailedDar"></span><br>
+                    <hr>
+                    <b>En el tercero ejercicio de encontrar la letra q.</b><br>
+                    <span class="correctFailedQue"></span><br>
+                    <hr>
+                    <b>En el cuarto ejercicio de encontrar la letra n.</b><br>
+                    <span class="correctFailedFiz"></span><br>
                     <hr>
                     <button class="siguiente">Siguiente <i class="bi bi-caret-right"></i></button>
                 </div>
@@ -205,12 +210,11 @@ session_start();
                 </div>
             </div>
         </div>
-
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../../../../js/player/they_do_read/etapa_1_seccion_1/leccion_9.js" type="module"></script>
+    <script src="../../../../js/player/they_do_read/etapa_1_seccion_1/leccion_9.js" ></script>
 </body>
 
 </html>

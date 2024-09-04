@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tu Puedes | Crea una cuenta</title>
+    <title>Crea una cuenta | Tú puedes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,29 +75,66 @@
                             <div class="afiliaciones none ">
                                 <label for="">Afiliación </label><br>
                                 <select name="afiliacion" id="">
-                                    <option value="1" selected> Padre</option>
-                                    <option value="2">Madre</option>
+                                    <option value="1" selected> Madre</option>
+                                    <option value="2">Padre</option>
+                                    <option value="3">Abuelo</option>
+                                    <option value="4">Abuela</option>
+                                    <option value="5">Bisabuelo</option>
+                                    <option value="6">Bisabuela</option>
+                                    <option value="7">Tío</option>
+                                    <option value="8">Tía</option>
+                                    <option value="9">Sobrino</option>
+                                    <option value="10">Sobrina</option>
+                                    <option value="11">Primo</option>
+                                    <option value="12">Prima</option>
+                                    <option value="13">Vecino</option>
+                                    <option value="14">Vecina</option>
+                                    <option value="15">Suegro</option>
+                                    <option value="16">Suegra</option>
+                                    <option value="17">Cuñado</option>
+                                    <option value="18">Cuñada</option>
+                                    <option value="19">Yerno</option>
+                                    <option value="20">Nuera</option>
+                                    <option value="21">Pareja</option>
+                                    <option value="22">Otro</option>
                                 </select>
                             </div>
                             <label for="usuario">Elija su Pais<i class="bi bi-person-arms-up"></i></label><br>
                             <select name="paises" id="pais">
-                                <option value="1">Argentina</option>
-                                <option value="2">Bolivia</option>
-                                <option value="3">Brasil</option>
-                                <option value="4">Chile</option>
-                                <option value="5">Colombia</option>
-                                <option value="6">Costa Rica</option>
-                                <option value="7">Cuba</option>
-                                <option value="8">Ecuador</option>
-                                <option value="9">El Salvador</option>
-                                <option value="10">Guatemala</option>
-                                <option value="11">Haití</option>
-                                <option value="12">Honduras</option>
-                                <option value="13">México</option>
-                                <option value="14">Nicaragua</option>
-                                <option value="15">Panamá</option>
-                                <option value="16">Paraguay</option>
-                                <option value="17">Venezuela</option>
+                                <option value="1">México</option>
+                                <option value="2">Belice</option>
+                                <option value="3">Costa Rica</option>
+                                <option value="4">El Salvador</option>
+                                <option value="5">Guatemala</option>
+                                <option value="6">Honduras</option>
+                                <option value="7">Nicaragua</option>
+                                <option value="8">Panamá</option>
+                                <option value="9">Antigua y Barbuda</option>
+                                <option value="10">Bahamas</option>
+                                <option value="11">Barbados</option>
+                                <option value="12">Cuba</option>
+                                <option value="13">Dominica</option>
+                                <option value="14">Granada</option>
+                                <option value="15">Haití</option>
+                                <option value="16">Jamaica</option>
+                                <option value="17">Puerto Rico</option>
+                                <option value="18">República Dominicana</option>
+                                <option value="19">San Cristóbal y Nevis</option>
+                                <option value="20">Santa Lucía</option>
+                                <option value="21">San Vicente y las Granadinas</option>
+                                <option value="22">Trinidad y Tobago</option>
+                                <option value="23">Argentina</option>
+                                <option value="24">Bolivia</option>
+                                <option value="25">Brasil</option>
+                                <option value="26">Chile</option>
+                                <option value="27">Colombia</option>
+                                <option value="28">Ecuador</option>
+                                <option value="29">Guyana</option>
+                                <option value="30">Paraguay</option>
+                                <option value="31">Perú</option>
+                                <option value="32">Surinam</option>
+                                <option value="33">Uruguay</option>
+                                <option value="34">Venezuela</option>
                             </select>
                             <br>
                             <div class="cargos  ">
@@ -116,7 +153,12 @@
                             </div>
                             <label for="contrasena">Contraseña</label><br>
                             <input type="password" id="contrasena" name="contrasena"
-                                placeholder="Introduce tu contraseña">
+                                placeholder="Introduce tu contraseña"><br>
+                            <label for="">Confirmar contraseña <i class="bi bi-key-fill mb-1"></i></label><br>
+                            <input type="password" id="contrasena_inicio_confirmar" value=""
+                                name="contrasena_inicio_confirmar" class="w-100 mb-2"
+                                placeholder="Introduce tu contraseña otra vez"><br>
+
                         </div>
                     </div>
                     <div class="form__btn" style="margin-top: 0.6rem;">

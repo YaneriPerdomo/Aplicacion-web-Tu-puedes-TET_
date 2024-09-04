@@ -9,7 +9,7 @@
                         </figure>
                         <a href="./read.php" class="text-decoration-none">
                             <i class="bi bi-house-door text-white fs-5"></i>
-                            <span  class="h5" style="text-decoration: none; color: white; border-radius: 0.5rem; align-self: center; font-weight: 600;">Home</span>
+                            <span  class="h5" style="text-decoration: none; color: white; border-radius: 0.5rem; align-self: center; font-weight: 600;">Casa</span>
                         </a>
                     </section>
                 <div class="dropdown" >

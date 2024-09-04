@@ -79,3 +79,8 @@ footer .d-flex {
     background: #ff7d3f !important;
     color: white !important;
 }
+
+
+.dropdown-item:active{
+    background-color:  #ff7d3f !important;
+  }

@@ -54,6 +54,7 @@ function listar()
                 <td>" . $estado . "</td>
                 <td>
                   <a href='alumni/modify.php' class='btn btn-warning me-2' data-bs-target='#exampleModal-2' data-bs-whatever='@mdo'><i class='bi bi-pencil-square text-darke'></i></a>
+                  <a href='alumni/progress.php' > <i class='bi bi-bar-chart-steps'></i></a>
                   <button type='button' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#confirmar'><i class='bi bi-trash'></i></button>
                   <div class='modal fade' id='confirmar' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                       <div class='modal-dialog'>

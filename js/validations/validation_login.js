@@ -3,9 +3,9 @@ const form_inicio = document.getElementById("form-inicio");
 const warning_span = document.querySelector("#warning_inicio > span");
 const warning_inicio = document.getElementById("warning_inicio");
 const usuario_inicio = document.getElementById("usuario_inicio");
-const contrasena_inicio_confimar = document.getElementById("contrasena_inicio_confirmar");
+const contrasena_inicio_confimar = document.getElementById("contrasena_inicio_confirmar") || null;
 const contrasena_inicio = document.getElementById("contrasena_inicio");
-let tres_campos_rojos = [usuario_inicio, contrasena_inicio, contrasena_inicio_confimar];
+let tres_campos_rojos = [usuario_inicio, contrasena_inicio, /*contrasena_inicio_confimar */];
 warning_inicio.style.display = "none";
 form_inicio.addEventListener("submit", (e) => {
     for (let i = 0; i < tres_campos_rojos.length; i++) {
@@ -14,12 +14,13 @@ form_inicio.addEventListener("submit", (e) => {
     let entrar = false;
     let warning_white = "";
     let contador = 0;
+    /*
     if (contrasena_inicio.value != contrasena_inicio_confimar.value) {
         warning_white += "Las contraseñas no coinciden <br>";
         entrar = true;
         contrasena_inicio.classList.add("red_vali");
         contrasena_inicio_confimar.classList.add("red_vali");
-    }
+    }*/
     if (contrasena_inicio.value == "") {
         warning_white += "No puede dejar el campo contraseña vacìo <br>";
         entrar = true;
@@ -32,20 +33,20 @@ form_inicio.addEventListener("submit", (e) => {
             entrar = true;
         
             usuario_inicio.classList.add("red_vali")
-        }*/
+        }
     if (contrasena_inicio_confimar.value == "") {
         warning_white += "No puedes dejar el campo de contraseña de confirmación vacío <br>";
         entrar = true;
         contador++;
         contrasena_inicio_confimar.classList.add("red_vali");
-    }
+    }*/
     if (usuario_inicio.value == "") {
         warning_white += "No puede dejar el campo de usuario vacío <br>";
         entrar = true;
         contador++;
         usuario_inicio.classList.add("red_vali");
     }
-    if (contador == 3) {
+    if (contador == 2) {
         warning_span.innerHTML = "Complete todos los campos";
         warning_inicio.classList.add("warning_not_vali");
         warning_inicio.style.display = "block";

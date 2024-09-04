@@ -1,665 +1,896 @@
- 
- import { _1_3, $countDownBody} from "../../auxiliares/windowModal3_1.js";
 
 //Variables
 let $dataWrong = document.querySelector("[data-wrong]");
 let $wrongSound = document.querySelector(".wrongSound");
 let $correctSound = document.querySelector(".correctSound");
-let $tableContainer = document.querySelector(".tableContainer");
+let $tableLetter = document.querySelector(".tableContainer");
+$tableLetter.setAttribute("data-next", "4");
 let $starNumber = document.querySelector(".start");
 let $progressBar = document.querySelector(".progress-bar");
 let incorrectCounter = 0;
-let $tableContainer_2 = document.querySelector(".tableContainer_2");
-let $tableContainer_3 = document.querySelector(".tableContainer_3")
-let $tresEjercicio = document.querySelector(".tresEjercicio")
 let $letterSound = document.querySelector(".letterSound");
-let $intentosNumber = document.querySelectorAll(".intentos > .number");
-let $intento = document.querySelector(".intentos")
-let $twoEjercicio = document.querySelector(".twoEjercicio");
 let $paragrahMessenger = document.querySelector(".messengerInformation > p");
+//Contadores para determinar cuantas veces el niño ha acertado incorrectamente.
+let countfia = 0;
+let countdar = 0;
+let countque = 0;
+let countfiz = 0;
 
-let $span = document.querySelectorAll(".tableContainer_2 > button");
-let $span_2 = document.querySelectorAll(".tableContainer_3 > button");
-//Contadores.
-//Ejercicio numero uno 
-let correctCounter = 0;
-let ErrorCounter = 0;
-
-const CountdownNext = document.querySelector(".countDownNext");
-
-
+//Contadores para determinar cuantas veces el niño ha acertado correctamente.
+let correctCounterFia = 0;
+let correctCounterDar = 0;
+let correctCounterQue = 0;
+let correctCounterFiz = 0;
 let randomNumber = 0;
-let intentos = 3;
-let count = 0;
-let countTotal = 0;
-let _1_3_text = document.querySelector(".text_1_3");
 let $spanLetter = document.querySelectorAll(".tableContainer > button");
+let $countDownBody = document.querySelector(".countDownBody");
 let $repeatDictation = document.querySelector(".repeatDictation");
 
-//nuevo
-let $colButton = document.querySelectorAll(".colButton > button")
 
-let $ceroIntentos = document.querySelector(".ceroIntentos")
-let $endLeccion = document.querySelector(".endLeccion");
-let $sonidoSiguiente = document.querySelector(".sonidoSiguiente")
-document.addEventListener("mousemove", (e) => {
-    if (e.target.matches(".colButton > button")) {
-        try {
-            $letterSound.play();
-        } catch (error) {
-            alert("error");
-        }
-    }
-});
-
-
-function correctWords(urlImg, words, correctWord) {
-    let $img = document.querySelector("figure > img");
-    $img.src = `../../../../img/player/${urlImg}.png`;
-    for (let i = words.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [words[i], words[j]] = [words[j], words[i]];
-    }
-    for (let i = 0; i < $colButton.length; i++) {
-        $colButton[i].innerHTML = words[i]
-    }
-    return $tableContainer.setAttribute("data-correct-word", `${correctWord}`)
-}
-let point = ["piscina", "picina", "pisicina"];
-correctWords("piscina", [...point], "piscina");
-
-
-
-document.addEventListener("click", e => {
-
-    
-    if (e.target.matches(".siguiente")) {
-        let $last = document.querySelector(".last");
-        let $first = document.querySelector(".first");
-        $first.style.display = "none";
-        $last.classList.add("animationBounceOut");
-        $last.removeAttribute("style");
-        $sonidoSiguiente.play()
-    }
-
-    if(e.target.matches(".btnContinua")){
-        $sonidoSiguiente.play()        
-    }
-
-    if (e.target.matches(".colButton > button")) {
-        if (e.target.textContent == "piscina") {
-            $wrongSound.pause();
-            correctCounter++;
-            $correctSound.play();
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        } else {
-            $intentosNumber[0].textContent = parseInt($intentosNumber[0].textContent) - 1;
-            ErrorCounter++;
-            $wrongSound.play();
-            e.target.classList.add("hoverRed");
-            $colButton.forEach(el => {
-                el.disabled = true
-            })
-            setTimeout(() => {
-                e.target.classList.remove("hoverRed");
-                $colButton.forEach(e => {
-                    e.removeAttribute("disabled")
-                })
-            }, 2000);
-            if ($intentosNumber[0].textContent == 0) {
-                $colButton.forEach(e => {
-                    e.disabled = true;
-                    e.classList.add("hoverRed");
-                })
-                $intento.classList.add("swing");
-                $ceroIntentos.play()
-                setTimeout(() => {
-                    $colButton.forEach(e => {
-                        e.classList.remove("hoverRed");
-                        e.removeAttribute("disabled")
-                    })
-                    $intento.classList.remove("swing")
-                    defineNextWords()
-                }, 2000);
-            }
-        }
-        if (e.target.textContent == "camiseta") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "casa") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "pendiente") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "pierna") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "helicóptero") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "melocotón") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "manzana") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "huracán") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "murciégalo") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "vaca") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-        if (e.target.textContent == "abrazo") {
-            $wrongSound.pause();
-            $correctSound.play();
-            correctCounter++;
-            $intentosNumber[0].textContent = 3;
-            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
-            e.target.classList.add("hoverVerde")
-            $colButton.forEach(e => {
-                if (e.textContent.length > 0) {
-                    e.disabled = true
-                }
-            })
-            if (parseInt($progressBar.textContent) < 101) {
-                $progressBar.innerHTML = `${parseInt($progressBar.textContent) + 5}%`;
-                $progressBar.style.width = `${parseInt($progressBar.textContent) + 5}%`;
-            }
-
-            setTimeout(() => {
-                e.target.classList.remove("hoverVerde");
-                $colButton.forEach(e => {
-                    if (e.textContent.length > 0) {
-                        e.removeAttribute("disabled");
-                        defineNextWords()
-                    }
-                })
-            }, 2000);
-        }
-    }
-})
-
-function defineNextWords() {
-    $intentosNumber[0].textContent = 3;
-    switch ($tableContainer.getAttribute("data-next")) {
-        case "0":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["camiseta", "casimeta", "catisema"];
-            correctWords("camiseta", [...point], "camiseta");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "1":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["piscina", "picina", "pisicina"];
-            correctWords("piscina", [...point], "piscina");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "2":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["casa", "zala", "sala"];
-            correctWords("casa", [...point], "casa");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "3":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["pendiente", "pediente", "pendeinte"];
-            correctWords("pendiente", [...point], "pendiente");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "4":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["piena", "pierna", "piema"];
-            correctWords("pierna", [...point], "pierna");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "5":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["helicóptero", "helicótero", "helicopetero"];
-            correctWords("helicóptero", [...point], "helicóptero");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "6":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["melocotón", "melocóton", "metocoton"];
-            correctWords("melocotón", [...point], "melocotón");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-
-        case "7":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["manzana", "manaza", "mazana"];
-            correctWords("manzana", [...point], "manzana");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "8":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["hucaran", "huarcán", "huracán"];
-            correctWords("huracán", [...point], "huracán");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "9":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["muerciegalo", "muerciegalo", "murciégalo"];
-            correctWords("murciégalo", [...point], "murciégalo");
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "10":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["vaca", "baca", "vala"];
-            correctWords("vaca", [...point], "vaca")
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        case "11":
-            randomNumber = Math.floor(Math.random() * 11);
-            point = ["adrazo", "abraso", "abrazo"];
-            correctWords("abrazo", [...point], "abrazo")
-            $tableContainer.setAttribute(
-                "data-next",
-                `${randomNumber}`
-            );
-            break;
-        default:
-            break;
-    }
-}
-
-//El inicio de todo 
+//Función que se ejecuta al inicio de la lección de forma automática.
 setTimeout(() => {
     let $main = document.querySelector("main");
-    $main.removeChild($main.children[10]);
+    $main.removeChild($main.children[7]);
     setTimeout(async () => {
         $countDownBody.removeAttribute("style");
+        voiceExercise("p");
         _1_3();
-        let texto = `Señala, de las tres propuestas, cuál es la correcta.`;
-        const hablar = (texto) =>
-            speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
-            hablar(texto);
-        setTimeout(() => {
-            temporizador()
-        }, 3000);
         setTimeout(() => {
             let $messengerInformation = document.querySelector(
                 ".messengerInformation"
             );
             $messengerInformation.removeAttribute("style");
             $messengerInformation.classList.add("AnimationMessengerInformation");
+
+            setTimeout(async () => {
+                await $messengerInformation.classList.remove(
+                    "AnimationMessengerInformation"
+                );
+                await setTimeout(() => {
+                    $repeatDictation.removeAttribute("style");
+                    $repeatDictation.classList.add("animationLetter");
+                    $paragrahMessenger.innerHTML = `Repetir la letra nuevamente.`;
+                    $paragrahMessenger.classList.add("animationLetter");
+                }, 3000);
+            }, 8000);
         }, 4000);
     }, 0);
 }, 1500);
- 
-
-async function temporizador() {
-    let $segMin = document.querySelector(".seg-min")
-    let countForNext = 59;
-    let countdown = setInterval(() => {
-        countForNext--;
-        if (countForNext < 10) {
-            CountdownNext.textContent = `1:0${countForNext}`;
-        }
-        if (countForNext > 10) {
-            CountdownNext.textContent = `1:${countForNext}`;
-        }
-        if (countForNext === 0) {
-            clearInterval(countdown);
-            temporizadorSegundaParte()
-        }
-    }, 1000);
-}
-function temporizadorSegundaParte() {
+//Estas funciones se ejecutan para pasar a la siguiente búsqueda de la letra(ejercicio) correspondiente.
+//La Letra P
+async function countDownP() {
+    await localStorage.setItem("letter", `p`);
     const CountdownNext = document.querySelector(".countDownNext");
-    let $segMin = document.querySelector(".seg-min")
     let countForNext = 60;
     let countdown = setInterval(() => {
         countForNext--;
-        CountdownNext.textContent = `${countForNext}`;
+        CountdownNext.textContent = countForNext;
         if (countForNext === 0) {
             clearInterval(countdown);
-            End_Game();
-            $endLeccion.play()
+            countDownV()
+        }
+    }, 1000);
+}
+countDownP();
+//La Letra v
+async function countDownV() {
+    $progressBar.innerHTML = "30%";
+    $progressBar.style.width = "30%";
+    $progressBar.style.background = "#ff7d3f";
+    await localStorage.setItem("letter", `v`);
+    _1_3();
+    voiceExercise("v");
+    defineLetter("ʌ", "u", "v", Math.floor(Math.random() * 72));
+    const CountdownNext = document.querySelector(".countDownNext");
+    let countForNext = 60;
+    let countdown = setInterval(() => {
+        countForNext--;
+        CountdownNext.textContent = countForNext;
+        if (countForNext === 0) {
+            clearInterval(countdown);
+            CountDownW()
+        }
+    }, 1000);
+}
+//La letra j
+async function countDownJ() {
+    $progressBar.innerHTML = "70%";
+    $progressBar.style.width = "70%";
+    $progressBar.style.background = "#ff7d3f";
+    await localStorage.setItem("letter", `j`);
+    _1_3();
+    voiceExercise("j");
+    defineLetter("t", "ɾ̣", "j", Math.floor(Math.random() * 72))
+    const CountdownNext = document.querySelector(".countDownNext");
+    let countForNext = 60;
+    let countdown = setInterval(() => {
+        countForNext--;
+        CountdownNext.textContent = countForNext;
+        if (countForNext === 0) {
+            clearInterval(countdown);
+            End_Game()
         }
     }, 1000);
 }
 
+//La letra w 
+async function CountDownW() {
+    await localStorage.setItem("letter", `w`);
+    $progressBar.innerHTML = "50%";
+    $progressBar.style.width = "50%";
+    $progressBar.style.background = "#ff7d3f";
+    _1_3();
+    voiceExercise("w");
+    defineLetter("ʍ", "m", "w", Math.floor(Math.random() * 72))
+    const CountdownNext = document.querySelector(".countDownNext");
+    let countForNext = 60;
+    let countdown = setInterval(() => {
+        countForNext--;
+        CountdownNext.textContent = countForNext;
+        if (countForNext === 0) {
+            clearInterval(countdown);
+            countDownJ()
+        }
+    }, 1000);
+}
+
+//La Funcion para terminar la leccion.
 function End_Game() {
-    let $progressBar = document.querySelector(".progress-bar");
     $progressBar.innerHTML = "100%";
     $progressBar.style.width = "100%";
     let $containerResults = document.querySelector(".containerResults");
     let $totalStar = document.querySelector(".totalStar");
     let $motivationalMessage = document.querySelector(".motivationalMessage");
     let $percentage = document.querySelector(".percentage");
-    let $correctFailed = document.querySelector(".correctFailed");
+    let $correctFailedFia = document.querySelector(".correctFailedFia");
+    let $correctFailedDar = document.querySelector(".correctFailedDar");
+    let $correctFailedQue = document.querySelector(".correctFailedQue");
+    let $correctFailedFiz = document.querySelector(".correctFailedFiz");
     $totalStar.innerHTML = $starNumber.textContent;
-    if (ErrorCounter == 0) {
+    if (incorrectCounter == 0) {
         $percentage.innerHTML = "100%";
         $motivationalMessage.innerHTML = "¡Lo hiciste increíble!";
     }
-    if (ErrorCounter > 0 && ErrorCounter < 5) {
+    if (incorrectCounter > 0 && incorrectCounter < 5) {
         $percentage.innerHTML = "75%";
         $motivationalMessage.innerHTML = "¡Oh, Bastante bien!";
     }
 
-    if (ErrorCounter > 5 && ErrorCounter < 15) {
+    if (incorrectCounter > 5 && incorrectCounter < 15) {
         $percentage.innerHTML = "50%";
         $motivationalMessage.innerHTML = "¡Lo hiciste bien!";
     }
-    if (ErrorCounter > 15 && ErrorCounter < 20) {
+    if (incorrectCounter > 15 && incorrectCounter < 20) {
         $percentage.innerHTML = "30%";
         $motivationalMessage.innerHTML = "No está mal, hay que mejorar.";
     }
-    if (ErrorCounter > 20) {
+    if (incorrectCounter > 20) {
         $percentage.innerHTML = "20%";
         $motivationalMessage.style.display = "none";
     }
     console.info(incorrectCounter);
     $containerResults.removeAttribute("style");
-    document.querySelector(".containerResults  > div").classList.add("animationBounce");
+    document
+        .querySelector(".containerResults  > div")
+        .classList.add("animationBounce");
     //failed
-    if (correctCounter == 0) {
-        $correctFailed.innerHTML = `Has acertado ${correctCounter} veces y no has cometido ningún error.`;
-    } else if (correctCounter == 1) {
-        $correctFailed.innerHTML = `Has acertado ${correctCounter} veces y has fallado solo una vez.`;
+    if (countfia == 0) {
+        $correctFailedFia.innerHTML = `¡Enhorabuena! Has acertado ${correctCounterFia} veces y no has cometido ningún error.`;
+    } else if (countfia == 1) {
+        $correctFailedFia.innerHTML = `¡Buen Trabajo! Has acertado ${correctCounterFia} veces y has fallado solo una vez.`;
     } else {
-        $correctFailed.innerHTML = `Has acertado ${correctCounter} veces y has fallado ${ErrorCounter} veces.`;
+        $correctFailedFia.innerHTML = `Has acertado ${correctCounterFia} veces y has fallado ${countfia} veces.`;
+    }
+    if (countdar == 0) {
+        $correctFailedDar.innerHTML = `¡Enhorabuena! Has acertado ${correctCounterDar} veces y no has cometido ningún error.`;
+    } else if (countdar == 1) {
+        $correctFailedDar.innerHTML = `¡Buen Trabajo! Has acertado ${correctCounterDar} veces y has fallado solo una vez.`;
+    } else {
+        $correctFailedDar.innerHTML = `Has acertado ${correctCounterDar} veces y has fallado ${countdar} veces.`;
+    }
+    if (countque == 0) {
+        $correctFailedQue.innerHTML = `¡Enhorabuena! Has acertado ${correctCounterQue} veces y no has cometido ningún error.`;
+    } else if (countque == 1) {
+        $correctFailedQue.innerHTML = `¡Buen Trabajo! Has acertado ${correctCounterQue} veces y has fallado solo una vez.`;
+    } else {
+        $correctFailedQue.innerHTML = `Has acertado ${correctCounterQue} veces y has fallado ${countque} veces.`;
+    }
+    if (countfiz == 0) {
+        $correctFailedFiz.innerHTML = `¡Enhorabuena! Has acertado ${correctCounterFiz} veces y no has cometido ningún error.`;
+    } else if (countfiz == 1) {
+        $correctFailedFiz.innerHTML = `¡Buen Trabajo! Has acertado ${correctCounterFiz} veces y has fallado solo una vez.`;
+    } else {
+        $correctFailedFiz.innerHTML = `Has acertado ${correctCounterFiz} veces y has fallado ${countfiz} veces.`;
     }
 }
+
+//Funcion principal para cambiar la posicion de la letra.
+function Define_Next_Letter() {
+    switch (localStorage.getItem("letter")) {
+        case "p":
+            nextP();
+            break;
+        case "v":
+            nextV()
+            break;
+        case "w":
+            nextW()
+            break;
+        case "j":
+            nextJ();
+            break;
+        default:
+            break;
+    }
+}
+
+//Estas dos funciones sirven para automatizar la tarea completa de rellenar/establecer la letra de la etiqueta. Como su nombre lo define.
+function defineLetter(similarLetterOne, similarLetterTwo, winningLetter, number) {
+    let $span = document.querySelectorAll(".tableContainer > button");
+    let contador = 0;
+    let numeroR = [];
+    for (let i = 0; i < $span.length; i++) {
+        numeroR.push(Math.trunc(Math.random() * 72))
+    }
+    console.log(numeroR)
+    for (let i = 0; i < $span.length; i++) {
+        contador = contador + 1;
+        if (number === contador) {
+            $span[i].innerHTML = `${winningLetter}`;
+            continue;
+        }
+        else if (numeroR[i] % 2 == 0) {
+            $span[i].innerHTML = `${similarLetterOne}`;
+        } else {
+            $span[i].innerHTML = `${similarLetterTwo}`;
+        }
+
+    }
+}
+
+function voiceExercise(winningLetter) {
+    let texto = `Encuentra la letra, ${winningLetter}.`;
+    const hablar = (texto) =>
+        speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
+    return hablar(texto);
+}
+
+//Estas funciones sirven para ejecutar automáticamente la tarea de la siguiente posición de la letra correspondiente.     
+
+function nextV() {
+    switch ($tableLetter.getAttribute("data-next")) {
+        case "0":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "1":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "2":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "3":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "4":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "5":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "6":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "7":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "8":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "9":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "10":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "11":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "12":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("flu", "fio", "fia", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "13":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "14":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "15":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʌ", "u", "v", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        default:
+            alert("you are crazy");
+            break;
+    }
+}
+function nextW() {
+    switch ($tableLetter.getAttribute("data-next")) {
+        case "0":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "1":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "2":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "3":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "4":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "5":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "6":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "7":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "8":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "9":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "10":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "11":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "12":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "13":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "14":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "15":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("ʍ", "m", "w", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        default:
+            alert("you are crazy");
+            break;
+    }
+}
+function nextJ() {
+    switch ($tableLetter.getAttribute("data-next")) {
+        case "0":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "1":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "2":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "3":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "4":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "5":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "6":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "7":
+            randomNumber = Math.floor(Math.random() * 72);
+            localStorage.setItem("spanNumber", randomNumber);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "8":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "9":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "10":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "11":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "12":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "13":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "14":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        case "15":
+            randomNumber = Math.floor(Math.random() * 72);
+            defineLetter("t", "ɾ̣", "j", randomNumber)
+            localStorage.setItem("spanNumber", randomNumber);
+            $tableLetter.setAttribute(
+                "data-next",
+                `${Math.floor(Math.random() * 15)}`
+            );
+            break;
+        default:
+            alert("you are crazy");
+            break;
+    }
+}
+
+//Función de ventana modal para contar de 3 a 1
+function _1_3() {
+    let count = 3;
+    const countdownElement = document.querySelector(".countDownBody > div > h2");
+    countdownElement.innerHTML = "3";
+    $countDownBody.removeAttribute("style");
+    let countdown = setInterval(() => {
+        count--;
+        countdownElement.textContent = count;
+        if (count === 0) {
+            clearInterval(countdown);
+            $countDownBody.style.display = "none";
+        }
+    }, 1000);
+}
+//Eventos
+//Evento de localStorage
+document.addEventListener("DOMContentLoaded", async (e) => {
+    await defineLetter("q", "b", "p", 2)
+    if (localStorage.getItem("letter") === null) {
+        localStorage.setItem("letter", null);
+    }
+    if (localStorage.getItem("spanNumber") === null) {
+        localStorage.setItem("spanNumber", null);
+    }
+});
+//Este es un evento del mouse y se activa el sonido cuando el mouse está sobre el botón.
+
+//Evento para pasar a la siguiente letra . De igual manera hay que verificar si esta correcta o no.
+document.addEventListener("click", (e) => {
+    if (e.target.matches(".btnSalir")) {
+        e.preventDefault();
+    }
+    if (e.target.matches(".siguiente")) {
+        let $continue = document.querySelector(".siguiente");
+        let $last = document.querySelector(".last");
+        let $first = document.querySelector(".first");
+        $first.style.display = "none";
+        $last.classList.add("animationBounceOut");
+        $last.removeAttribute("style");
+    }
+    if (e.target.matches(".tableContainer > button")) {
+        if (e.target.textContent == "p") {
+            correctCounterFia++;
+            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
+            e.target.classList.add("hoverVerde");
+            $spanLetter.forEach(letter => {
+                letter.disabled = true;
+                setTimeout(() => {
+                    letter.removeAttribute("disabled")
+                }, 2000);
+            })
+            $wrongSound.pause();
+            $correctSound.play();
+            setTimeout(() => {
+                e.target.classList.remove("hoverVerde");
+                nextP();
+
+                $correctSound.pause();
+            }, 2000);
+        } else {
+            $spanLetter.forEach((letter) => {
+                letter.disabled = true;
+                if (letter.textContent === localStorage.getItem("letter")) {
+                    letter.classList.add("hoverVerde");
+                    letter.disabled = true;
+                    setTimeout(() => {
+                        letter.classList.remove("hoverVerde");
+                        letter.removeAttribute("disabled")
+                    }, 2000);
+                }
+                setTimeout(() => {
+                    letter.removeAttribute("disabled")
+                }, 2000);
+            });
+            e.target.classList.add("hoverRed");
+            $dataWrong.setAttribute("data-wrong", "true");
+            if ($dataWrong.getAttribute("data-wrong")) {
+                $wrongSound.play();
+            }
+            setTimeout(() => {
+                e.target.classList.remove("hoverRed");
+            }, 2000);
+            setTimeout(() => {
+                $dataWrong.setAttribute("data-wrong", "false");
+                Define_Next_Letter();
+            }, 2000);
+            incorrectCounter = incorrectCounter + 1;
+            switch (localStorage.getItem("letter")) {
+                case "fia":
+                    countfia++;
+                    break;
+                case "dar":
+                    countdar++;
+                    break;
+                case "que":
+                    countque++;
+                    break;
+                case "fiz":
+                    countfiz++;
+                    break;
+                default:
+                    break;
+            }
+        }
+        if (e.target.textContent == "v") {
+            correctCounterDar++;
+            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
+            e.target.classList.add("hoverVerde");
+
+            $wrongSound.pause();
+
+            $correctSound.play();
+            $spanLetter.forEach(letter => {
+                letter.disabled = true;
+                setTimeout(() => {
+                    letter.removeAttribute("disabled")
+                }, 2000);
+            })
+            setTimeout(() => {
+                e.target.classList.remove("hoverVerde");
+                nextV();
+
+                $correctSound.pause();
+            }, 2000);
+        }
+        if (e.target.textContent == "w") {
+            correctCounterQue++;
+            $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
+            e.target.classList.add("hoverVerde");
+            $spanLetter.forEach(letter => {
+                letter.disabled = true;
+                setTimeout(() => {
+                    letter.removeAttribute("disabled")
+                }, 2000);
+            })
+            $wrongSound.pause();
+            $correctSound.play();
+            setTimeout(() => {
+                e.target.classList.remove("hoverVerde");
+                nextW();
+                $correctSound.pause();
+            }, 2000);
+        }
+    }
+    if (e.target.textContent == "j") {
+        correctCounterFiz++;
+        $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
+        e.target.classList.add("hoverVerde");
+        $wrongSound.pause();
+        $correctSound.play();
+        setTimeout(() => {
+            e.target.classList.remove("hoverVerde");
+            nextJ();
+            $correctSound.pause();
+        }, 2000);
+    }
+
+});
+
+//Evento click para Repetir la letra nuevamente.
+$repeatDictation.addEventListener("click", (e) => {
+    switch (localStorage.getItem("letter")) {
+        case "p":
+            voiceExercise("p");
+            break;
+        case "v":
+            voiceExercise("v");
+            break;
+        case "w":
+            voiceExercise("w");
+            break;
+        case "j":
+            voiceExercise("j");
+            break;
+        default:
+            break;
+    }
+});
+
+
+//En esta ocasión pude implementar la lección número cinco para los niños que saben leer. Att: Yaneri Perdomo
+
