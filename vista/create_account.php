@@ -19,6 +19,15 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/includeHTML/cabezera.css">
     <link rel="stylesheet" type="text/css" href="../css/iniciar_crear_cuenta/create_account.css">
+    <style>
+        .noValidation {
+            transition: border 0.2s linear;
+            border: solid 0.1px #d55252 !important;
+        }
+        #warning{
+            color: #d55252;
+        }
+    </style>
 </head>
 
 <body>
@@ -45,18 +54,20 @@
         <div class="container- container__user">
             <div class="container__user-form">
                 <h1 class="text-uppercase fw-semibold text-center ">CREA UNA CUENTA</h1>
-                <form action="../php/registro.php" method="POST" autocomplete="off">
-                    <div id="warning" class="text-center">
-                        <span></span>
+                <form action="../php/registro.php" method="POST" autocomplete="off" data-rol="profesional">
+                    <div id="warning" class="text-center" style="margin-bottom: 0.5rem" ;>
+                        <small class="siVacio"></small>
+                        <small class="noVacio"></small>
+                        <small class="stringValidation"></small>
                     </div>
                     <div class="form__flex ms-3">
                         <div class="group--btn" style="text-align: center;">
                             <label for="representante" style="cursor:pointer;  margin: 0.0rem 0.5rem;"
-                                id="Representante">
+                                id="Representante" data-representante="false">
                                 Representante
                             </label>
                             <label for="professional " style="cursor:pointer; margin: 0.0rem 0.5rem;" id="Professional"
-                                class="border-b">
+                                class="border-b" data-profesional="true">
                                 <input type="hidden" name="rol" id="rol" value="1" id="professional">Puesto Profesional
                             </label>
                         </div>
@@ -134,7 +145,7 @@
                                 <option value="31">Perú</option>
                                 <option value="32">Surinam</option>
                                 <option value="33">Uruguay</option>
-                                <option value="34">Venezuela</option>
+                                <option value="34" selected>Venezuela</option>
                             </select>
                             <br>
                             <div class="cargos  ">

@@ -154,12 +154,12 @@ session_start();
                 <p>Indica, cuál es la letra incorrecta.</p>
             </div>
         </div>
-        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" autoplay class="letterSound"></audio>
+        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3"   class="letterSound"></audio>
         <audio src="../../../../audio/welcome_jugador/wrong.mp3" class="wrongSound" data-wrong="false"></audio>
         <audio src="../../../../audio/welcome_jugador/correct.mp3" class="correctSound"></audio>
-        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3" autoplay class="endLeccion"></audio>
-        <audio src="../../../../audio/welcome_jugador/siguiente.mp3" autoplay class="sonidoSiguiente"></audio>
-        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3" autoplay class="ceroIntentos"></audio>
+        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3"   class="endLeccion"></audio>
+        <audio src="../../../../audio/welcome_jugador/siguiente.mp3"   class="sonidoSiguiente"></audio>
+        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3"   class="ceroIntentos"></audio>
         <div class="logoPresentation">
             <div>
                 <div class="spinner-border" role="status">

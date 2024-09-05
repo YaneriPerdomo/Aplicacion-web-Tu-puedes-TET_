@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", e => {
 
 document.addEventListener("click", e => {
 
-    
+
     if (e.target.matches(".siguiente")) {
         let $last = document.querySelector(".last");
         let $first = document.querySelector(".first");
@@ -245,7 +245,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "activida") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -267,7 +267,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "danana") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -289,7 +289,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "belo") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -311,7 +311,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "naraja") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -333,7 +333,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "nude") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -355,7 +355,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "tihda") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -377,7 +377,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "ormiga") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -399,7 +399,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "lɐpiz") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -421,7 +421,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "cocodilo") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -443,7 +443,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "chet") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -465,7 +465,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "saleco") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -487,7 +487,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "cinturóm") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -509,7 +509,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "rinocironte") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -531,7 +531,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "uava") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -553,7 +553,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "propueta") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -575,7 +575,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "kasa") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -597,7 +597,7 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
         if (e.target.textContent == "camieta") {
             $starNumber.innerHTML = `${1 + Number.parseInt($starNumber.textContent)}`;
             e.target.classList.add("hoverVerde");
@@ -619,15 +619,15 @@ document.addEventListener("click", e => {
                 })
                 $correctSound.pause();
             }, 2000);
-        } 
+        }
     }
 })
 
 function defineNextWords() {
     switch ($tableContainer.getAttribute("data-next")) {
         case "0":
-            randomNumber = Math.floor(Math.random()* 15);
-              points = ["piscina", "picina"];
+            randomNumber = Math.floor(Math.random() * 15);
+            points = ["piscina", "picina"];
             IncorrectWords("piscina", [...points], "picina");
             $tableContainer.setAttribute(
                 "data-next",
@@ -635,9 +635,9 @@ function defineNextWords() {
             );
             break;
         case "1":
-            randomNumber = Math.floor(Math.random()* 15);
-          
-              points = ["tortuga", "totuga"];
+            randomNumber = Math.floor(Math.random() * 15);
+
+            points = ["tortuga", "totuga"];
             IncorrectWords("tortuga", [...points], "totuga");
             $tableContainer.setAttribute(
                 "data-next",
@@ -645,9 +645,9 @@ function defineNextWords() {
             );
             break;
         case "2":
-            randomNumber = Math.floor(Math.random()* 15);
-           
-              points = ["actividad", "activida"];
+            randomNumber = Math.floor(Math.random() * 15);
+
+            points = ["actividad", "activida"];
             IncorrectWords("actividad", [...points], "activida");
             $tableContainer.setAttribute(
                 "data-next",
@@ -655,16 +655,16 @@ function defineNextWords() {
             );
             break;
         case "3":
-            randomNumber = Math.floor(Math.random()* 15);
+            randomNumber = Math.floor(Math.random() * 15);
             points = ["danana", "banana"];
-            IncorrectWords("banana", [...points], "banana");
+            IncorrectWords("banana", [...points], "danana");
             $tableContainer.setAttribute(
                 "data-next",
                 `${randomNumber}`
             );
             break;
         case "4":
-            randomNumber = Math.floor(Math.random()* 15);
+            randomNumber = Math.floor(Math.random() * 15);
             points = ["pelo", "belo"];
             IncorrectWords("pelo", [...points], "belo");
             $tableContainer.setAttribute(
@@ -673,7 +673,7 @@ function defineNextWords() {
             );
             break;
         case "5":
-            randomNumber = Math.floor(Math.random()* 15);
+            randomNumber = Math.floor(Math.random() * 15);
             points = ["naranja", "naraja"];
             IncorrectWords("naranja", [...points], "naraja");
             $tableContainer.setAttribute(
@@ -682,7 +682,7 @@ function defineNextWords() {
             );
             break;
         case "6":
-            randomNumber = Math.floor(Math.random()* 15);
+            randomNumber = Math.floor(Math.random() * 15);
             points = ["nube", "nude"];
             IncorrectWords("nube", [...points], "nude");
             $tableContainer.setAttribute(
@@ -692,7 +692,7 @@ function defineNextWords() {
             break;
 
         case "7":
-            randomNumber = Math.floor(Math.random()* 15);
+            randomNumber = Math.floor(Math.random() * 15);
             points = ["tiza", "tihda"];
             IncorrectWords("tiza", [...points], "tihda");
             $tableContainer.setAttribute(
@@ -701,7 +701,7 @@ function defineNextWords() {
             );
             break;
         case "8":
-            randomNumber = Math.floor(Math.random()* 15);
+            randomNumber = Math.floor(Math.random() * 15);
             points = ["hormiga", "ormiga"];
             IncorrectWords("hormiga", [...points], "ormiga");
             $tableContainer.setAttribute(
@@ -710,7 +710,7 @@ function defineNextWords() {
             );
             break;
         case "9":
-            randomNumber = Math.floor(Math.random()* 15);
+            randomNumber = Math.floor(Math.random() * 15);
             points = ["lɐpiz", "lapiz"];
             IncorrectWords("lapiz", [...points], "lɐpiz");
             $tableContainer.setAttribute(
@@ -719,7 +719,7 @@ function defineNextWords() {
             );
             break;
         case "10":
-            randomNumber = Math.floor(Math.random()* 15);
+            randomNumber = Math.floor(Math.random() * 15);
             points = ["lɐpiz", "lapiz"];
             IncorrectWords("lapiz", [...points], "lɐpiz");
             $tableContainer.setAttribute(
@@ -728,7 +728,7 @@ function defineNextWords() {
             );
             break;
         case "11":
-            randomNumber = Math.floor(Math.random()* 15);
+            randomNumber = Math.floor(Math.random() * 15);
             points = ["cocodrilo", "cocodilo"];
             IncorrectWords("cocodrilo", [...points], "cocodilo");
             $tableContainer.setAttribute(
@@ -736,77 +736,77 @@ function defineNextWords() {
                 `${randomNumber}`
             );
             break;
-            case "12":
-                randomNumber = Math.floor(Math.random()* 15);
-                points = ["chet", "chef"];
-                IncorrectWords("chef", [...points], "chet");
-                $tableContainer.setAttribute(
-                    "data-next",
-                    `${randomNumber}`
-                );
-                break;
-                case "13":
-                randomNumber = Math.floor(Math.random()* 15);
-                points = ["chaleco", "saleco"];
-                IncorrectWords("chaleco", [...points], "saleco");
-                $tableContainer.setAttribute(
-                    "data-next",
-                    `${randomNumber}`
-                );
-                case "14":
-                    randomNumber = Math.floor(Math.random()* 15);
-                    points = ["cinturón", "cinturóm"];
-                    IncorrectWords("cinturón", [...points], "cinturóm");
-                    $tableContainer.setAttribute(
-                        "data-next",
-                        `${randomNumber}`
-                    );
-                break;
-                case "15":
-                    randomNumber = Math.floor(Math.random()* 15);
-                    points = ["rinoceronte", "rinocironte"];
-                    IncorrectWords("rinoceronte", [...points], "rinocironte");
-                    $tableContainer.setAttribute(
-                        "data-next",
-                        `${randomNumber}`
-                    );
-                break;
-                case "16":
-                    randomNumber = Math.floor(Math.random()* 15);
-                    points = ["camiseta", "camieta"];
-                    IncorrectWords("camiseta", [...points], "camieta");
-                    $tableContainer.setAttribute(
-                        "data-next",
-                        `${randomNumber}`
-                    );
-                break;
-                case "17":
-                    randomNumber = Math.floor(Math.random()* 15);
-                    points = ["casa", "kasa"];
-                    IncorrectWords("casa", [...points], "kasa");
-                    $tableContainer.setAttribute(
-                        "data-next",
-                        `${randomNumber}`
-                    );
-                break;
-                case "18":
-                    randomNumber = Math.floor(Math.random()* 15);
-                    points = ["vaca", "uava"];
-                    IncorrectWords("vaca", [...points], "uava");
-                    $tableContainer.setAttribute(
-                        "data-next",
-                        `${randomNumber}`
-                    );
-                break;
-                case "19":
-                    randomNumber = Math.floor(Math.random()* 15);
-                    points = ["propuesta", "propueta"];
-                    IncorrectWords("propuesta", [...points], "propueta");
-                    $tableContainer.setAttribute(
-                        "data-next",
-                        `${randomNumber}`
-                    );
-                break;
+        case "12":
+            randomNumber = Math.floor(Math.random() * 15);
+            points = ["chet", "chef"];
+            IncorrectWords("chef", [...points], "chet");
+            $tableContainer.setAttribute(
+                "data-next",
+                `${randomNumber}`
+            );
+            break;
+        case "13":
+            randomNumber = Math.floor(Math.random() * 15);
+            points = ["chaleco", "saleco"];
+            IncorrectWords("chaleco", [...points], "saleco");
+            $tableContainer.setAttribute(
+                "data-next",
+                `${randomNumber}`
+            );
+        case "14":
+            randomNumber = Math.floor(Math.random() * 15);
+            points = ["cinturón", "cinturóm"];
+            IncorrectWords("cinturón", [...points], "cinturóm");
+            $tableContainer.setAttribute(
+                "data-next",
+                `${randomNumber}`
+            );
+            break;
+        case "15":
+            randomNumber = Math.floor(Math.random() * 15);
+            points = ["rinoceronte", "rinocironte"];
+            IncorrectWords("rinoceronte", [...points], "rinocironte");
+            $tableContainer.setAttribute(
+                "data-next",
+                `${randomNumber}`
+            );
+            break;
+        case "16":
+            randomNumber = Math.floor(Math.random() * 15);
+            points = ["camiseta", "camieta"];
+            IncorrectWords("camiseta", [...points], "camieta");
+            $tableContainer.setAttribute(
+                "data-next",
+                `${randomNumber}`
+            );
+            break;
+        case "17":
+            randomNumber = Math.floor(Math.random() * 15);
+            points = ["casa", "kasa"];
+            IncorrectWords("casa", [...points], "kasa");
+            $tableContainer.setAttribute(
+                "data-next",
+                `${randomNumber}`
+            );
+            break;
+        case "18":
+            randomNumber = Math.floor(Math.random() * 15);
+            points = ["vaca", "uava"];
+            IncorrectWords("vaca", [...points], "uava");
+            $tableContainer.setAttribute(
+                "data-next",
+                `${randomNumber}`
+            );
+            break;
+        case "19":
+            randomNumber = Math.floor(Math.random() * 15);
+            points = ["propuesta", "propueta"];
+            IncorrectWords("propuesta", [...points], "propueta");
+            $tableContainer.setAttribute(
+                "data-next",
+                `${randomNumber}`
+            );
+            break;
         default:
             break;
     }

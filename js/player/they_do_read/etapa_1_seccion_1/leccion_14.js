@@ -367,7 +367,7 @@ async function defineNext() {
             }
             break
         case "2":
-        
+
             switch ($nextLectura.getAttribute("data-view")) {
                 case "1":
                     $read.removeAttribute("style")
@@ -407,7 +407,7 @@ async function defineNext() {
             }
             break
         case "3":
-           
+
             switch ($nextLectura.getAttribute("data-view")) {
                 case "1":
                     $read.removeAttribute("style")
@@ -434,21 +434,21 @@ async function defineNext() {
                     break;
                 case "5":
 
-                randomNumber = Math.floor(Math.random() * 5);
-                $nextLectura.setAttribute("data-next-lectura", randomNumber);
-                $nextLectura.removeAttribute("style")
-                $nextLectura.innerHTML = "Comenzar con la siguiente lectura."
-                $nextLectura.setAttribute("data-view", 1)
-                $questions.style.display = "none"
-                $read.style.display = "none"
-                $containerNext.removeAttribute("style");
+                    randomNumber = Math.floor(Math.random() * 5);
+                    $nextLectura.setAttribute("data-next-lectura", randomNumber);
+                    $nextLectura.removeAttribute("style")
+                    $nextLectura.innerHTML = "Comenzar con la siguiente lectura."
+                    $nextLectura.setAttribute("data-view", 1)
+                    $questions.style.display = "none"
+                    $read.style.display = "none"
+                    $containerNext.removeAttribute("style");
                     break;
                 default:
                     break;
             }
             break
         case "4":
-        
+
             switch ($nextLectura.getAttribute("data-view")) {
                 case "1":
                     $read.removeAttribute("style")

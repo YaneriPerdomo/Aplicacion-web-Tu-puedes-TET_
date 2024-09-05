@@ -7,44 +7,43 @@ const contrasena_inicio_confimar = document.getElementById("contrasena_inicio_co
 const contrasena_inicio = document.getElementById("contrasena_inicio");
 let tres_campos_rojos = [usuario_inicio, contrasena_inicio, /*contrasena_inicio_confimar */];
 warning_inicio.style.display = "none";
+const $contrasena = document.querySelector("#contrasena_inicio");
+const $contrasenaAgain = document.querySelector("#contrasena_inicio_confirmar");
+$contrasena.addEventListener("input", e => {
+    console.log(e.target.value)
+    $contrasenaAgain.value = e.target.value
+})
+
+document.addEventListener("DOMContentLoaded", e => {
+    $contrasenaAgain.value = $contrasena.value
+
+})
+
+document.addEventListener("DOMContentLoaded", e => {
+    usuario_inicio.innerHTML = "";
+    contrasena_inicio.innerHTML = "";
+    contrasena_inicio_confimar.innerHTML = ""
+})
 form_inicio.addEventListener("submit", (e) => {
     for (let i = 0; i < tres_campos_rojos.length; i++) {
-        tres_campos_rojos[i].classList.remove("red_vali");
+        tres_campos_rojos[i].classList.remove("noValidation");
     }
     let entrar = false;
     let warning_white = "";
     let contador = 0;
-    /*
-    if (contrasena_inicio.value != contrasena_inicio_confimar.value) {
-        warning_white += "Las contraseñas no coinciden <br>";
-        entrar = true;
-        contrasena_inicio.classList.add("red_vali");
-        contrasena_inicio_confimar.classList.add("red_vali");
-    }*/
+    
     if (contrasena_inicio.value == "") {
         warning_white += "No puede dejar el campo contraseña vacìo <br>";
         entrar = true;
         contador++;
-        contrasena_inicio.classList.add("red_vali");
+        contrasena_inicio.classList.add("noValidation");
     }
-    /*
-        if(contrasena_inicio.value.length > 0 && contrasena_inicio.value.length < 5 ){
-            warning_white += "La contraseña debe tener más caracteres  <br>";
-            entrar = true;
-        
-            usuario_inicio.classList.add("red_vali")
-        }
-    if (contrasena_inicio_confimar.value == "") {
-        warning_white += "No puedes dejar el campo de contraseña de confirmación vacío <br>";
-        entrar = true;
-        contador++;
-        contrasena_inicio_confimar.classList.add("red_vali");
-    }*/
+   
     if (usuario_inicio.value == "") {
         warning_white += "No puede dejar el campo de usuario vacío <br>";
         entrar = true;
         contador++;
-        usuario_inicio.classList.add("red_vali");
+        usuario_inicio.classList.add("noValidation");
     }
     if (contador == 2) {
         warning_span.innerHTML = "Complete todos los campos";

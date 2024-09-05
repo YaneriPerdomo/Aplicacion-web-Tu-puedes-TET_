@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../css/iniciar_crear_cuenta/log_in.css">
     <link rel="stylesheet" href="../../css/includeHTML/cabezera.css">
+    <style>
+        .noValidation {
+            transition: border 0.2s linear;
+            border: solid 0.1px #d55252 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,7 +49,8 @@
         <div class="container- container__user">
             <div class="container__user-form">
                 <h1 class="text-uppercase fw-semibold text-center ">Inicia Sesión</h1>
-                <form form action="../../php/inicioSesion.php" id="form-inicio" class="body_start" method="POST">
+                <form form action="../../php/inicioSesion.php" autocomplete="off" id="form-inicio" class="body_start"
+                    method="POST">
                     <div id="warning_inicio" class="text-center ">
                         <span>
                             <?php if (isset($alerta))
@@ -56,12 +63,14 @@
                     <label for="">Contraseña <i class="bi bi-key-fill mb-1"></i></label><br>
                     <input type="password" id="contrasena_inicio" name="contrasena_inicio" class="w-100 mb-2 "
                         placeholder="Introduce tu contraseña"><br>
-                        <div class="d-none">
+                    <div class="d-none">
                         <label for="">Confirmar contraseña <i class="bi bi-key-fill mb-1"></i></label><br>
-                    <input type="password" id="contrasena_inicio_confirmar" value="" name="contrasena_inicio_confirmar" class="w-100 mb-2" placeholder="Introduce tu contraseña otra vez"><br>  
-                    
-                        </div>
-                        <div class="form__btn" style="margin-bottom: 0.6rem;">
+                        <input type="password" id="contrasena_inicio_confirmar" value=""
+                            name="contrasena_inicio_confirmar" class="w-100 mb-2"
+                            placeholder="Introduce tu contraseña otra vez"><br>
+
+                    </div>
+                    <div class="form__btn" style="margin-bottom: 0.6rem;">
                         <button class="mt-2  form__btn--detalle">Entrar <i class="bi bi-caret-right"></i></button>
                     </div>
                     <span style=" margin-top: 0.6rem; text-align:center; display:block">¿No registrado? <a
@@ -72,14 +81,8 @@
             </div>
         </div>
     </main>
-        <script>
-            const $contrasena =document.querySelector("#contrasena_inicio");
-            const $contrasenaAgain =document.querySelector("#contrasena_inicio_confirmar");
-            $contrasena.addEventListener("input", e => {
-                console.log(e.target.value)
-                $contrasenaAgain.value = e.target.value
-            })
-        </script>
+    <script>
+    </script>
     <script src="../../js/validations/validation_login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

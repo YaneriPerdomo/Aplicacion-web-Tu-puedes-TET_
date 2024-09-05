@@ -204,7 +204,7 @@ function defineNextWords() {
             break;
         case "5":
             randomNumber = Math.floor(Math.random() * 30);
-            countSyllables("El tiempo es perfecto.", 7);
+            countSyllables("El tiempo.", 4);
             $tableContainer.setAttribute(
                 "data-next",
                 `${randomNumber}`
@@ -245,7 +245,7 @@ function defineNextWords() {
             break;
         case "10":
             randomNumber = Math.floor(Math.random() * 30);
-            countSyllables("Veinticinco veintiuno.", 7)
+            countSyllables("Veinticinco.", 5)
             $tableContainer.setAttribute(
                 "data-next",
                 `${randomNumber}`

@@ -8,7 +8,7 @@ let $body = document.querySelector("body");
 document.addEventListener("click", (e) => {
     if (e.target.matches(".bottom_date")) {
         if ($date_difference.value.substring(0, 4).length == 0) {
-            alert('ingrese fecha');
+            alert('Introduzca la fecha');
             return false;
         }
         let date = new Date();

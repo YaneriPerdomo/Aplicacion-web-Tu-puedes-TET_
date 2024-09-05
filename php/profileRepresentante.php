@@ -38,7 +38,7 @@ function modificar()
     $llamado->execute();
 
     $query = "UPDATE representantes SET id_afiliacion = :idAfiliacion, id_pais = :idPais, nombre = :nombre, apellido = :apellido, correo_electronico = :correo WHERE id_representante = :idRepresentante;";
-
+    
     $llamado = $db->prepare($query);
     $llamado->bindParam(':idAfiliacion', $afilicacion);
     $llamado->bindParam(':idPais', $pais);
@@ -47,7 +47,7 @@ function modificar()
     $llamado->bindParam(':correo', $correo);
     $llamado->bindParam(':idRepresentante', $idRepresentante);
     $llamado->execute();
-
+    
     header("location:../vista/admin/representative_role/dashboard.php");
 }
 function eliminar()
