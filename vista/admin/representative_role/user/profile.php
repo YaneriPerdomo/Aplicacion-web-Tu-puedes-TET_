@@ -34,6 +34,12 @@ session_start();
       align-items: center;
       gap: 1rem;
     }
+
+
+    .noValidation {
+      transition: border 0.2s linear;
+      border: solid 0.1px #d55252 !important;
+    }
   </style>
 </head>
 
@@ -47,42 +53,83 @@ session_start();
       <p>Aquí <span style="color: #fc7c45; font-size: 18px;">puedes editar tu perfil de usuario.</span> Sólo te pido los
         datos mínimos, pero si puedes completar tu perfil con
         algo más de información me será de gran ayuda.</p>
-      <form action="../../../../php/profileRepresentante.php" method="POST" class="container__main--perfil">
+      <form action="../../../../php/profileRepresentante.php" method="POST" class="container__main--perfil  formR">
         <input type="hidden" name="call" value="1" />
         <legend style="text-align: center;">Datos del usuario</legend>
+        <div id="" class="text-center warningR" style="margin-bottom: 0.5rem" ;>
+          <small class="siVacioR" id=""></small>
+          <small class="noVacioR" id=""></small>
+          <small class="stringValidationR" id=""></small>
+        </div>
         <label for="">Usuario</label>
-        <input name="usuario" type="text" placeholder="Ingrese tu usuario"><br>
+        <input name="usuario" type="text" placeholder="Ingrese tu usuario" class="" id=""><br>
         <label for="">Nombre</label>
-        <input name="nombre" type="text" placeholder="Ingrese tu nombre"><br>
+        <input name="nombre" type="text" placeholder="Ingrese tu nombre" class="" id=""><br>
         <label for="">Apellido</label>
-        <input name="apellido" type="text" placeholder="Ingrese tu apellido"><br>
+        <input name="apellido" type="text" placeholder="Ingrese tu apellido" id=""><br>
         <label for="">Correo Electronico</label>
-        <input name="correo" type="text" placeholder="Ingrese tu correo electronico"><br>
+        <input name="correo" type="text" placeholder="Ingrese tu correo electronico" id=""><br>
         <label for="">Afiliaciòn</label><br>
         <select name="afiliacion" id="">
-          <option value="1" selected>Padre</option>
-          <option value="2">Madre</option>
+          <option value="1" selected> Madre</option>
+          <option value="2">Padre</option>
+          <option value="3">Abuelo</option>
+          <option value="4">Abuela</option>
+          <option value="5">Bisabuelo</option>
+          <option value="6">Bisabuela</option>
+          <option value="7">Tío</option>
+          <option value="8">Tía</option>
+          <option value="9">Sobrino</option>
+          <option value="10">Sobrina</option>
+          <option value="11">Primo</option>
+          <option value="12">Prima</option>
+          <option value="13">Vecino</option>
+          <option value="14">Vecina</option>
+          <option value="15">Suegro</option>
+          <option value="16">Suegra</option>
+          <option value="17">Cuñado</option>
+          <option value="18">Cuñada</option>
+          <option value="19">Yerno</option>
+          <option value="20">Nuera</option>
+          <option value="21">Pareja</option>
+          <option value="22">Otro</option>
         </select>
         <label for="">Pais</label>
-        <select name="pais" id="">
-          <option id="">Elige su pais</option>
-          <option value="1" id="">Argentina</option>
-          <option value="2" id="">Bolivia</option>
-          <option value="3" id="">Brasil</option>
-          <option value="4" id="">Chile</option>
-          <option value="5" id="">Colombia</option>
-          <option value="6" id="">Costa Rica</option>
-          <option value="7" id="">Cuba</option>
-          <option value="8" id="">Ecuador</option>
-          <option value="9" id="">El Salvador</option>
-          <option value="10" id="">Guatemala</option>
-          <option value="11" id="">Haití</option>
-          <option value="12" id="">Honduras</option>
-          <option value="13" id="">México</option>
-          <option value="14" id="">Nicaragua</option>
-          <option value="15" id="">Panamá</option>
-          <option value="16" id="">Paraguay</option>
-          <option value="17" id="">Venezuela</option>
+        <select name="paises" id="pais">
+          <option value="1">México</option>
+          <option value="2">Belice</option>
+          <option value="3">Costa Rica</option>
+          <option value="4">El Salvador</option>
+          <option value="5">Guatemala</option>
+          <option value="6">Honduras</option>
+          <option value="7">Nicaragua</option>
+          <option value="8">Panamá</option>
+          <option value="9">Antigua y Barbuda</option>
+          <option value="10">Bahamas</option>
+          <option value="11">Barbados</option>
+          <option value="12">Cuba</option>
+          <option value="13">Dominica</option>
+          <option value="14">Granada</option>
+          <option value="15">Haití</option>
+          <option value="16">Jamaica</option>
+          <option value="17">Puerto Rico</option>
+          <option value="18">República Dominicana</option>
+          <option value="19">San Cristóbal y Nevis</option>
+          <option value="20">Santa Lucía</option>
+          <option value="21">San Vicente y las Granadinas</option>
+          <option value="22">Trinidad y Tobago</option>
+          <option value="23">Argentina</option>
+          <option value="24">Bolivia</option>
+          <option value="25">Brasil</option>
+          <option value="26">Chile</option>
+          <option value="27">Colombia</option>
+          <option value="28">Ecuador</option>
+          <option value="29">Guyana</option>
+          <option value="30">Paraguay</option>
+          <option value="31">Perú</option>
+          <option value="32">Surinam</option>
+          <option value="33">Uruguay</option>
+          <option value="34" selected>Venezuela</option>
         </select>
         <label for="">Tipo de cuenta Tu Puedes</label>
         <input type="text" value="Representante" readonly class="tipo--cuenta">
@@ -108,6 +155,9 @@ session_start();
       </form>
     </div>
   </main>
+
+  <script>
+  </script>
   <!-- Modal Change -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -117,8 +167,10 @@ session_start();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="../../../../php/profileRepresentante.php" method="POST">
+          <form action="../../../../php/profileAdmin.php" method="POST" class="cambiarContraseña">
             <input type="hidden" name="call" value="3" />
+            <small id="warning" class="d-block text-center"></small>
+            <small class="SmallErrorTwo" style="color: #d55252;" class="d-block text-center"></small>
             <input name="oldcontrasena" type="password" autofocus class="modal__password"
               placeholder="Contraseña actual">
             <input name="contrasena" type="password" class="modal__password" placeholder="Nueva contraseña">
@@ -128,7 +180,7 @@ session_start();
         <div class="modal-footer">
           <button type="button" class=" form__btn--detalles" sytle="font-weight: 500"
             data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary ">Guardar cambios</button>
+          <button type="submit" class="btn btn-primary btnGuardarCambios">Guardar cambios</button>
         </div>
         </form>
       </div>
@@ -175,6 +227,8 @@ session_start();
   <div data-include="../../../includeHTMLsinPhp/admin/footer_admin.php"></div>
   <script src="../../../../js/admin/profile.js"></script>
   <script src="../../../../js/ajax/include-html.js"></script>
+  <script src="../../../../js/validations/validationPasswordPerfil.js"></script>
+  <script src="../../../../js/validations/validationRepresentanteAdmin.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>

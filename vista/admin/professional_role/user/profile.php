@@ -41,7 +41,7 @@ session_start();
   </style>
 </head>
 
-<body >
+<body>
   <div data-include="../../../includeHTMLsinPhp/admin/header_admin_user.php"></div>
   <br>
   <main>
@@ -53,12 +53,17 @@ session_start();
       <form action="../../../../php/profileAdmin.php" method="POST" class="container__main--perfil">
         <input type="hidden" name="call" value="1" />
         <legend style="text-align: center;">Datos del usuario</legend>
+        <div id="w" class="warningPerfil text-center" style="margin-bottom: 0.5rem" ;>
+          <small style="color: #d55252;" class="siVacio"></small>
+          <small class="noVacio" style="color: #d55252;"></small>
+          <small class="stringValidation" style="color: #d55252;"></small>
+        </div>
         <label for="">Usuario</label>
         <input name="usuario" type="text" placeholder="Ingrese tu usuario"><br>
         <label for="">Nombre</label>
-        <input name="nombre" type="text" placeholder="Ingrese tu nombre"><br>
+        <input name="nombre" type="text" placeholder="Ingrese tu nombre" id="nombre"><br>
         <label for="">Apellido</label>
-        <input name="apellido" type="text" placeholder="Ingrese tu apellido"><br>
+        <input name="apellido" type="text" placeholder="Ingrese tu apellido" id="apellido"><br>
         <label for="">Correo Electronico</label>
         <input name="correo" type="text" placeholder="Ingrese tu correo electronico"><br>
         <div class="cargos  ">
@@ -69,34 +74,50 @@ session_start();
           </select><br>
         </div>
         <label for="">Pais</label>
-        <select name="pais" id="">
-          <option id="">Elige su pais</option>
-          <option value="1" id="">Argentina</option>
-          <option value="2" id="">Bolivia</option>
-          <option value="3" id="">Brasil</option>
-          <option value="4" id="">Chile</option>
-          <option value="5" id="">Colombia</option>
-          <option value="6" id="">Costa Rica</option>
-          <option value="7" id="">Cuba</option>
-          <option value="8" id="">Ecuador</option>
-          <option value="9" id="">El Salvador</option>
-          <option value="10" id="">Guatemala</option>
-          <option value="11" id="">Haití</option>
-          <option value="12" id="">Honduras</option>
-          <option value="13" id="">México</option>
-          <option value="14" id="">Nicaragua</option>
-          <option value="15" id="">Panamá</option>
-          <option value="16" id="">Paraguay</option>
-          <option value="17" id="">Venezuela</option>
+        <select name="paises" id="pais">
+          <option value="1">México</option>
+          <option value="2">Belice</option>
+          <option value="3">Costa Rica</option>
+          <option value="4">El Salvador</option>
+          <option value="5">Guatemala</option>
+          <option value="6">Honduras</option>
+          <option value="7">Nicaragua</option>
+          <option value="8">Panamá</option>
+          <option value="9">Antigua y Barbuda</option>
+          <option value="10">Bahamas</option>
+          <option value="11">Barbados</option>
+          <option value="12">Cuba</option>
+          <option value="13">Dominica</option>
+          <option value="14">Granada</option>
+          <option value="15">Haití</option>
+          <option value="16">Jamaica</option>
+          <option value="17">Puerto Rico</option>
+          <option value="18">República Dominicana</option>
+          <option value="19">San Cristóbal y Nevis</option>
+          <option value="20">Santa Lucía</option>
+          <option value="21">San Vicente y las Granadinas</option>
+          <option value="22">Trinidad y Tobago</option>
+          <option value="23">Argentina</option>
+          <option value="24">Bolivia</option>
+          <option value="25">Brasil</option>
+          <option value="26">Chile</option>
+          <option value="27">Colombia</option>
+          <option value="28">Ecuador</option>
+          <option value="29">Guyana</option>
+          <option value="30">Paraguay</option>
+          <option value="31">Perú</option>
+          <option value="32">Surinam</option>
+          <option value="33">Uruguay</option>
+          <option value="34" selected>Venezuela</option>
         </select>
         <div class="container__lugar_trabajo  ">
           <label for="nombre_centro_escolar" class="nombre_centro_escolar">Nombre del Centro escolar o
             profesional</label><br data-delete>
-          <input type="text" class="nombre_centro_escolar" name="centro"
+          <input type="text" class="nombre_centro_escolar" name="centro"id="centro"
             placeholder="Nombre del Centro escolar o profesional"><br data-br-delete>
         </div>
         <label for="">Tipo de cuenta Tu Puedes</label>
-        <input type="text" value="1" name="cargo" readonly class="tipo--cuenta">
+        <input type="text" value="Profesional" name="cargo" readonly class="tipo--cuenta">
         <div class="change__clave" style="text-align: center; text-decoration:none">
           <button type="button" style="color: #309cb7 ; background: none; border: 0; font-weight: 500;"
             data-bs-toggle="modal" data-bs-target="#exampleModal"> Cambia tu contraseña </button>
@@ -119,6 +140,135 @@ session_start();
       </form>
     </div>
   </main>
+  <script>
+    //Etiqueta form
+    let $formEditarPerfil = document.querySelector(`[class="container__main--perfil"]`);
+    //all the inputs on my page
+    let $usuario = document.querySelector(`[name="usuario"]`) || "0";
+    let $nombre = document.querySelector("[name='nombre']") || "0";
+    let $apellido = document.querySelector("[name='apellido']") || "0";
+    let $correo = document.querySelector("[name='correo']") || "0";
+    let $centro = document.querySelector("[name = 'centro']") || "0";
+
+    let ExpreUsuario = new RegExp("[A-Za-z0-9]{6,30}$");
+    let expresionCorreo = new RegExp(`[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}`);
+    let expresionNombre = new RegExp(`^[A-Za-zÑñÁáÉéÍíÓóÚú]+(?: [A-Za-zÑñÁáÉéÍíÓóÚú]+)*$`);
+    let expresionCentro = new RegExp(`^[A-Za-zÑñÁáÉéÍíÓóÚú,.()]+(?: [A-Za-zÑñÁáÉéÍíÓóÚú,.()]+)*$`)
+    //Array of the inputs
+    let $arrayInputsPerfil = [$usuario, $nombre, $apellido, $correo, $centro]
+    let $warningSpanPerfil = document.querySelector(".warningPerfil > small") 
+    let $warningSmallNoVacioPerfil = document.querySelector(".warningPerfil > .noVacio") ;
+    let $warningString = document.querySelector(".stringValidation") ;
+    let $arrayWarningsPerfil = [$warningSmallNoVacioPerfil, $warningSpanPerfil, $warningString];
+
+    //Evento de la etiqueta form
+    $formEditarPerfil.addEventListener("submit", e => {
+      e.preventDefault()
+      let enter = false,
+        count = 0,
+        warningWrite = "";
+      warningWriteNoVacio = "",
+        arrayString = [] ;
+      $arrayInputsPerfil.forEach(e => {
+        e.classList.remove("noValidation")
+      })
+
+      $arrayWarningsPerfil.forEach(e => {
+        e.innerHTML = ""
+      })
+      if ($usuario.value == "") {
+        warningWrite += "No puede dejar el campo de usuario vacío <br>";
+        enter = true;
+        count++;
+        $usuario.classList.add("noValidation")
+      } else if (!(ExpreUsuario.exec($usuario.value))) {
+        $usuario.classList.add("noValidation")
+        if ($usuario.value.length < 6) {
+          warningWriteNoVacio += "Tu usuario debe tener entre 6 y 30 caracteres. <br>"
+          enter = true;
+        } else {
+          warningWriteNoVacio += "No debe contener caracteres especiales. <br> "
+          enter = true;
+        }
+      }
+      if ($nombre.value == "") {
+        warningWrite += "No puede dejar el campo de nombre vacío <br>";
+        enter = true;
+        count++;
+        $nombre.classList.add("noValidation")
+      } else if (!(expresionNombre.exec($nombre.value))) {
+        $nombre.classList.add("noValidation")
+        arrayString.push("nombre");
+      }
+      if ($apellido.value == "") {
+        warningWrite += "No puede dejar el campo de nombre vacío <br>";
+        enter = true;
+        count++;
+        $apellido.classList.add("noValidation")
+      } else if (!(expresionNombre.exec($apellido.value))) {
+        arrayString.push("apellido");
+        $apellido.classList.add("noValidation")
+      }
+      if ($correo.value == "") {
+        warningWrite += "No puede dejar el campo de nombre vacío <br>";
+        enter = true;
+        count++;
+        $correo.classList.add("noValidation")
+      } else if (!(expresionCorreo.exec($correo.value))) {
+        warningWriteNoVacio += "Correo electrónico no válido <br>"
+        enter = true;
+        $correo.classList.add("noValidation")
+      }
+      if ($centro.value == "") {
+        warningWrite += "No puede dejar el campo de nombre vacío <br>";
+        enter = true;
+        count++;
+        $centro.classList.add("noValidation")
+      } else if (!(expresionCentro.exec($centro.value))) {
+        arrayString.push("centro")
+        $centro.classList.add("noValidation")
+      }
+
+
+      if (count == 5) {
+        $arrayInputsPerfil.forEach(e => {
+          e.classList.add("noValidation")
+        })
+        $warningSpanPerfil.innerHTML = "Complete todos los campos";
+        e.preventDefault()
+      } else if (enter) {
+        if(count == 1){
+          $warningSpanPerfil.innerHTML = "Complete el campo que falta <br>";
+        } 
+        if (count > 1) {
+          $warningSpanPerfil.innerHTML = "Complete los campos que faltan <br>";
+          $warningSmallNoVacioPerfil.innerHTML = warningWriteNoVacio;
+          console.log(arrayString.length)
+          console.info(arrayString)
+          e.preventDefault()
+          switch (arrayString.length) {
+            case 0:
+              $warningString.innerHTML = ""
+              break;
+            case 1:
+              $warningString.innerHTML = `El ${arrayString[0]} introducido no es inválido`
+              break;
+            case 2:
+              $warningString.innerHTML = `El ${arrayString[0]} y  ${arrayString[1]}  introducidos no son válidos`
+              break;
+            case 3:
+              $warningString.innerHTML = `El ${arrayString[0]},  ${arrayString[1]} y ${arrayString[2]}  introducidos no son válidos`
+              break;
+            default:
+              break;
+          }
+        } else {
+          $warningSmallNoVacioPerfil.innerHTML = warningWriteNoVacio;
+          e.preventDefault()
+        }
+      }
+    })
+  </script>
   <!-- Modal Change -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -128,8 +278,10 @@ session_start();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="../../../../php/profileAdmin.php" method="POST">
+          <form action="../../../../php/profileAdmin.php" method="POST" class="cambiarContraseña">
             <input type="hidden" name="call" value="3" />
+            <small id="warning"  class="d-block text-center"></small>
+            <small class="SmallErrorTwo"  style="color: #d55252;" class="d-block text-center"></small>
             <input name="oldcontrasena" type="password" autofocus class="modal__password"
               placeholder="Contraseña actual">
             <input name="contrasena" type="password" class="modal__password" placeholder="Nueva contraseña">
@@ -139,12 +291,13 @@ session_start();
         <div class="modal-footer">
           <button type="button" class=" form__btn--detalles" sytle="font-weight: 500"
             data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary ">Guardar cambios</button>
+          <button type="submit" class="btn btn-primary btnGuardarCambios">Guardar cambios</button>
         </div>
         </form>
       </div>
     </div>
   </div>
+
 
   <!--Modal delete-->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -186,6 +339,8 @@ session_start();
   <div data-include="../../../includeHTMLsinPhp/admin/footer_admin.php"></div>
   <script src="../../../../js/admin/profile.js"></script>
   <script src="../../../../js/ajax/include-html.js"></script>
+  <script src="../../../../js/validations/validationPasswordPerfil.js"></script>
+  <script src="../../../../js/validations/validationProfesionalAdmin.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>

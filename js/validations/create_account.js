@@ -256,7 +256,6 @@ $form.addEventListener("submit", e => {
 
 console.log("Yane perdomo");
 const d = document;
-
 const nombre = document.getElementById("nombre");
 const apellido = document.getElementById("apellido");
 const form = document.querySelector("form");

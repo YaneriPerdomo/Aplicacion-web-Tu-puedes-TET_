@@ -74,7 +74,7 @@ if ($contrasena == $contrasenaVal) {
                     // $json = "[data: 'No tienes permisos']";
                     // json_encode($json) // Script "no tiene permisos" USAR AJAX
                     header("location: ../vista/signin/log_in.php");
-                    echo "<script> alert('no tiene permisos') </script>";
+                    echo "<script> alert('no tienes permisos') </script>";
                     break;
                 }
         }
