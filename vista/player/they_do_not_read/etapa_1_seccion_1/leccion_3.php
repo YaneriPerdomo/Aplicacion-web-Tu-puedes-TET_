@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lección 1 | Tú puedes</title>
+    <title>Lección 9 | Tú puedes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="https://pie-meister.github.io/PieMeister-with-Progress.min.js"></script>
@@ -18,18 +18,6 @@ session_start();
     <style>
         main {
             background-image: url(../../../../img/player/fondo.png);
-        }
-
-        .letterContainer>div {
-            text-align: center;
-            justify-content: center;
-            align-content: center;
-            display: flex;
-
-        }
-
-        .tableContainer {
-            width: 400px;
         }
     </style>
 </head>
@@ -64,7 +52,7 @@ session_start();
         </div>
         <div class="letterContainer">
             <div class="container-xxl">
-                <div class="tableContainer" data-next="1" data-letter="d">
+                <div class="tableContainer" data-next="1" data-letter="p">
                     <button>b</button>
                     <button>b</button>
                     <button>b</button>
@@ -91,12 +79,13 @@ session_start();
                 <p> Encuentra el elemento que has escuchado.</p>
             </div>
         </div>
-        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3"   class="letterSound"></audio>
+
+        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" class="letterSound"></audio>
         <audio src="../../../../audio/welcome_jugador/wrong.mp3" class="wrongSound" data-wrong="false"></audio>
         <audio src="../../../../audio/welcome_jugador/correct.mp3" class="correctSound"></audio>
-        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3"   class="endLeccion"></audio>
-        <audio src="../../../../audio/welcome_jugador/siguiente.mp3"   class="sonidoSiguiente"></audio>
-        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3"   class="ceroIntentos"></audio>
+        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3" class="endLeccion"></audio>
+        <audio src="../../../../audio/welcome_jugador/siguiente.mp3" class="sonidoSiguiente"></audio>
+        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3" class="ceroIntentos"></audio>
         <div class="logoPresentation">
             <div>
                 <div class="spinner-border" role="status">
@@ -122,16 +111,16 @@ session_start();
                 <h2 class=""> ¡Completaste la lección! </h2>
                 <div class="first">
                     <b>En el primer ejercicio de encontrar la letra b.</b><br>
-                    <span class="correctFailedB"></span><br>
+                    <span class="correctFailedFia"></span><br>
                     <hr>
                     <b>En el segundo ejercicio de encontrar la letra l.</b><br>
-                    <span class="correctFailedL"></span><br>
+                    <span class="correctFailedDar"></span><br>
                     <hr>
                     <b>En el tercero ejercicio de encontrar la letra q.</b><br>
-                    <span class="correctFailedQ"></span><br>
+                    <span class="correctFailedQue"></span><br>
                     <hr>
                     <b>En el cuarto ejercicio de encontrar la letra n.</b><br>
-                    <span class="correctFailedN"></span><br>
+                    <span class="correctFailedFiz"></span><br>
                     <hr>
                     <button class="siguiente">Siguiente <i class="bi bi-caret-right"></i></button>
                 </div>
@@ -170,8 +159,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../../../../js/player/they_do_not_read/etapa_1_seccion_1/leccion_1.js" type="module"></script>
-
+    <script src="../../../../js/player/they_do_not_read/etapa_1_seccion_1/leccion_3.js"></script>
 </body>
 
 </html>

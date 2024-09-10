@@ -54,7 +54,7 @@ document.addEventListener("click", (e) => {
         $sonidoSiguiente.play()
     }
 
-    if(e.target.matches(".bi-volume-up")){
+    if(e.target.matches(".cuidado")){
         let texto = ` ¡Cuidado!. ¿Vas a abandonar tu lección y perderás todo el progreso?. ¿Estás seguro de que quieres abandonar? `;
         const hablar = (texto) =>
             speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
