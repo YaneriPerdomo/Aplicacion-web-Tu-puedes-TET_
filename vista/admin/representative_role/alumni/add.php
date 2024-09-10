@@ -36,7 +36,10 @@ session_start();
         }
 
 
-        
+        .noValidation {
+            transition: border 0.2s linear;
+            border: solid 0.1px #d55252 !important;
+        }
     </style>
 </head>
 
@@ -50,6 +53,10 @@ session_start();
             <p>Introduce los siguientes datos para crear un nuevo usuario. favor, asegúrate de la veracidad de los datos
                 introducidos. </p>
             <form action="../../../../php/representantes.php" method="POST" class="container-main__ada-alumno">
+                <div>
+                    <small class="warningSmall"></small>
+                    <small class="warningWriteNoVacio"></small>
+                </div>
                 <div class="wrapper">
                     <input type="hidden" name="call" value="1">
                     <input type="checkbox" name="nino" id="option-1" checked>
@@ -63,7 +70,8 @@ session_start();
                         <span>Niña</span>
                     </label>
                 </div>
-                <input type="text" name="usuario" placeholder="Usuario"><br>
+                <label for="usuario">Usuario del jugador</label>
+                <input type="text" name="usuario" placeholder="Introduce el usuario del jugador(a)"><br>
                 <select name="pais" id="">
                     <option id="">Elige su pais</option>
                     <option value="1" id="">Argentina</option>
@@ -92,14 +100,134 @@ session_start();
                 <input name="lectura" type="checkbox" class="test" style="width: auto;"><br>
                 <label for="test" style="text-align: center; margin-right: 0.3rem; ">Permisos para que el jugador entre
                     en el aprendizaje.</label>
-                <input name="permisos" type="checkbox" class="test" style="width: auto;">
-                <input name="contrasena" type="password" placeholder="Contraseña">
+                <input name="permisos" type="checkbox" class="test" style="width: auto;"><br>
+                <label for="contrasena">Contraseña</label>
+                <input name="contrasena" type="password" placeholder="Introduca la contraseña">
+                <label for="contrasenaval">Confirmar contraseña</label>
+                <input name="contrasenaval" type="password" class="" placeholder="Confirmar contraseña">
                 <input type="submit" value="Agregar" class="btn__crear-niños"><br>
                 <a href="../dashboard.php"
                     style="text-align: center; display: block;  color: rgb(220, 55, 55);">Cancelar</a>
             </form>
         </div>
     </main>
+    <script>
+
+
+        let $formAdd = document.querySelector("form");
+        let $usuario = document.querySelector(`[name="usuario"]`);
+        let $contrasena = document.querySelector('[name="contrasena"]');
+        let $confirmarContrasena = document.querySelector('[name="contrasenaval"]');
+        let ExpreUsuario = new RegExp("[A-Za-z0-9]{6,30}$");
+
+        let $arrayInputsAdd = [$usuario, $contrasena, $confirmarContrasena,]
+        let $warningSmall = document.querySelector(".warningSmall");
+        let $warningWriteNoVacio = document.querySelector(".warningWriteNoVacio")
+        $formAdd.addEventListener("submit", e => {
+            e.preventDefault()
+            let enter = false,
+                count = 0,
+                warningWrite = [];
+            $arrayInputsAdd.forEach((el) => {
+                el.classList.remove("noValidation")
+            });
+
+            let messengerUser = ""
+            $warningSmall.innerHTML = ""
+            $warningWriteNoVacio.innerHTML = ""
+            if ($usuario.value == "") {
+                warningWrite.push("No puede dejar el campo de usuario vacío <br>");
+                enter = true;
+                messengerUser = "No puede dejar el campo de usuario vacío <br>"
+                count++;
+                $usuario.classList.add("noValidation")
+            } else if (!(ExpreUsuario.exec($usuario.value))) {
+                $usuario.classList.add("noValidation")
+                if ($usuario.value.length < 6) {
+                    warningWrite.push("Tu usuario debe tener entre 6 y 30 caracteres. <br>")
+                    messengerUser = "Tu usuario debe tener entre 6 y 30 caracteres. <br>"
+                    enter = true;
+                } else {
+                    warningWrite.push("No debe contener caracteres especiales. <br> ")
+                    messengerUser = "No debe contener caracteres especiales. <br>"
+                    enter = true;
+                }
+            }
+
+            if ($contrasena.value == "") {
+                warningWrite.push("No puede dejar el campo de contraseña vacío <br>")
+                enter = true;
+                count++;
+                $usuario.classList.add("noValidation")
+            }
+            if ($confirmarContrasena.value == "") {
+                warningWrite.push("No puede dejar el campo de confirmar contraseña vacío <br>")
+                enter = true;
+                count++;
+                $usuario.classList.add("noValidation")
+            }
+
+            let repetir = false
+            if ($contrasena.value != $confirmarContrasena.value) {
+                enter = true
+                repetir = true
+            }
+
+            if (count == 3) {
+                $arrayInputsAdd.forEach(e => {
+                    e.classList.add("noValidation")
+                })
+                $warningSmall.innerHTML = "Complete todos los campos";
+                e.preventDefault()
+            } else if (enter) {
+                if (count == 1) {
+                    if (repetir) {
+                        $warningSmall.innerHTML += "No coinciden las contraseñas <br>"
+                        e.preventDefault();
+                        for (let i = 0; i < warningWrite.length; i++) {
+                            if (warningWrite[i].includes("No puede dejar el campo de confirmar contraseña vacío <br>")) {
+                                continue
+                            }
+                            $warningSmall.innerHTML += warningWrite[i];
+                        }
+                        return true;
+                    }
+                    $warningSmall.innerHTML += messengerUser;
+                    $warningSmall.innerHTML += "Complete el campo que falta"
+                } else if(count == 2){
+                    if (repetir) {
+                        $warningSmall.innerHTML += "No coinciden las contraseñas <br>"
+                        e.preventDefault();
+                        console.info(warningWrite)
+                        for (let i = 0; i < warningWrite.length; i++) {
+                            if (warningWrite[i].includes("No puede dejar el campo de confirmar contraseña vacío <br>")) {
+                                continue
+                            }
+                            $warningSmall.innerHTML += warningWrite[i];
+                        }
+                        return true;
+                    }
+                    console.info(warningWrite)
+                    $warningSmall.innerHTML += messengerUser
+                    $warningSmall.innerHTML += "Complete los campos que faltan"
+                }else{
+                    if (repetir) {
+                        $warningSmall.innerHTML += "No coinciden las contraseñas <br>"
+                        e.preventDefault();
+                        console.info(warningWrite)
+                        for (let i = 0; i < warningWrite.length; i++) {
+                            if (warningWrite[i].includes("No puede dejar el campo de confirmar contraseña vacío <br>")) {
+                                continue
+                            }
+                            $warningSmall.innerHTML += warningWrite[i];
+                        }
+                        return true;
+                    }
+                }
+            }
+        })
+
+    </script>
     <br><br><br><br><br><br><br>
     <div data-include="../../../includeHTMLsinPhp/admin/footer_admin.php"></div>
     <script src="../../../../js/ajax/include-html.js"></script>

@@ -40,7 +40,7 @@ session_start();
       transition: border 0.2s linear;
       border: solid 0.1px #d55252 !important;
     }
-  </style>
+  </style> 
 </head>
 
 <body>
