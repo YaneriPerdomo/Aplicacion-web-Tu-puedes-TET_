@@ -15,21 +15,10 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="../../../../img/icono/icono.ico">
     <link rel="stylesheet" href="../../../../css/player/they_do_read/lecciones.css">
+    <link rel="stylesheet" href="../../../../css/player/they_do_not_read/lecciones_alteradas.css">
     <style>
         main {
             background-image: url(../../../../img/player/fondo.png);
-        }
-
-        .letterContainer>div {
-            text-align: center;
-            justify-content: center;
-            align-content: center;
-            display: flex;
-
-        }
-
-        .tableContainer {
-            width: 400px;
         }
     </style>
 </head>

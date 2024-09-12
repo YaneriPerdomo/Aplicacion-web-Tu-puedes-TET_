@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lección 10 | Tú puedes</title>
+    <title>Lección 2 | Tú puedes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="https://pie-meister.github.io/PieMeister-with-Progress.min.js"></script>
@@ -46,7 +46,7 @@ session_start();
             text-align: center;
             border-radius: 0.5rem;
             margin-bottom: 0.6rem;
-             width: auto;
+            width: auto;
             width: clamp(50px, 40%, 70px);
         }
 
@@ -103,12 +103,45 @@ session_start();
 
 
         /*leccion 10 */
-        .theWord {
-            margin: 1rem 0;
-            /* color: inherit; */
-            border: 0;
-            border-bottom: 1px rgb(173 173 173) solid;
+        .theLetter {
+            cursor: pointer;
+            border: 0rem;
+            border-bottom-width: 0rem;
+            border-bottom-style: none;
+            border-bottom-color: currentcolor;
+            border-bottom-width: 0rem;
+            border-bottom-style: none;
+            border-bottom-color: currentcolor;
+            border-bottom-width: 0rem;
+            border-bottom-style: none;
+            border-bottom-color: currentcolor;
+            border-bottom: #d9713f solid 3px;
+            background: #ff864c;
+            color: white;
+            font-weight: 500;
+            font-size: 2rem;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            margin-bottom: 0.6rem;
+            width: auto;
+            width: clamp(450px, 40%, 70px);
+            text-align: center;
+            margin: 0rem 3rem;
+            display: block;
+            max-width: 20rem !important;
+            max-height: 67px;
+        }
 
+        .containerColButton{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .containerColButton > div {
+            max-width: 400px;
+            width: clamp(500px, 40%, 70px);
         }
     </style>
 </head>
@@ -144,23 +177,30 @@ session_start();
         <div class="letterContainer">
             <div class="container-xxl">
                 <div class="tableContainer align-items-center justify-content-center" data-next="5">
-                    <strong class="theWord"></strong>
+                    <div class="containerLetter d-flex justify-content-center">
+                        <strong class="theLetter"><span>?</span></strong>
+                    </div>
                     <hr>
-                    <div class=" colButton">
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        
+                    <div class="containerColButton">
+                        <div class="colButton">
+                            <button>?</button>
+                            <button data-primo="true">?</button>
+                            <button data-primo="true">?</button>
+                            <button>?</button>
+                            <button>?</button>
+                            <button data-primo="true">?</button>
+                            <button>?</button>
+                            <button>?</button>
+                            <button>?</button>
+                            <button>?</button>
+                            <button data-primo="true">?</button>
+                        </div>
                     </div>
                 </div>
                 <br>
                 <div class="containerIntentos">
                     <span class="intentos">
-                        <span class="intentoText"> Intentos:</span> 
+                        <span class="intentoText"> Intentos:</span>
                         <span class="number">3</span>
                     </span>
                 </div>
@@ -173,18 +213,17 @@ session_start();
         </div>
         <div class="messengerUserContainer">
             <div class="messengerInformation animate__backInDown" style="display:none">
-                <i class="bi bi-volume-up me-1 repeatDictation" style="display: none;"></i>
-                <p>Indica el número de sílabas que tiene el verso.</p>
-                
+                <i class="bi bi-volume-up me-1 repeatVerso" style="cursor: pointer;"></i>
+                <p>Escribe la clave secreta que viste.</p>
             </div>
         </div>
-        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3"   class="letterSound"></audio>
+        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" class="letterSound"></audio>
         <audio src="../../../../audio/welcome_jugador/wrong.mp3" class="wrongSound" data-wrong="false"></audio>
         <audio src="../../../../audio/welcome_jugador/correct.mp3" class="correctSound"></audio>
-        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3"   class="endLeccion"></audio>
-        <audio src="../../../../audio/welcome_jugador/siguiente.mp3"   class="sonidoSiguiente"></audio>
-        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3"   class="ceroIntentos"></audio>
-        <div class="logoPresentation" >
+        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3" class="endLeccion"></audio>
+        <audio src="../../../../audio/welcome_jugador/siguiente.mp3" class="sonidoSiguiente"></audio>
+        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3" class="ceroIntentos"></audio>
+        <div class="logoPresentation">
             <div>
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>
@@ -228,6 +267,7 @@ session_start();
             <div class=" modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header modal-header--comenzar ">
+                        <i class="bi bi-volume-up me-1 fs-5 cuidado" style="cursor: pointer;"></i>
                         <span class="modal-title fs-5" id="staticBackdropLabel">¡Cuidado!</span>
                     </div>
                     <div class="modal-body">
@@ -243,12 +283,11 @@ session_start();
                 </div>
             </div>
         </div>
-
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../../../../js/player/they_do_read/etapa_1_seccion_1/leccion_10.js" type="module"></script>
+    <script src="../../../../js/player/they_do_not_read/etapa_1_seccion_1/leccion_2.js" type="module"></script>
 </body>
 
 </html>

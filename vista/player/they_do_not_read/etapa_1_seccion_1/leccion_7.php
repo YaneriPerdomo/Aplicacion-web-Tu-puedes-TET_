@@ -7,108 +7,18 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lección 10 | Tú puedes</title>
+    <title>Lección 4 | Tú puedes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="https://pie-meister.github.io/PieMeister-with-Progress.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="../../../../img/icono/icono.ico">
     <link rel="stylesheet" href="../../../../css/player/they_do_read/lecciones.css">
+    <link rel="stylesheet" href="../../../../css/player/they_do_not_read/lecciones_alteradas.css">
     <style>
         main {
             background-image: url(../../../../img/player/fondo.png);
-        }
-
-        .tableContainer {
-            display: block;
-            flex-wrap: none !important;
-            gap: 0rem !important;
-
-        }
-
-        .colButton {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .colButton>button {
-            cursor: pointer;
-            border: 0rem;
-            border-bottom: #d9713f solid 3px;
-            background: #ff864c;
-            color: white;
-            font-weight: 500;
-            font-size: 2rem;
-            /* padding: 0.5rem; */
-            text-align: center;
-            border-radius: 0.5rem;
-            margin-bottom: 0.6rem;
-             width: auto;
-            width: clamp(50px, 40%, 70px);
-        }
-
-        .colButton>button:hover {
-            transition: all linear 0.4s;
-            background: #ffa94f;
-            transform: translateY(-4px);
-            transition: all 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-            box-shadow: -0rem 0.3rem #7e4f1e;
-            filter: brightness(110%);
-        }
-
-        .row {
-            display: flex;
-        }
-
-        @keyframes swing {
-
-
-            0% {
-                transform: scale(1);
-            }
-
-            10%,
-            20% {
-                transform: scale(0.9) rotate(-3deg);
-            }
-
-            30%,
-            50%,
-            70%,
-            90% {
-                transform: scale(1.1) rotate(3deg);
-            }
-
-            40%,
-            60%,
-            80% {
-                transform: scale(1.1) rotate(-3deg);
-            }
-
-            100% {
-                transform: scale(1) rotate(0);
-            }
-        }
-
-        /* Apply the swing animation to an element */
-        .swing {
-            transform-origin: top center;
-            animation: swing 2s;
-        }
-
-
-
-
-        /*leccion 10 */
-        .theWord {
-            margin: 1rem 0;
-            /* color: inherit; */
-            border: 0;
-            border-bottom: 1px rgb(173 173 173) solid;
-
         }
     </style>
 </head>
@@ -136,33 +46,26 @@ session_start();
                 <span class="start text-warning fs-3">0</span>
             </div>
             <div class="timeContainer">
-                <span style="padding-right: 1.5rem;" class="seg-min">Seg</span>
+                <span style="    padding-right: 1.5rem;">Seg</span>
                 <span class="countDownNext fs-4"></span>
                 <i class="bi bi-stopwatch-fill fs-1"></i>
             </div>
         </div>
         <div class="letterContainer">
             <div class="container-xxl">
-                <div class="tableContainer align-items-center justify-content-center" data-next="5">
-                    <strong class="theWord"></strong>
-                    <hr>
-                    <div class=" colButton">
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        
-                    </div>
-                </div>
-                <br>
-                <div class="containerIntentos">
-                    <span class="intentos">
-                        <span class="intentoText"> Intentos:</span> 
-                        <span class="number">3</span>
-                    </span>
+                <div class="tableContainer" data-next="2" data-letter="p">
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>d</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
+                    <button>b</button>
                 </div>
             </div>
         </div>
@@ -173,18 +76,18 @@ session_start();
         </div>
         <div class="messengerUserContainer">
             <div class="messengerInformation animate__backInDown" style="display:none">
-                <i class="bi bi-volume-up me-1 repeatDictation" style="display: none;"></i>
-                <p>Indica el número de sílabas que tiene el verso.</p>
-                
+                <i class="bi bi-volume-up me-1 repeatDictation"></i>
+                <p> Encuentra el elemento oculto que es diferente a los demás.</p>
             </div>
         </div>
-        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3"   class="letterSound"></audio>
+
+        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" class="letterSound"></audio>
         <audio src="../../../../audio/welcome_jugador/wrong.mp3" class="wrongSound" data-wrong="false"></audio>
         <audio src="../../../../audio/welcome_jugador/correct.mp3" class="correctSound"></audio>
-        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3"   class="endLeccion"></audio>
-        <audio src="../../../../audio/welcome_jugador/siguiente.mp3"   class="sonidoSiguiente"></audio>
-        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3"   class="ceroIntentos"></audio>
-        <div class="logoPresentation" >
+        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3" class="endLeccion"></audio>
+        <audio src="../../../../audio/welcome_jugador/siguiente.mp3" class="sonidoSiguiente"></audio>
+        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3" class="ceroIntentos"></audio>
+        <div class="logoPresentation">
             <div>
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>
@@ -192,13 +95,13 @@ session_start();
                 <span>Cargado...</span>
             </div>
         </div>
-        <div class="countDownBody " style="display: none;">
+        <div class="countDownBody " style="display:none">
             <div class="">
                 <div class="hookOne"></div>
                 <div class="hookTwo"></div>
                 <div class="hookTres"></div>
                 <h2 class="fs-1">3</h2>
-                <b class="mb-2 text-center text_1_3">¡Muy bien, comencemos!</b>
+                <b class="mb-2">¡Comencemos!</b>
             </div>
         </div>
         </div>
@@ -228,6 +131,7 @@ session_start();
             <div class=" modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header modal-header--comenzar ">
+                        <i class="bi bi-volume-up me-1 fs-5 cuidado" style="cursor: pointer;"></i>
                         <span class="modal-title fs-5" id="staticBackdropLabel">¡Cuidado!</span>
                     </div>
                     <div class="modal-body">
@@ -243,12 +147,11 @@ session_start();
                 </div>
             </div>
         </div>
-
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../../../../js/player/they_do_read/etapa_1_seccion_1/leccion_10.js" type="module"></script>
+    <script src="../../../../js/player/they_do_not_read/etapa_1_seccion_1/leccion_7.js"></script>
 </body>
 
 </html>
