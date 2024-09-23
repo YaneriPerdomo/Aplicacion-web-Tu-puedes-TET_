@@ -52,79 +52,79 @@ session_start();
         </div>
         <div class="letterContainer">
             <div class="container-xxl">
-                <div class="tableContainer" data-next="0">
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>fla</span>
-                    <span>gal</span>
-                    <span>vil</span>
-                    <span>vil</span>
-                    <span>flu</span>
-                    <span>fa</span>
-                    <span>fio</span>
-                    <span>fia</span>
-                    <span>fol</span>
-                    <span>fla</span>
-                    <span>fal</span>
-                    <span>gal</span>
-                    <span>gia</span>
-                    <span>ola</span>
-                    <span>fin</span>
-                    <span>fil</span>
-                    <span>pal</span>
-                    <span>fin</span>
-                    <span>fin</span>
-                    <span>gro</span>
-                    <span>gap</span>
-                    <span>pan</span>
-                    <span>vil</span>
-                    <span>fio</span>
-                    <span>gap</span>
-                    <span>fil</span>
-                    <span>fro</span>
-                    <span>no</span>
-                    <span>hi</span>
-                    <span>fil</span>
-                    <span>fu</span>
-                    <span>fla</span>
-                    <span>flu</span>
-                    <span>pal</span>
-                    <span>gal</span>
-                    <span>fin</span>
-                    <span>dil</span>
-                    <span>col</span>
-                    <span>wor</span>
-                    <span>row</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>fla</span>
-                    <span>fal</span>
-                    <span>dap</span>
-                    <span>gla</span>
-                    <span>flu</span>
-                    <span>fla</span>
-                    <span>flu</span>
-                    <span>fli</span>
-                    <span>flu</span>
-                    <span>gal</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>fli</span>
-                    <span>fal</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>fla</span>
-                    <span>fla</span>
-                    <span>fal</span>
-                    <span>gal</span>
-                    <span>gal</span>
-                    <span>flu</span>
-                    <span>gal</span>
-                    <span>flu</span>
-                    <span>flu</span>
-                    <span>flu</span>
+                <div class="tableContainer" data-next="0" data-letter="">
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>fla</button>
+                    <button>gal</button>
+                    <button>vil</button>
+                    <button>vil</button>
+                    <button>flu</button>
+                    <button>fa</button>
+                    <button>fio</button>
+                    <button>fia</button>
+                    <button>fol</button>
+                    <button>fla</button>
+                    <button>fal</button>
+                    <button>gal</button>
+                    <button>gia</button>
+                    <button>ola</button>
+                    <button>fin</button>
+                    <button>fil</button>
+                    <button>pal</button>
+                    <button>fin</button>
+                    <button>fin</button>
+                    <button>gro</button>
+                    <button>gap</button>
+                    <button>pan</button>
+                    <button>vil</button>
+                    <button>fio</button>
+                    <button>gap</button>
+                    <button>fil</button>
+                    <button>fro</button>
+                    <button>no</button>
+                    <button>hi</button>
+                    <button>fil</button>
+                    <button>fu</button>
+                    <button>fla</button>
+                    <button>flu</button>
+                    <button>pal</button>
+                    <button>gal</button>
+                    <button>fin</button>
+                    <button>dil</button>
+                    <button>col</button>
+                    <button>wor</button>
+                    <button>row</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>fla</button>
+                    <button>fal</button>
+                    <button>dap</button>
+                    <button>gla</button>
+                    <button>flu</button>
+                    <button>fla</button>
+                    <button>flu</button>
+                    <button>fli</button>
+                    <button>flu</button>
+                    <button>gal</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>fli</button>
+                    <button>fal</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>fla</button>
+                    <button>fla</button>
+                    <button>fal</button>
+                    <button>gal</button>
+                    <button>gal</button>
+                    <button>flu</button>
+                    <button>gal</button>
+                    <button>flu</button>
+                    <button>flu</button>
+                    <button>flu</button>
                 </div>
             </div>
         </div>
@@ -139,9 +139,12 @@ session_start();
                 <p> Encuentra el elemento que has escuchado.</p>
             </div>
         </div>
-        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3"   class="letterSound"></audio>
+        <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" class="letterSound"></audio>
         <audio src="../../../../audio/welcome_jugador/wrong.mp3" class="wrongSound" data-wrong="false"></audio>
         <audio src="../../../../audio/welcome_jugador/correct.mp3" class="correctSound"></audio>
+        <audio src="../../../../audio/welcome_jugador/finalJuego.mp3" class="endLeccion"></audio>
+        <audio src="../../../../audio/welcome_jugador/siguiente.mp3" class="sonidoSiguiente"></audio>
+        <audio src="../../../../audio/welcome_jugador/ceroIntentos.mp3" class="ceroIntentos"></audio>
         <div class="logoPresentation">
             <div>
                 <div class="spinner-border" role="status">
@@ -166,16 +169,16 @@ session_start();
                 style="max-width: 500px; min-width: 100px; background: white !important; border-radius: 1rem;">
                 <h2 class=""> ¡Completaste la lección! </h2>
                 <div class="first">
-                    <b>En el primer ejercicio de encontrar la letra b.</b><br>
+                    <b>En el primer ejercicio de encontrar la palabra fia.</b><br>
                     <span class="correctFailedFia"></span><br>
                     <hr>
-                    <b>En el segundo ejercicio de encontrar la letra l.</b><br>
+                    <b>En el segundo ejercicio de encontrar la palabra dar.</b><br>
                     <span class="correctFailedDar"></span><br>
                     <hr>
-                    <b>En el tercero ejercicio de encontrar la letra q.</b><br>
+                    <b>En el tercero ejercicio de encontrar la palabra que.</b><br>
                     <span class="correctFailedQue"></span><br>
                     <hr>
-                    <b>En el cuarto ejercicio de encontrar la letra n.</b><br>
+                    <b>En el cuarto ejercicio de encontrar la palabra fiz.</b><br>
                     <span class="correctFailedFiz"></span><br>
                     <hr>
                     <button class="siguiente">Siguiente <i class="bi bi-caret-right"></i></button>

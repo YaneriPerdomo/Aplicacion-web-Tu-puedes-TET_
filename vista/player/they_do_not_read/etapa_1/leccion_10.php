@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lección 2 | Tú puedes</title>
+    <title>Lección 10 | Tú puedes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="https://pie-meister.github.io/PieMeister-with-Progress.min.js"></script>
@@ -103,7 +103,7 @@ session_start();
 
 
         /*leccion 10 */
-        .theLetter {
+        .palabra {
             cursor: pointer;
             border: 0rem;
             border-bottom-width: 0rem;
@@ -133,13 +133,22 @@ session_start();
             max-height: 67px;
         }
 
-        .containerColButton{
+
+        .palabra > span {
+            display: inline-block;
+            margin: 0rem !important;
+            padding: 0rem !important;
+            letter-spacing: -1px;
+            word-spacing: -1px;
+        }
+
+        .containerColButton {
             text-align: center;
             display: flex;
             justify-content: center;
         }
 
-        .containerColButton > div {
+        .containerColButton>div {
             max-width: 400px;
             width: clamp(500px, 40%, 70px);
         }
@@ -176,28 +185,25 @@ session_start();
         </div>
         <div class="letterContainer">
             <div class="container-xxl">
-                <div class="tableContainer align-items-center justify-content-center" data-next="5">
+                <div class="tableContainer align-items-center justify-content-center" data-next="0">
                     <div class="containerLetter d-flex justify-content-center">
-                        <strong class="theLetter"><span>?</span></strong>
+                        <strong class="palabra">
+                            <span class="one"></span>
+                            <span class="two"></span>
+                            <span class="tres"></span>
+                        </strong>
                     </div>
                     <hr>
                     <div class="containerColButton">
                         <div class="colButton">
                             <button>?</button>
-                            <button data-primo="true">?</button>
-                            <button data-primo="true">?</button>
-                            <button>?</button>
-                            <button>?</button>
-                            <button data-primo="true">?</button>
                             <button>?</button>
                             <button>?</button>
                             <button>?</button>
                             <button>?</button>
-                            <button data-primo="true">?</button>
                         </div>
                     </div>
-                </div>
-                <br>
+                </div><br>
                 <div class="containerIntentos">
                     <span class="intentos">
                         <span class="intentoText"> Intentos:</span>
@@ -214,7 +220,7 @@ session_start();
         <div class="messengerUserContainer">
             <div class="messengerInformation animate__backInDown" style="display:none">
                 <i class="bi bi-volume-up me-1 repeatVerso" style="cursor: pointer;"></i>
-                <p>Escribe la clave secreta que viste.</p>
+                <p>Completa la palabra.</p>
             </div>
         </div>
         <audio src="../../../../audio/welcome_jugador/SoundEffects Button.mp3" class="letterSound"></audio>
@@ -287,7 +293,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../../../../js/player/they_do_not_read/etapa_1_seccion_1/leccion_2.js" type="module"></script>
+    <script src="../../../../js/player/they_do_not_read/etapa_1_seccion_1/leccion_10.js" type="module"></script>
 </body>
 
 </html>

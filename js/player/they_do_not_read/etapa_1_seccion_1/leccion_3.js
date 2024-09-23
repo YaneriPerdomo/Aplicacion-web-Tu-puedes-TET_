@@ -433,4 +433,4 @@ $repeatDictation.addEventListener("click", (e) => {
 });
 
 
-//En esta ocasión pude desarrollar la lección número 3 para los niños que saben leer. Att: Yaneri Perdomo
+//En esta ocasión pude desarrollar la lección número 3 para los niños que no sabe leer. Att: Yaneri Perdomo
