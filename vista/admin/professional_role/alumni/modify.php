@@ -1,10 +1,62 @@
 <?php
 session_start();
-?>
+include_once("../../../../php/conexionBD.php"); // Ruta original conservada.
+$db = abrirConexion();
 
+if (!isset($_SESSION['idUsuario'])) {
+    echo "No has iniciado sesión.";
+    exit;
+}
+
+// Obtener el idUsuario de la sesión
+$idUsuario = $_SESSION['idUsuario'];
+
+// Consultar los datos del usuario
+$query = "SELECT * FROM usuarios WHERE id_usuario = :idUsuario";
+$llamado = $db->prepare($query);
+$llamado->bindParam(':idUsuario', $idUsuario);
+$llamado->execute();
+$usuario = $llamado->fetch(PDO::FETCH_ASSOC);
+
+// Verificar si el usuario existe
+if (!$usuario) {
+    echo "Usuario no encontrado.";
+    exit;
+}
+
+// Obtener el nombre completo según el rol del usuario
+$nombreCompleto = $_SESSION['nombre'];
+
+// Obtener datos adicionales del usuario (fecha de nacimiento, país, sabe leer, género)
+$query_nino = "SELECT * FROM ninos WHERE id_usuario = :idUsuario";
+$llamado_nino = $db->prepare($query_nino);
+$llamado_nino->bindParam(':idUsuario', $idUsuario);
+$llamado_nino->execute();
+$datosNino = $llamado_nino->fetch(PDO::FETCH_ASSOC);
+
+// Variables para almacenar la información adicional
+$fechaNacimiento = isset($datosNino['fecha_nacimiento']) ? $datosNino['fecha_nacimiento'] : '';
+$sabeLeer = isset($datosNino['sabe_leer']) && $datosNino['sabe_leer'] == 1 ? 'checked' : '';
+$idGenero = isset($datosNino['id_genero']) ? $datosNino['id_genero'] : null;
+
+// Determinar el género: 1 = Niño, 2 = Niña
+$esNino = $idGenero == 1 ? 'checked' : '';
+$esNina = $idGenero == 2 ? 'checked' : '';
+
+// Obtener la lista de países desde la base de datos
+$query_pais = "SELECT id_pais, pais FROM paises";
+$llamado_pais = $db->prepare($query_pais);
+$llamado_pais->execute();
+$paises = $llamado_pais->fetchAll(PDO::FETCH_ASSOC);
+
+// Obtener país seleccionado
+$paisUsuario = isset($datosNino['id_pais']) ? $datosNino['id_pais'] : '';
+
+// Si la fecha de validez es NULL, establecerla como cadena vacía
+$fechaValidez = isset($usuario['fecha_validez']) && !is_null($usuario['fecha_validez']) ? $usuario['fecha_validez'] : '';
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +78,6 @@ session_start();
             height: 78.8px;
             background: #ff7d3f;
             width: 100%;
-
         }
         body {
             background-image: url(../../../../img/player/fondo.png);
@@ -51,8 +102,8 @@ session_start();
             <form action="../../../../php/admin.php" method="POST" class="container-main__ada-alumno">
                 <div class="wrapper">
                     <input type="hidden" name="call" value="2">
-                    <input type="checkbox" name="nino" id="option-1" checked>
-                    <input type="checkbox" name="nina" id="option-2">
+                    <input type="checkbox" name="nino" id="option-1" <?php echo $esNino; ?>>
+                    <input type="checkbox" name="nina" id="option-2" <?php echo $esNina; ?>>
                     <label for="option-1" class="option option-1">
                         <div class="dot"></div>
                         <span>Niño</span>
@@ -62,39 +113,24 @@ session_start();
                         <span>Niña</span>
                     </label>
                 </div>
-                <input type="number" name="id" placeholder="Id del Usuario"><br>
-                <input type="text" name="usuario" placeholder="Usuario"><br>
+                <input type="number" name="id" value="<?php echo $usuario['id_usuario']; ?>" placeholder="Id del Usuario" readonly><br>
+                <input type="text" name="usuario" value="<?php echo $usuario['usuario']; ?>" placeholder="Usuario"><br>
                 <select name="pais" id="">
-                    <option id="">Elige su pais</option>
-                    <option value="1" id="">Argentina</option>
-                    <option value="2" id="">Bolivia</option>
-                    <option value="3" id="">Brasil</option>
-                    <option value="4" id="">Chile</option>
-                    <option value="5" id="">Colombia</option>
-                    <option value="6" id="">Costa Rica</option>
-                    <option value="7" id="">Cuba</option>
-                    <option value="8" id="">Ecuador</option>
-                    <option value="9" id="">El Salvador</option>
-                    <option value="10" id="">Guatemala</option>
-                    <option value="11" id="">Haití</option>
-                    <option value="12" id="">Honduras</option>
-                    <option value="13" id="">México</option>
-                    <option value="14" id="">Nicaragua</option>
-                    <option value="15" id="">Panamá</option>
-                    <option value="16" id="">Paraguay</option>
-                    <option value="17" id="">Venezuela</option>
+                    <option id="">Elige su país</option>
+                    <?php foreach($paises as $pais): ?>
+                        <option value="<?php echo $pais['id_pais']; ?>" <?php echo ($pais['id_pais'] == $paisUsuario) ? 'selected' : ''; ?>><?php echo $pais['pais']; ?></option>
+                    <?php endforeach; ?>
                 </select>
                 <label for="">Fecha de nacimiento</label>
-                <input name="fechaNacimiento" type="date" placeholder="Fecha de nacimiento">
+                <input name="fechaNacimiento" type="date" value="<?php echo $fechaNacimiento; ?>" placeholder="Fecha de nacimiento">
                 <label for="">Valido hasta</label>
-                <input name="fechaValidez" type="date">
+                <input name="fechaValidez" type="datetime-local" value="<?php echo $fechaValidez; ?>">
                 <label for="test" style="text-align: center; margin-right: 0.3rem; ">¿Sabe leer?</label>
-                <input name="lectura" type="checkbox" class="test" style="width: auto;"><br>
-                <label for="test" style="text-align: center; margin-right: 0.3rem; ">Permisos para que el jugador entre
-                    en el aprendizaje.</label>
-                <input name="permisos" type="checkbox" class="test" style="width: auto;">
-                <input name="contrasena" type="password" placeholder="Contraseña">
-                <input type="submit" value="Agregar" class="btn__crear-niños"><br>
+                <input name="lectura" type="checkbox" class="test" style="width: auto;" <?php echo $sabeLeer; ?>><br>
+                <label for="test" style="text-align: center; margin-right: 0.3rem; ">Permisos para que el jugador entre en el aprendizaje.</label>
+                <input name="permisos" type="checkbox" class="test" style="width: auto;" <?php echo ($usuario['permisos'] == 1) ? 'checked' : ''; ?>>
+                <input name="contrasena" type="password" value="<?php echo $usuario['clave']; ?>" placeholder="Contraseña">
+                <input type="submit" value="Guardar Cambios" class="btn__crear-niños"><br>
                 <a href="../dashboard.php"
                     style="text-align: center; display: block;  color: rgb(220, 55, 55);">Cancelar</a>
             </form>
@@ -108,5 +144,4 @@ session_start();
         </script>
 
 </body>
-
 </html>

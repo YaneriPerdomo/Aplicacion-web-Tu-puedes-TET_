@@ -1,5 +1,49 @@
 <?php
 session_start();
+include_once("../../../../php/conexionBD.php"); // Ruta original conservada.
+$db = abrirConexion();
+
+if (!isset($_SESSION['idUsuario'])) {
+    echo "No has iniciado sesión.";
+    exit;
+}
+
+// Obtener el idUsuario de la sesión
+$idUsuario = $_SESSION['idUsuario'];
+
+// Consultar los datos básicos del usuario
+$query = "SELECT * FROM usuarios WHERE id_usuario = :idUsuario";
+$llamado = $db->prepare($query);
+$llamado->bindParam(':idUsuario', $idUsuario);
+$llamado->execute();
+$usuario = $llamado->fetch(PDO::FETCH_ASSOC);
+
+// Verificar si el usuario existe
+if (!$usuario) {
+    echo "Usuario no encontrado.";
+    exit;
+}
+
+// Consultar datos adicionales del profesional (nombre, apellido, correo, centro profesional)
+$query_datos = "SELECT nombre, apellido, correo_electronico, id_cargo, id_pais, centro_educativo_profesional FROM profesionales WHERE id_usuario = :idUsuario";
+$llamado_datos = $db->prepare($query_datos);
+$llamado_datos->bindParam(':idUsuario', $idUsuario);
+$llamado_datos->execute();
+$datos = $llamado_datos->fetch(PDO::FETCH_ASSOC);
+
+// Variables para almacenar los datos del profesional
+$nombre = isset($datos['nombre']) ? $datos['nombre'] : '';
+$apellido = isset($datos['apellido']) ? $datos['apellido'] : '';
+$correo = isset($datos['correo_electronico']) ? $datos['correo_electronico'] : '';
+$cargo = isset($datos['id_cargo']) ? $datos['id_cargo'] : '';
+$centro = isset($datos['centro_educativo_profesional']) ? $datos['centro_educativo_profesional'] : '';
+$idPais = isset($datos['id_pais']) ? $datos['id_pais'] : '';
+
+// Obtener lista de países para cargar en el select
+$query_pais = "SELECT id_pais, pais FROM paises";
+$llamado_pais = $db->prepare($query_pais);
+$llamado_pais->execute();
+$paises = $llamado_pais->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +73,6 @@ session_start();
       height: 78.8px;
       background: #ff7d3f;
       width: 100%;
-
     }
 
     .d-flex_rapido {
@@ -49,72 +92,44 @@ session_start();
       <h1>Mi perfil</h1>
       <hr>
       <p>Aquí <span style="color: #fc7c45; font-size: 18px;">puedes editar tu perfil de usuario.</span> Sólo te pido los
-        datos mínimos, pero si puedes completar tu perfil conalgo más de información me será de gran ayuda.</p>
+        datos mínimos, pero si puedes completar tu perfil con algo más de información me será de gran ayuda.</p>
       <form action="../../../../php/profileAdmin.php" method="POST" class="container__main--perfil">
         <input type="hidden" name="call" value="1" />
         <legend style="text-align: center;">Datos del usuario</legend>
-        <div id="w" class="warningPerfil text-center" style="margin-bottom: 0.5rem" ;>
+        <div id="w" class="warningPerfil text-center" style="margin-bottom: 0.5rem">
           <small style="color: #d55252;" class="siVacio"></small>
           <small class="noVacio" style="color: #d55252;"></small>
           <small class="stringValidation" style="color: #d55252;"></small>
         </div>
         <label for="">Usuario</label>
-        <input name="usuario" type="text" placeholder="Ingrese tu usuario"><br>
+        <input name="usuario" type="text" value="<?php echo $usuario['usuario']; ?>" placeholder="Ingrese tu usuario"><br>
         <label for="">Nombre</label>
-        <input name="nombre" type="text" placeholder="Ingrese tu nombre" id="nombre"><br>
+        <input name="nombre" type="text" value="<?php echo $nombre; ?>" placeholder="Ingrese tu nombre" id="nombre"><br>
         <label for="">Apellido</label>
-        <input name="apellido" type="text" placeholder="Ingrese tu apellido" id="apellido"><br>
-        <label for="">Correo Electronico</label>
-        <input name="correo" type="text" placeholder="Ingrese tu correo electronico"><br>
-        <div class="cargos  ">
+        <input name="apellido" type="text" value="<?php echo $apellido; ?>" placeholder="Ingrese tu apellido" id="apellido"><br>
+        <label for="">Correo Electrónico</label>
+        <input name="correo" type="text" value="<?php echo $correo; ?>" placeholder="Ingrese tu correo electrónico"><br>
+        <div class="cargos">
           <label for="">Cargo Profesional</label><br>
           <select name="cargo" id=""><br>
-            <option value="1">Docente</option>
-            <option value="2">Terapeuta</option>
+            <option value="1" <?php echo ($cargo == 1) ? 'selected' : ''; ?>>Docente</option>
+            <option value="2" <?php echo ($cargo == 2) ? 'selected' : ''; ?>>Terapeuta</option>
           </select><br>
         </div>
-        <label for="">Pais</label>
-        <select name="paises" id="pais">
-          <option value="1">México</option>
-          <option value="2">Belice</option>
-          <option value="3">Costa Rica</option>
-          <option value="4">El Salvador</option>
-          <option value="5">Guatemala</option>
-          <option value="6">Honduras</option>
-          <option value="7">Nicaragua</option>
-          <option value="8">Panamá</option>
-          <option value="9">Antigua y Barbuda</option>
-          <option value="10">Bahamas</option>
-          <option value="11">Barbados</option>
-          <option value="12">Cuba</option>
-          <option value="13">Dominica</option>
-          <option value="14">Granada</option>
-          <option value="15">Haití</option>
-          <option value="16">Jamaica</option>
-          <option value="17">Puerto Rico</option>
-          <option value="18">República Dominicana</option>
-          <option value="19">San Cristóbal y Nevis</option>
-          <option value="20">Santa Lucía</option>
-          <option value="21">San Vicente y las Granadinas</option>
-          <option value="22">Trinidad y Tobago</option>
-          <option value="23">Argentina</option>
-          <option value="24">Bolivia</option>
-          <option value="25">Brasil</option>
-          <option value="26">Chile</option>
-          <option value="27">Colombia</option>
-          <option value="28">Ecuador</option>
-          <option value="29">Guyana</option>
-          <option value="30">Paraguay</option>
-          <option value="31">Perú</option>
-          <option value="32">Surinam</option>
-          <option value="33">Uruguay</option>
-          <option value="34" selected>Venezuela</option>
+        <label for="">País</label>
+        <select name="pais" id="pais">
+          <option value="">Seleccione su país</option>
+          <?php foreach ($paises as $pais): ?>
+            <option value="<?php echo $pais['id_pais']; ?>" <?php echo ($pais['id_pais'] == $idPais) ? 'selected' : ''; ?>>
+              <?php echo $pais['pais']; ?>
+            </option>
+          <?php endforeach; ?>
         </select>
-        <div class="container__lugar_trabajo  ">
+        <div class="container__lugar_trabajo">
           <label for="nombre_centro_escolar" class="nombre_centro_escolar">Nombre del Centro escolar o
-            profesional</label><br data-delete>
-          <input type="text" class="nombre_centro_escolar" name="centro"id="centro"
-            placeholder="Nombre del Centro escolar o profesional"><br data-br-delete>
+            profesional</label><br>
+          <input type="text" class="nombre_centro_escolar" name="centro" id="centro"
+            value="<?php echo $centro; ?>" placeholder="Nombre del Centro escolar o profesional"><br>
         </div>
         <label for="">Tipo de cuenta Tu Puedes</label>
         <input type="text" value="Profesional" name="cargo" readonly class="tipo--cuenta">
@@ -128,213 +143,18 @@ session_start();
         <div class="perfil--vistazo"
           style="display: flex; align-items: center; justify-content: center; flex-wrap:wrap; gap:1rem">
           <a href="../dashboard.php" class="btn__volver"
-            style="     border-radius: 0.5rem;   text-align: center; display: block; color: rgb(220, 55, 55);   color: #fc7c45; text-decoration: none; padding: 0.6rem; border: solid 2px #fc7c45;">VOLVER</a>
+            style="border-radius: 0.5rem; text-align: center; display: block; color: rgb(220, 55, 55); color: #fc7c45; text-decoration: none; padding: 0.6rem; border: solid 2px #fc7c45;">VOLVER</a>
           <button type="button" class="btn__delete" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-            style=" border-radius: 0.5rem; text-align: center; display: block; color: rgb(220, 55, 55);  margin-left: 0.5rem; background: #b67bf9; color: white; text-decoration: none; padding: 0.6rem 0.6rem; cursor: pointer; border:0">ELIMINAR
+            style="border-radius: 0.5rem; text-align: center; display: block; color: rgb(220, 55, 55); margin-left: 0.5rem; background: #b67bf9; color: white; text-decoration: none; padding: 0.6rem 0.6rem; cursor: pointer; border:0">ELIMINAR
           </button>
           <div class="form-btn-keep">
             <input type="submit" value="GUARDAR CAMBIOS" class="form__btn--detalles"
-              style="    border-radius: 0.5rem; width: 100%;"><br>
+              style="border-radius: 0.5rem; width: 100%;"><br>
           </div>
         </div>
       </form>
     </div>
   </main>
-  <script>
-    //Etiqueta form
-    let $formEditarPerfil = document.querySelector(`[class="container__main--perfil"]`);
-    //all the inputs on my page
-    let $usuario = document.querySelector(`[name="usuario"]`) || "0";
-    let $nombre = document.querySelector("[name='nombre']") || "0";
-    let $apellido = document.querySelector("[name='apellido']") || "0";
-    let $correo = document.querySelector("[name='correo']") || "0";
-    let $centro = document.querySelector("[name = 'centro']") || "0";
-
-    let ExpreUsuario = new RegExp("[A-Za-z0-9]{6,30}$");
-    let expresionCorreo = new RegExp(`[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}`);
-    let expresionNombre = new RegExp(`^[A-Za-zÑñÁáÉéÍíÓóÚú]+(?: [A-Za-zÑñÁáÉéÍíÓóÚú]+)*$`);
-    let expresionCentro = new RegExp(`^[A-Za-zÑñÁáÉéÍíÓóÚú,.()]+(?: [A-Za-zÑñÁáÉéÍíÓóÚú,.()]+)*$`)
-    //Array of the inputs
-    let $arrayInputsPerfil = [$usuario, $nombre, $apellido, $correo, $centro]
-    let $warningSpanPerfil = document.querySelector(".warningPerfil > small") 
-    let $warningSmallNoVacioPerfil = document.querySelector(".warningPerfil > .noVacio") ;
-    let $warningString = document.querySelector(".stringValidation") ;
-    let $arrayWarningsPerfil = [$warningSmallNoVacioPerfil, $warningSpanPerfil, $warningString];
-
-    //Evento de la etiqueta form
-    $formEditarPerfil.addEventListener("submit", e => {
-      e.preventDefault()
-      let enter = false,
-        count = 0,
-        warningWrite = "";
-      warningWriteNoVacio = "",
-        arrayString = [] ;
-      $arrayInputsPerfil.forEach(e => {
-        e.classList.remove("noValidation")
-      })
-
-      $arrayWarningsPerfil.forEach(e => {
-        e.innerHTML = ""
-      })
-      if ($usuario.value == "") {
-        warningWrite += "No puede dejar el campo de usuario vacío <br>";
-        enter = true;
-        count++;
-        $usuario.classList.add("noValidation")
-      } else if (!(ExpreUsuario.exec($usuario.value))) {
-        $usuario.classList.add("noValidation")
-        if ($usuario.value.length < 6) {
-          warningWriteNoVacio += "Tu usuario debe tener entre 6 y 30 caracteres. <br>"
-          enter = true;
-        } else {
-          warningWriteNoVacio += "No debe contener caracteres especiales. <br> "
-          enter = true;
-        }
-      }
-      if ($nombre.value == "") {
-        warningWrite += "No puede dejar el campo de nombre vacío <br>";
-        enter = true;
-        count++;
-        $nombre.classList.add("noValidation")
-      } else if (!(expresionNombre.exec($nombre.value))) {
-        $nombre.classList.add("noValidation")
-        arrayString.push("nombre");
-      }
-      if ($apellido.value == "") {
-        warningWrite += "No puede dejar el campo de nombre vacío <br>";
-        enter = true;
-        count++;
-        $apellido.classList.add("noValidation")
-      } else if (!(expresionNombre.exec($apellido.value))) {
-        arrayString.push("apellido");
-        $apellido.classList.add("noValidation")
-      }
-      if ($correo.value == "") {
-        warningWrite += "No puede dejar el campo de nombre vacío <br>";
-        enter = true;
-        count++;
-        $correo.classList.add("noValidation")
-      } else if (!(expresionCorreo.exec($correo.value))) {
-        warningWriteNoVacio += "Correo electrónico no válido <br>"
-        enter = true;
-        $correo.classList.add("noValidation")
-      }
-      if ($centro.value == "") {
-        warningWrite += "No puede dejar el campo de nombre vacío <br>";
-        enter = true;
-        count++;
-        $centro.classList.add("noValidation")
-      } else if (!(expresionCentro.exec($centro.value))) {
-        arrayString.push("centro")
-        $centro.classList.add("noValidation")
-      }
-
-
-      if (count == 5) {
-        $arrayInputsPerfil.forEach(e => {
-          e.classList.add("noValidation")
-        })
-        $warningSpanPerfil.innerHTML = "Complete todos los campos";
-        e.preventDefault()
-      } else if (enter) {
-        if(count == 1){
-          $warningSpanPerfil.innerHTML = "Complete el campo que falta <br>";
-        } 
-        if (count > 1) {
-          $warningSpanPerfil.innerHTML = "Complete los campos que faltan <br>";
-          $warningSmallNoVacioPerfil.innerHTML = warningWriteNoVacio;
-          console.log(arrayString.length)
-          console.info(arrayString)
-          e.preventDefault()
-          switch (arrayString.length) {
-            case 0:
-              $warningString.innerHTML = ""
-              break;
-            case 1:
-              $warningString.innerHTML = `El ${arrayString[0]} introducido no es inválido`
-              break;
-            case 2:
-              $warningString.innerHTML = `El ${arrayString[0]} y  ${arrayString[1]}  introducidos no son válidos`
-              break;
-            case 3:
-              $warningString.innerHTML = `El ${arrayString[0]},  ${arrayString[1]} y ${arrayString[2]}  introducidos no son válidos`
-              break;
-            default:
-              break;
-          }
-        } else {
-          $warningSmallNoVacioPerfil.innerHTML = warningWriteNoVacio;
-          e.preventDefault()
-        }
-      }
-    })
-  </script>
-  <!-- Modal Change -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Cambia tu contraseña </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form action="../../../../php/profileAdmin.php" method="POST" class="cambiarContraseña">
-            <input type="hidden" name="call" value="3" />
-            <small id="warning"  class="d-block text-center"></small>
-            <small class="SmallErrorTwo"  style="color: #d55252;" class="d-block text-center"></small>
-            <input name="oldcontrasena" type="password" autofocus class="modal__password"
-              placeholder="Contraseña actual">
-            <input name="contrasena" type="password" class="modal__password" placeholder="Nueva contraseña">
-            <input name="contrasenaval" type="password" class="modal__password" placeholder="Confirmar contraseña">
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class=" form__btn--detalles" sytle="font-weight: 500"
-            data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary btnGuardarCambios">Guardar cambios</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-
-  <!--Modal delete-->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header" style="    flex-direction: column;    background: #ff4040; ">
-          <span style="    display: block; width: 1%;     margin-right: 3rem;" class="animation__icon-delete">❌</span>
-          <h1 class="modal-title fs-5 w-100 " id="staticBackdropLabel" style="color: white;text-align: center; ">¿Estás
-            seguro?</h1>
-        </div>
-        <div class="modal-body">
-          <p style="text-align: center;">Mediante esta opción puedes eliminar completamente tu cuenta de
-            <span>Profesional</span> en Tu puedes. <br>
-
-            Al eliminar tu cuenta, dejarás de tener acceso a Tu puedes tanto a través de la web como de las aplicaciones
-            móviles. Todos los
-            usuarios que hayas dado de alta también serán eliminados por lo que tampoco podrán acceder a la plataforma.
-            <br><br>
-            Para confirmar la eliminación de la cuenta, escribe en el siguiente recuadro ELIMINAR
-          </p>
-          <input type="text" class="write-delete">
-        </div>
-        <div class="modal-footer d-flex  justify-content-center ">
-          <form action="../../../../php/profileAdmin.php" method="POST">
-            <input type="hidden" name="call" value="2" />
-            <button type="submit" class="btn btn-primary btn__confirmar filter-sepia"
-              style="border: solid 0.2rem #ff1717; background: white; color: #ff1717; border-radius: 0;"
-              disabled>CONFIRMAR</button>
-          </form>
-          <button type="button" class="btn btn-secondary "
-            style="    background: #ff4040; border: 0; border-radius: 0; padding: 0.7em;"
-            data-bs-dismiss="modal">CANCELAR</button>
-        </div>
-      </div>
-    </div>
-  </div>
   <br><br>
   <div data-include="../../../includeHTMLsinPhp/admin/footer_admin.php"></div>
   <script src="../../../../js/admin/profile.js"></script>
@@ -343,7 +163,7 @@ session_start();
   <script src="../../../../js/validations/validationProfesionalAdmin.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+  </script>
 </body>
 
 </html>
